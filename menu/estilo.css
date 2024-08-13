@@ -1,0 +1,48 @@
+.barMenu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 11%;
+    height: 100%;
+    padding: 12.5px;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logoSidebar{
+    display: flex;
+}
+.logo img{
+    width: 100%;
+}
+
+.sideMenu {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sideMenu button {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 0.99rem;
+    color: #000;
+    border: none;
+    border-bottom: .5px solid #c0c0c03b;
+    border-radius: 0px;
+    transition: background-color 0.3s;
+}
+.sideMenu button:hover {
+    background-color: #f0f0f0;
+}
