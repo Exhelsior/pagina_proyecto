@@ -4,8 +4,8 @@
     left: 0;
     width: 11%;
     height: 100%;
-    padding: 12.5px;
-    background-color: bisque;
+    padding: 18px;
+    background-color: #24303c;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -19,6 +19,9 @@
 }
 .logo img{
     width: 100%;
+    /*border: solid black;*/
+    border-radius: 10px;
+    background-color: #f5f5dc;  
 }
 
 .sideMenu {
@@ -33,16 +36,26 @@
 
 .sideMenu button {
     width: 100%;
-    padding: 10px;
+    display: flex;
     background-color: transparent;
     cursor: pointer;
     font-size: 0.99rem;
-    color: #000;
+    color: beige;
     border: none;
     border-bottom: .5px solid #c0c0c03b;
-    border-radius: 0px;
+    border-radius: 5px;
+    text-align: left;
+    align-items: center;
     transition: background-color 0.3s;
 }
 .sideMenu button:hover {
-    background-color: #f0f0f0;
+    background-color: #000000cb;
+    padding: 5px;
 }
+
+.sideMenu h1{
+    font-size: 0.99rem;
+    margin-left: 5px;
+
+}
+
