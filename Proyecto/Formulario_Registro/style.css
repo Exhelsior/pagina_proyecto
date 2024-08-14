@@ -5,7 +5,8 @@
 }
 
 body {
-    background: radial-gradient(at right top, #3e80b6, #afdf2b);
+    /*background: radial-gradient(at right top, #3e80b6, #afdf2b);*/
+    background-image: url(fondos/vintage-bakery-background-with-sketched-bread-illustration-free-vector.jpg);
 }
 
 .form-register {
@@ -34,7 +35,7 @@ body {
     width: 100%;
     background-color: #24303c;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 10px;
     margin-bottom: 16px;
     border: 1px solid #1f53c5;
     font-family: 'calibri';
@@ -61,4 +62,5 @@ body {
     color: white;
     margin: 16px 0;
     font-size: 16px;
+    cursor: pointer;
 }
