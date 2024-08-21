@@ -1,0 +1,94 @@
+.inv {
+    display: flex;
+    width: 80%;
+}
+
+.inventario{
+    display: flex;
+    background-color: #24303c;
+    width: 17%;
+    height: 100%;
+    padding: 78px;
+    border: 10px solid #000000;
+    margin-left: 350px;
+}
+
+.materiaPrima{
+    display: flex;
+    background-color: #24303c;
+    width: 17%;
+    height: 100%;
+    padding: 78px;
+    border: 10px solid #000000;
+    margin-left: 150px;
+}
+
+.inv2 {
+    display: flex-direction column;
+    margin-left: 82%;
+    margin-bottom: 10%;
+    margin-top: -10%;
+}
+
+.añadir{
+    display: flex;
+    background-color: #24303c;
+    width: 17%;
+    height: 100%;
+    padding: 78px;
+    border: 10px solid #000000;
+    margin-left: 150px;
+    margin: 5%;
+}
+
+.modificar{
+    display: flex;
+    background-color: #24303c;
+    width: 17%;
+    height: 100%;
+    padding: 78px;
+    border: 10px solid #000000;
+    margin-left: 150px;
+    margin: 5%;
+}
+
+.eliminar{
+    display: flex;
+    background-color: #24303c;
+    width: 17%;
+    height: 100%;
+    padding: 78px;
+    border: 10px solid #000000;
+    margin-left: 150px;
+    margin: 5%;
+}
+
+.actualizar{
+    display: flex;
+    background-color: #24303c;
+    width: 59%;
+    height: 64px;
+    padding: 6px;
+    border: 10px solid #000000;
+    margin-left: 150px;
+    margin: 5%;
+}
+
+.inv3 {
+    display: flex;
+    width: 75%;
+    height: 104px;
+    margin-top: -35%;
+    margin-left: 15%;
+}
+.muestra {
+    display: flex;
+    background-color: #24303c;
+    width: 70%;
+    height: 369%;
+    padding: 6px;
+    border: 10px solid #000000;
+    margin-left: 150px;
+    margin: 5%;
+}
+
