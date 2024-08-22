@@ -1,0 +1,61 @@
+.barMenu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 11%;
+    height: 100%;
+    padding: 18px;
+    background-color: #24303c;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logoSidebar{
+    display: flex;
+}
+.logo img{
+    width: 100%;
+    /*border: solid black;*/
+    border-radius: 10px;
+    background-color: #f5f5dc;  
+}
+
+.sideMenu {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sideMenu button {
+    width: 100%;
+    display: flex;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 0.99rem;
+    color: beige;
+    border: none;
+    border-bottom: .5px solid #c0c0c03b;
+    border-radius: 5px;
+    text-align: left;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+.sideMenu button:hover {
+    background-color: #000000cb;
+    padding: 5px;
+}
+
+.sideMenu h1{
+    font-size: 0.99rem;
+    margin-left: 5px;
+
+}
+
