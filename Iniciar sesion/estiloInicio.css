@@ -1,0 +1,177 @@
+/* 
+ */
+
+body {
+  font-family: "Kodchasan", sans-serif;
+  background-image: url("./Assets/hand-drawn-seamless-pattern-with-different-type-of-bread-and-wheat-ears-baked-goods-background-design-for-bakery-home-textile-vector.jpg");
+  background-size: cover;
+}
+.container {
+  display: grid;
+  grid-template-rows: 1fr, 1fr, 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  height: 100vh;
+}
+.image {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  grid-column: 2;
+  grid-row: 1;
+  width: 60%;
+}
+
+.box {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #efd59e;
+  border: solid;
+  border-color: #180902;
+  border-radius: 50px;
+}
+.boxes {
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #180902;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+  gap: 10%;
+}
+
+.button {
+  font-size: large;
+  background-color: transparent;
+  border: none;
+  height: 120%;
+}
+
+:hover.button {
+  cursor: pointer;
+  border-radius: 6%;
+  text-decoration: underline;
+}
+
+.footer {
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
+  gap: 3%;
+  font-size: x-small;
+  align-content: center;
+  justify-content: center;
+}
+
+.registro {
+  font-size: large;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 46px;
+}
+
+:hover.registro {
+  cursor: pointer;
+  border-radius: 20%;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-gap: 10px;
+  }
+
+  .image,
+  .box,
+  .footer {
+    grid-column: 1;
+  }
+
+  .logo {
+    width: 50%;
+  }
+
+  .box {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .content {
+    font-size: 14px;
+  }
+
+  .botones {
+    margin-top: 10%;
+  }
+
+  .button,
+  .registro {
+    font-size: medium;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-size: 200%; /* Hace el patrón de fondo más grande */
+  }
+
+  .container {
+    grid-gap: 5px;
+  }
+
+  .logo {
+    width: 70%;
+  }
+
+  .box {
+    width: 90%;
+    border-radius: 25px;
+  }
+
+  .content {
+    font-size: 12px;
+  }
+
+  .botones {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .button,
+  .registro {
+    font-size: small;
+  }
+
+  .footer {
+    font-size: x-small;
+  }
+}
