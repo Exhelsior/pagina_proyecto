@@ -36,7 +36,7 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #efd59e;
+  background-color: #efd59eab;
   border: solid;
   border-color: #180902;
   border-radius: 50px;
@@ -45,6 +45,9 @@ body {
   border: none;
   background: transparent;
   border-bottom: 1px solid #180902;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  outline: none;
 }
 
 .content {
@@ -56,7 +59,7 @@ body {
 .botones {
   display: flex;
   justify-content: center;
-  margin-top: 15%;
+  margin-top: 6%;
   gap: 10%;
 }
 
@@ -96,6 +99,7 @@ body {
   text-decoration: underline;
 }
 
+/* ------------------MEDIA SCREEN-------------------- */
 @media screen and (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
@@ -141,9 +145,8 @@ body {
 
 @media screen and (max-width: 480px) {
   body {
-    background-size: 200%; /* Hace el patrón de fondo más grande */
+    background-size: 200%;
   }
-
   .container {
     grid-gap: 5px;
   }
