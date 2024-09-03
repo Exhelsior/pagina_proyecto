@@ -1,7 +1,7 @@
 /* 
  Creado por: Juan David Robayo Olaya
- Fecha: 30 de agosto del 2024
- Funcion: Diseño del incio de sesion de la pagina Master bread
+ Fecha: 3 de septiembre del 2024
+ Funcion: Diseño del Registro de la pagina Master bread
  */
 
 body {
@@ -14,34 +14,20 @@ body {
 }
 .container {
   display: grid;
-  grid-template-rows: 1fr, 1fr, 1fr;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-flow: column;
   grid-gap: 20px;
   height: 100vh;
 }
-.image {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.logo {
-  grid-column: 2;
-  grid-row: 1;
-  width: 60%;
-}
-
 .box {
   grid-column: 2;
-  grid-row: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 84%;
+  height: 111%;
+  padding: 7%;
   background-color: #efd59eab;
   border: solid;
   border-color: #180902;
@@ -62,26 +48,6 @@ body {
   font-size: 10px;
 }
 
-.botones {
-  display: flex;
-  justify-content: center;
-  margin-top: 6%;
-  gap: 10%;
-}
-
-.button {
-  font-size: large;
-  background-color: transparent;
-  border: none;
-  height: 120%;
-}
-
-:hover.button {
-  cursor: pointer;
-  border-radius: 6%;
-  text-decoration: underline;
-}
-
 .footer {
   grid-column: 2;
   grid-row: 3;
@@ -96,7 +62,7 @@ body {
   font-size: large;
   background-color: transparent;
   border: none;
-  padding-top: 15px;
+  margin-bottom: 46px;
 }
 
 :hover.registro {
