@@ -1,7 +1,8 @@
 /* 
  Creado por: Juan David Robayo Olaya
- Fecha: 30 de agosto del 2024
- Funcion: Diseño del incio de sesion de la pagina Master bread
+ Fecha: 4 de septiembre del 2024
+ Funcion: Diseño de la pagina de recuperacion 
+          de contraseña de la pagina Master bread
  */
 
 body {
@@ -9,46 +10,30 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease;
   font-family: "Kodchasan", sans-serif;
-  background-image: url("./Assets/hand-drawn-seamless-pattern-with-different-type-of-bread-and-wheat-ears-baked-goods-background-design-for-bakery-home-textile-vector.jpg");
+  background-image: url("../Assets/hand-drawn-seamless-pattern-with-different-type-of-bread-and-wheat-ears-baked-goods-background-design-for-bakery-home-textile-vector.jpg");
   background-size: cover;
 }
-
 .container {
   display: grid;
-  grid-template-rows: 1fr, 1fr, 1fr;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-flow: column;
   grid-gap: 20px;
   height: 100vh;
 }
-.image {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.logo {
-  grid-column: 2;
-  grid-row: 1;
-  width: 60%;
-}
-
 .box {
   grid-column: 2;
-  grid-row: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  width: 84%;
   height: 100%;
+  padding: 7%;
   background-color: #efd59eab;
   border: solid;
   border-color: #180902;
   border-radius: 50px;
   box-shadow: 2px 0 26px 1px;
-  
 }
 .boxes {
   border: none;
@@ -62,32 +47,15 @@ body {
 .content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-size: 10px;
-}
-
-.botones {
-  display: flex;
-  justify-content: center;
-  margin-top: 6%;
-  gap: 10%;
-}
-
-.button {
-  font-size: large;
-  background-color: transparent;
-  border: none;
-  height: 120%;
-}
-
-:hover.button {
-  cursor: pointer;
-  border-radius: 6%;
-  text-decoration: underline;
+  padding: 18%;
+  padding-top: 0%;
 }
 
 .footer {
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 2;
   display: flex;
   gap: 3%;
   font-size: x-small;
@@ -96,16 +64,45 @@ body {
 }
 
 .registro {
-  font-size: large;
+  display: flex;
   background-color: transparent;
   border: none;
-  padding-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 50%;
 }
 
 :hover.registro {
   cursor: pointer;
   border-radius: 20%;
   text-decoration: underline;
+}
+
+#showNotificationBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 50%;
+}
+
+.notification {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notification.show {
+  opacity: 1;
 }
 
 /* ------------------MEDIA SCREEN-------------------- */

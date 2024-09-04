@@ -26,12 +26,13 @@ body {
   display: flex;
   flex-direction: column;
   width: 84%;
-  height: 111%;
+  height: 100%;
   padding: 7%;
   background-color: #efd59eab;
   border: solid;
   border-color: #180902;
   border-radius: 50px;
+  box-shadow: 2px 0 26px 1px;
 }
 .boxes {
   border: none;
