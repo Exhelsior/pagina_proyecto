@@ -9,7 +9,7 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease;
   font-family: "Kodchasan", sans-serif;
-  background-image: url("./Assets/hand-drawn-seamless-pattern-with-different-type-of-bread-and-wheat-ears-baked-goods-background-design-for-bakery-home-textile-vector.jpg");
+  background-image: url("../Assets/hand-drawn-seamless-pattern-with-different-type-of-bread-and-wheat-ears-baked-goods-background-design-for-bakery-home-textile-vector.jpg");
   background-size: cover;
 }
 .container {

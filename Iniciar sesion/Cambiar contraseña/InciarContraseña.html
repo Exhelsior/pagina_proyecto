@@ -32,35 +32,35 @@
         </div>
         <div class="content">
           <h1>Ingrese su correo</h1>
-          <input class="boxes" type="text" />
+          <input class="boxes" type="email" />
         </div>
       </div>
       <div class="footer">
         <button id="showNotificationBtn" class="registro">
           Recuperar contraseña
         </button>
-        <a href="../InciarSesion.html">
-          <button class="registro">Volver al inicio</button>
-        </a>
+        <div>
+          <a href="../InciarSesion.html">
+            <button class="registro">Volver al inicio</button>
+          </a>
+        </div>
       </div>
       <div id="notification" class="notification">
         Se le enviara su contraseña a su correo electronico, vuelva al inicio
         porfavor.
+        <script>
+          const button = document.getElementById("showNotificationBtn");
+          const notification = document.getElementById("notification");
+          button.addEventListener("click", () => {
+            notification.style.display = "block";
+            setTimeout(() => notification.classList.add("show"), 10);
+            setTimeout(() => {
+              notification.classList.remove("show");
+              setTimeout(() => (notification.style.display = "none"), 300);
+            }, 3000);
+          });
+        </script>
       </div>
-
-      <script>
-        const button = document.getElementById("showNotificationBtn");
-        const notification = document.getElementById("notification");
-
-        button.addEventListener("click", () => {
-          notification.style.display = "block";
-          setTimeout(() => notification.classList.add("show"), 10);
-          setTimeout(() => {
-            notification.classList.remove("show");
-            setTimeout(() => (notification.style.display = "none"), 300);
-          }, 3000);
-        });
-      </script>
     </div>
   </body>
 </html>
