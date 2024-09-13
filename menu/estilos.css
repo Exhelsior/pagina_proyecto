@@ -272,7 +272,7 @@ body{
 
 /*------------------------------@media------------------------------*/
 
-/* celular */
+/* celular
 @media screen and (max-width: 480px) {
     .caja-principal {
       grid-template-columns: 1fr;
@@ -337,7 +337,6 @@ body{
     }
   }
   
-  /* Tablet */
   @media screen and (min-width: 481px) and (max-width: 768px) {
     .caja-principal {
       grid-template-columns: 25% 75%;
@@ -368,7 +367,7 @@ body{
     }
   }
   
-  /* Laptop */
+  /* Laptop 
   @media screen and (min-width: 769px) and (max-width: 1024px) {
     .caja-principal {
       grid-template-columns: 20% 80%;
@@ -387,7 +386,7 @@ body{
     }
   }
   
-  /* PC */
+  /* PC 
   @media screen and (min-width: 1025px) {
     .logo img {
       width: 70%;
