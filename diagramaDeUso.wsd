@@ -1,5 +1,4 @@
-@startuml Inventary Use Case Diagram
-
+@startuml Inventory Use Case Diagram
 ' Definición de estilos
 skinparam usecase {
   BackgroundColor LightBlue
@@ -8,92 +7,83 @@ skinparam usecase {
   ActorBorderColor DarkSlateGray
   ActorBackgroundColor Wheat
 }
-
 skinparam rectangle {
   BackgroundColor AliceBlue
   BorderColor DarkSlateGray
 }
-
 ' Definición de actores
 :Administrador: as admin #Pink
-:Jefe de inventario: as inventary #LightGreen
+:Jefe de inventario: as inventory #LightGreen
 :Despachador: as dispatcher #LightYellow
-:Repartidor: as niceGuy #LightCyan
+:Repartidor: as deliveryGuy #LightCyan
 
 ' Sistema principal
 rectangle "Sistema de Master Bread" {
+  ' Casos de uso comunes
+  (Iniciar sesión) as UC1
+  (Ver menú) as UC2
+  (Cerrar sesión) as UC3
   
   ' Jefe de inventario
-  together {
-    (Registrar pedido) as UC1
-    (Ver inventario) as UC2
-    (Reclamar un pedido) as UC3
-    (Agregar producto) as UC4
-    (Editar cantidad de producto) as UC9
-  }
+  (Ver inventario) as UC4
+  (Agregar producto) as UC5
+  (Editar cantidad de producto) as UC6
   
   ' Administrador
-  together {
-    (Hacer reporte de envios diarios) as UC5
-    (Hacer reporte de inventario) as UC6
-    (Hacer reporte de despachos) as UC7
-  }
-
-  ' Repartidor
-  together{
-    (Marcar un pedido como exitoso) as UC10
-    (Marcar pedido como fallido o erroneo) as UC12
-  }
+  (Generar reporte de envíos diarios) as UC7
+  (Generar reporte de inventario) as UC8
+  (Generar reporte de despachos) as UC9
   
   ' Despachador
-  together{
-    (Crear factura) as UC11
-    (Añade producto solicitado a envio) as UC13
-    (Añade direccion de envio) as UC14
-    (Añade nombre he id de pedido) as UC15
-  }
-
-  (Iniciar sesion) as UC18
-  (Ver menu) as UC8
-  (Cerrar sesion) as UC16
-  (Olvide contraseña) as UC17
-  (Registrarse) as UC19
-
+  (Registrar pedido) as UC10
+  (Crear factura) as UC11
+  
+  ' Repartidor
+  (Reclamar pedido) as UC12
+  (Marcar pedido como exitoso) as UC13
+  (Marcar pedido como fallido o erróneo) as UC14
+  
+  ' Extensiones
+  (Recuperar contraseña) as UC15
+  (Registrarse) as UC16
 }
 
 ' Relaciones de los actores
-admin --> UC5
-admin --> UC6
+admin --> UC1
+admin --> UC2
+admin --> UC3
 admin --> UC7
-admin -- UC8
-admin -- UC18
+admin --> UC8
+admin --> UC9
 
-inventary --> UC2
-inventary --> UC4
-inventary -- UC8
-inventary -- UC18
-inventary --> UC9
+inventory --> UC1
+inventory --> UC2
+inventory --> UC3
+inventory --> UC4
+inventory --> UC5
+inventory --> UC6
 
 dispatcher --> UC1
-dispatcher -- UC8
-dispatcher -- UC18
+dispatcher --> UC2
+dispatcher --> UC3
+dispatcher --> UC10
 dispatcher --> UC11
 
-niceGuy --> UC3
-niceGuy -- UC8
-niceGuy -- UC18
-niceGuy --> UC10
-niceGuy --> UC12
+deliveryGuy --> UC1
+deliveryGuy --> UC2
+deliveryGuy --> UC3
+deliveryGuy --> UC12
+deliveryGuy --> UC13
+deliveryGuy --> UC14
+
+' Relaciones de extensión
+UC1 <.. UC15 : <<extend>>
+UC1 <.. UC16 : <<extend>>
 
 ' Relaciones de inclusión
-UC11 ..> UC13 : <<include>>
-UC13 ..> UC14 : <<include>>
-UC14 ..> UC15 : <<include>>
-UC8 ..> UC16 : <<extend>>
-UC18 ..> UC17 : <<extend>>
-UC18 ..> UC19 : <<extend>>
-
-
+UC11 ..> (Añadir producto solicitado a envío) : <<include>>
+UC11 ..> (Añadir dirección de envío) : <<include>>
+UC11 ..> (Añadir nombre e ID de pedido) : <<include>>
 
 ' Notas explicativas
 note right of UC11 : Proceso de\ncreación de factura
