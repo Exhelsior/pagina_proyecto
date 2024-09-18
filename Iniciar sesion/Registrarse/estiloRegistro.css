@@ -18,6 +18,7 @@ body {
   grid-auto-flow: column;
   grid-gap: 20px;
   height: 100vh;
+  margin-top: 2%;
 }
 .box {
   grid-column: 2;

@@ -1,14 +1,18 @@
-@startuml Inventory Use Case Diagram
+@startuml Diagrama de casos de uso
+left to right direction
+skinparam linetype ortho
+skinparam nodesep 70
+skinparam ranksep 80
 ' Definición de estilos
 skinparam usecase {
-  BackgroundColor LightBlue
+  BackgroundColor #d89a6a
   BorderColor DarkSlateGray
-  ArrowColor Navy
+  ArrowColor #000000
   ActorBorderColor DarkSlateGray
   ActorBackgroundColor Wheat
 }
 skinparam rectangle {
-  BackgroundColor AliceBlue
+  BackgroundColor #f3e2bd
   BorderColor DarkSlateGray
 }
 ' Definición de actores
@@ -16,76 +20,97 @@ skinparam rectangle {
 :Jefe de inventario: as inventory #LightGreen
 :Despachador: as dispatcher #LightYellow
 :Repartidor: as deliveryGuy #LightCyan
+:Cliente: as customer #LightBlue
 
 ' Sistema principal
 rectangle "Sistema de Master Bread" {
   ' Casos de uso comunes
-  (Iniciar sesión) as UC1
-  (Ver menú) as UC2
-  (Cerrar sesión) as UC3
-  
+  (Autenticar usuario) as UC1
+  (Acceder al panel\nde control) as UC2
+  (Finalizar sesión) as UC3
+ 
   ' Jefe de inventario
-  (Ver inventario) as UC4
-  (Agregar producto) as UC5
-  (Editar cantidad de producto) as UC6
-  
+  (Consultar inventario\nactual) as UC4
+  (Registrar nuevo\nproducto) as UC5
+  (Actualizar stock\nde producto) as UC6
+ 
   ' Administrador
-  (Generar reporte de envíos diarios) as UC7
-  (Generar reporte de inventario) as UC8
-  (Generar reporte de despachos) as UC9
-  
+  (Generar informes\nde gestión) as UC9
+  (Obtener reporte\nde inventario) as UC10
+  (Obtener reporte\nde despachos) as UC11
+  (Gestionar usuarios\ny permisos) as UC12
+ 
   ' Despachador
-  (Registrar pedido) as UC10
-  (Crear factura) as UC11
-  
+  (Procesar nuevo\npedido) as UC13
+  (Generar factura\nde venta) as UC14
+  (Gestionar\ndevoluciones) as UC15
+ 
   ' Repartidor
-  (Reclamar pedido) as UC12
-  (Marcar pedido como exitoso) as UC13
-  (Marcar pedido como fallido o erróneo) as UC14
-  
+  (Ver ruta de entrega) as UC16
+  (Aceptar pedido\npara entrega) as UC17
+  (Confirmar entrega\nexitosa) as UC18
+  (Reportar entrega\nfallida) as UC19
+
+  ' Cliente
+  (Realizar pedido) as UC20
+  (Consultar estado\nde pedido) as UC21
+
+  ' Casos de uso específicos de panadería
+  (Programar\nproducción) as UC22
+  (Registrar lote\nde producción) as UC23
+
   ' Extensiones
-  (Recuperar contraseña) as UC15
-  (Registrarse) as UC16
+  (Recuperar contraseña) as UC24
 }
 
 ' Relaciones de los actores
-admin --> UC1
-admin --> UC2
-admin --> UC3
-admin --> UC7
-admin --> UC8
-admin --> UC9
+admin -[#blue]- UC1
+admin -[#blue]- UC2
+admin -[#blue]- UC3
+admin -[#blue]- UC9
+admin -[#blue]- UC12
 
-inventory --> UC1
-inventory --> UC2
-inventory --> UC3
-inventory --> UC4
-inventory --> UC5
-inventory --> UC6
+inventory -[#green]- UC1
+inventory -[#green]- UC2
+inventory -[#green]- UC3
+inventory -[#green]- UC4
+inventory -[#green]- UC5
+inventory -[#green]- UC6
+inventory -[#green]- UC22
+inventory -[#green]- UC23
 
-dispatcher --> UC1
-dispatcher --> UC2
-dispatcher --> UC3
-dispatcher --> UC10
-dispatcher --> UC11
+dispatcher -[#orange]- UC1
+dispatcher -[#orange]- UC2
+dispatcher -[#orange]- UC3
+dispatcher -[#orange]- UC13
+dispatcher -[#orange]- UC14
+dispatcher -[#orange]- UC15
 
-deliveryGuy --> UC1
-deliveryGuy --> UC2
-deliveryGuy --> UC3
-deliveryGuy --> UC12
-deliveryGuy --> UC13
-deliveryGuy --> UC14
+deliveryGuy -[#cyan]- UC1
+deliveryGuy -[#cyan]- UC2
+deliveryGuy -[#cyan]- UC3
+deliveryGuy -[#cyan]- UC16
+deliveryGuy -[#cyan]- UC17
+deliveryGuy -[#cyan]- UC18
+deliveryGuy -[#cyan]- UC19
+
+customer -[#blue]- UC20
+customer -[#blue]- UC21
 
 ' Relaciones de extensión
-UC1 <.. UC15 : <<extend>>
-UC1 <.. UC16 : <<extend>>
+UC1 <.. UC24 : <<extend>>
+UC9 <.. UC10 : <<extend>>
+UC9 <.. UC11 : <<extend>>
 
 ' Relaciones de inclusión
-UC11 ..> (Añadir producto solicitado a envío) : <<include>>
-UC11 ..> (Añadir dirección de envío) : <<include>>
-UC11 ..> (Añadir nombre e ID de pedido) : <<include>>
+UC14 ..> (Añadir producto\nsolicitado a envío) : <<include>>
+UC14 ..> (Añadir dirección\nde envío) : <<include>>
+UC14 ..> (Añadir nombre\ne ID de pedido) : <<include>>
+UC13 ..> UC4 : <<include>>
+UC20 ..> UC13 : <<include>>
 
 ' Notas explicativas
-note right of UC11 : Proceso de\ncreación de factura
+note right of UC14 : Proceso de\ncreación de factura
+note bottom of UC13 : Actualiza inventario\nautomáticamente
 
 @enduml
