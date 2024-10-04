@@ -16,9 +16,10 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-flow: column;
-  grid-gap: 20px;
-  height: 100vh;
-  margin-top: 2%;
+  grid-gap: 1rem; /* Using rem units for better scalability */
+  height: 100vh; /* Using viewport height for full-screen layout */
+  margin: 2% auto 0; /* Centering horizontally and adding top margin */
+  max-width: 1200px; /* Setting a maximum width for larger screens */
 }
 .box {
   grid-column: 2;
@@ -152,3 +153,6 @@ body {
     font-size: x-small;
   }
 }
+
+
+
