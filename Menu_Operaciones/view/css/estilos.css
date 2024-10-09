@@ -268,5 +268,97 @@ body{
     font-size: 1.2rem;
 }
 
+/*---------------------------------PRODUCTOS-------------------------------*/
+
+.mostrar-producto{
+    margin-top: 5rem;
+}
+
+.contenedor-productos{
+    padding: 4rem;
+    background-color: #ffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
+    max-width: 70%;
+    margin: 2rem auto;
+}
+
+.contenedor-productos h1{
+    font-size: calc(2.5rem + 1vw);
+    color: black;
+    text-align  : center;
+    margin: 0 0 15px 0;
+
+}
+
+.contenedor-productos thead{
+    position: sticky;
+    top: 0px;
+    background-color: #EFD79B;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+
+}
+
+.contenedor-productos th{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.contenedor-productos th, .contenedor-productos td{
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;;
+}
+
+.tabla-productos{
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*---------------------------------PEDIDOS-------------------------------*/
+
+.contenido-factura{
+    padding: 4rem;
+    background-color: #ffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
+    max-width: 70%;
+    margin: 2rem auto;
+}
+
+.contenido-factura h1{
+    font-size: calc(2rem + 1vw);
+    color: black;
+    text-align  : center;
+    margin: 0 0 15px 0;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info input{
+    width: 70%;
+    height: 3vh;
+    border-radius: 5px;
+    border:solid 1px #ccc;
+
+}
+
+.productos-pedidos{
+    display: block;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 2fr;
+}
+
+
+
 
 
