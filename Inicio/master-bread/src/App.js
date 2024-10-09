@@ -1,7 +1,15 @@
+
+// para iniciar con el programa, abres tu terminal, identifica que tu directorio 
+// se encuentre en la carpeta master-bread
+// pon npm install
+// pon npm install react
+// luego de que se instalen las dependencias escribe
+// npm start
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "./LoginPage.css";
 import logos from "./logo.svg";
+import "./LoginPage.css";
 
 // configuracion animacion
 const pageVariants = {
@@ -68,7 +76,6 @@ const LoginPage = () => {
             <form className="inicio">
               <input type="text" placeholder="Usuario" />
               <input type="password" placeholder="Contraseña" />
-              <button>Iniciar Sesión</button>
             </form>
           )}
 
@@ -111,6 +118,11 @@ const LoginPage = () => {
 
       {/* botones de navegacion */}
       <div className="footer">
+        {activeTab === "login" && (
+          <p>
+            <button onClick={() => setActiveTab("register")}>Iniciar sesion</button>
+          </p>
+        )}
         {activeTab === "login" && (
           <p>
             ¿No tienes un usuario?{" "}

@@ -15,7 +15,7 @@ body{
 .bar-menu{
     display: flex;
     padding: 5px;
-    background-image: url(fondos/fondo.jpeg);
+    background-image: url(../Img/fondo.jpeg);
     border-radius: 10px;
     border: solid 2px #B4923B;
     flex-direction: column;

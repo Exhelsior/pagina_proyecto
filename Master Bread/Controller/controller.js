@@ -1,9 +1,103 @@
+// const login = document.getElementById("login");
+// const register = document.getElementById("register");
+// const recovery = document.getElementById("recovery");
 const pagInventarios = document.getElementById("pag-inventarios");
 const pagInsumos = document.getElementById("pag-insumo");
 const pagProductos = document.getElementById("pag-productos");
 const pagFacturacion = document.getElementById("pag-facturacion");
 const pagPedidos = document.getElementById("pag-pedidoss");
 const mainContenido = document.getElementById("main-contenido");
+
+// register.addEventListener("click", (e) => {
+//   mainContenido.innerHTML = ` <div class="container">
+//       <div class="box">
+//         <div class="content">
+//           <h1>Usuario</h1>
+//           <input class="boxes" type="text" maxlength="10" />
+//         </div>
+//         <div class="content">
+//           <h1>Nombres</h1>
+//           <input class="boxes" type="text" />
+//         </div>
+//         <div class="content">
+//           <h1>Apellidos</h1>
+//           <input class="boxes" type="text" />
+//         </div>
+//         <div class="content">
+//           <h1>Contraseña</h1>
+//           <input class="boxes" type="text" />
+//         </div>
+//         <div class="content">
+//           <h1>Cargo</h1>
+//           <select class="boxes">
+//             <option value="Option 1">Eliga</option>
+//             <option value="Jefe de inventario">Jefe de inventario</option>
+//             <option value="Despachador">Despachador</option>
+//             <option value="Repartidor">Repartidor</option>
+//           </select>
+//         </div>
+//         <div class="content">
+//           <h1>Fecha de nacimiento</h1>
+//           <input class="boxes" type="date" />
+//         </div>
+//         <div class="content">
+//           <h1>Tipo de documento</h1>
+//           <select class="boxes">
+//             <option value="Option 1">Eliga</option>
+//             <option value="cedula">Cedula</option>
+//             <option value="pasaporte">Pasaporte</option>
+//             <option value="permanencia">Permanencia</option>
+//           </select>
+//         </div>
+//         <div class="content">
+//           <h1>Numero de documento</h1>
+//           <input class="boxes" type="text" maxlength="10"/>
+//         </div>
+//       </div>
+//       <div class="footer">
+//     <button id="login" >Registrate</button>
+//       </div>
+//     </div>`;
+// });
+
+// recovery.addEventListener("click", (e) => {
+//     mainContenido.innerHTML =   `  <div class="container">
+//     <div class="box">
+//       <div class="content">
+//         <h1>Ingrese ID de usuario</h1>
+//         <input class="boxes" type="text" />
+//       </div>
+//       <div class="content">
+//         <h1>Ingrese su correo</h1>
+//         <input class="boxes" type="email" />
+//       </div>
+//     </div>
+//     <div class="footer">
+//       <button id="showNotificationBtn" class="registro">
+//         Recuperar contraseña
+//       </button>
+//       <div>
+//           <button class="registro" id="login">Volver al inicio</button>
+//       </div>
+//     </div>
+//     <div id="notification" class="notification">
+//       Se le enviara su contraseña a su correo electronico, vuelva al inicio
+//       porfavor.
+//       <script>
+//         const button = document.getElementById("showNotificationBtn");
+//         const notification = document.getElementById("notification");
+//         button.addEventListener("click", () => {
+//           notification.style.display = "block";
+//           setTimeout(() => notification.classList.add("show"), 10);
+//           setTimeout(() => {
+//             notification.classList.remove("show");
+//             setTimeout(() => (notification.style.display = "none"), 300);
+//           }, 3000);
+//         });
+//       </script>
+//     </div>
+//   </div>` ;
+// });
 
 pagInventarios.addEventListener("click", (e) => {
   mainContenido.innerHTML = `<div class="contenido-inventario">
@@ -194,7 +288,7 @@ pagInventarios.addEventListener("click", (e) => {
                                 </div>
                                 <div class="boton-add">
                                     <button class="add">Agregar Producto</button>
-                                </div>                          
+                                </div>
                             </div>
                             <div class="inventario insumos">
                                 <h2>INVENTARIOS INSUMOS</h2>
