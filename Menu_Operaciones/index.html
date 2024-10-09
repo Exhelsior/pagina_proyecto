@@ -64,7 +64,7 @@
               </svg>
               <h1>PRODUCTOS</h1>
             </button>
-            <button id="pag-facturacion" class="boton">
+            <button id="pag-pedidos" class="boton">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="40px"
@@ -76,9 +76,9 @@
                   d="M446.67-200.67h66.66v-40h53.34q14.16 0 23.75-9.58Q600-259.83 600-274v-126.67q0-14.16-9.58-23.75-9.59-9.58-23.75-9.58h-140v-60H600v-66.67h-86.67v-40h-66.66v40h-53.34q-14.16 0-23.75 9.59-9.58 9.58-9.58 23.75v126.66q0 14.17 9.58 23.75 9.59 9.59 23.75 9.59h140v60H360v66.66h86.67v40ZM226.67-80q-27 0-46.84-19.83Q160-119.67 160-146.67v-666.66q0-27 19.83-46.84Q199.67-880 226.67-880H574l226 226v507.33q0 27-19.83 46.84Q760.33-80 733.33-80H226.67Zm300.66-574v-159.33H226.67v666.66h506.66V-654h-206ZM226.67-813.33V-654v-159.33 666.66-666.66Z"
                 />
               </svg>
-              <h1>FACTURACIÓN</h1>
+              <h1>PEDIDOS</h1>
             </button>
-            <button id="pag-pedidos" class="boton">
+            <button id="pag-facturacion" class="boton">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="40px"
@@ -90,7 +90,7 @@
                   d="M229.41-160.67q-49.41 0-84.08-34.61-34.66-34.61-34.66-84.05H40v-454q0-27 19.83-46.84Q79.67-800 106.67-800h572.66v164.67h110l130.67 174v182h-74q0 49.44-34.59 84.05t-84 34.61q-49.41 0-84.08-34.61-34.66-34.61-34.66-84.05H348q0 49.33-34.59 84-34.59 34.66-84 34.66Zm-.08-66.66q21.67 0 36.84-15.17 15.16-15.17 15.16-36.83 0-21.67-15.16-36.84-15.17-15.16-36.84-15.16-21.66 0-36.83 15.16-15.17 15.17-15.17 36.84 0 21.66 15.17 36.83 15.17 15.17 36.83 15.17ZM106.67-346H132q17-24 41.69-38.33 24.7-14.34 55-14.34Q259-398.67 284-384q25 14.67 42 38h286.67v-387.33h-506V-346Zm620.66 118.67q21.67 0 36.84-15.17 15.16-15.17 15.16-36.83 0-21.67-15.16-36.84-15.17-15.16-36.84-15.16-21.66 0-36.83 15.16-15.17 15.17-15.17 36.84 0 21.66 15.17 36.83 15.17 15.17 36.83 15.17Zm-48-202.67H860L756-568.67h-76.67V-430ZM360-532.67Z"
                 />
               </svg>
-              <h1>PEDIDOS</h1>
+              <h1>ENIVOS</h1>
             </button>
             <button id="salir" class="boton">
               <svg
@@ -112,39 +112,7 @@
       <div class="contenido-operativo">
         <div id="main-contenido">
           <!--CONTENIDO QUE MUESTRAN LOS BOTONES LOS BOTONES-->
-          <div class="contenido-factura">
-            <h1>FACTURACIÓN</h1>
-            <div class="informacion-cliente">
-              <div class="contenido1 info">
-                <h2>Cliente</h2>
-              <input type="text" placeholder="Nombre del cliente" />
-              </div>
-              <div class="contemido3 info">
-                <h2>Direccion</h2>
-              <input type="text" placeholder="Direccion del cliente" />
-              </div>
-            </div>
-            <div class="productos-pedidos">
-              <div class="filtro">
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#e0e0e0"
-              >
-                <path
-                  d="M80-200v-80h400v80H80Zm0-200v-80h200v80H80Zm0-200v-80h200v80H80Zm744 400L670-354q-24 17-52.5 25.5T560-320q-83 0-141.5-58.5T360-520q0-83 58.5-141.5T560-720q83 0 141.5 58.5T760-520q0 29-8.5 57.5T726-410l154 154-56 56ZM560-400q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z"
-                />
-              </svg>
-              <input type="text" placeholder="Buscar producto" id="product" />
-              </div>
-              <div class="contenedor-tabla-facturacion">
-                <table class="t-factura">
-                </table>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -914,8 +882,156 @@
       </div>
     </template>
 
-    <template id="tempFacturacion">
-      
+    <template id="tempPedidos">
+      <div class="contenido-factura">
+        <h1>FACTURACIÓN</h1>
+        <div class="informacion-cliente">
+          <div class="contenido1 info">
+            <h2>Cliente</h2>
+          <input type="text" placeholder="Nombre del cliente" />
+          </div>
+          <div class="contenido2 info">
+            <h2>Fecha de Envio</h2>
+            <input type="date"/>
+          </div>
+          <div class="contenido3 info">
+            <h2>Direccion</h2>
+          <input type="text" placeholder="Direccion del cliente" />
+          </div>
+        </div>
+        <h3>Lista de Productos Para Llevar</h3>
+        <div class="productos-pedidos">
+          <div class="tabla-pedido">
+            <table class="tabla-productos">
+              <thead class="head-pedidos">
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>001</td>
+                  <td>Pan Frances</td>
+                  <td>$5000</td>
+                  <td>60</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="boton-add">
+          <button class="add">Enviar</button>
+          <button class="add">Agregar Producto</button>
+        </div>
+      </div>
     </template>
     <!-- LINKS -->
     <script src="./view/js/vista.js"></script>

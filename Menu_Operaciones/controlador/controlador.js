@@ -13,8 +13,8 @@ window.onload = () => {
     .getElementById("pag-productos")
     .addEventListener("click", mostrarProductos);
   document
-    .getElementById("pag-facturacion")
-    .addEventListener("click", mostrarFacturacion);
+    .getElementById("pag-pedidos")
+    .addEventListener("click", mostrarPedidos);
 };
 
 function mostrarInventario() {
@@ -29,6 +29,6 @@ function mostrarProductos() {
   vista.mostrarPlantilla("tempProducto", "main-contenido");
 }
 
-function mostrarFacturacion() {
-  vista.mostrarPlantilla("tempFacturacion", "main-contenido");
+function mostrarPedidos() {
+  vista.mostrarPlantilla("tempPedidos", "main-contenido");
 }
