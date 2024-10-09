@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Master Bread</title>
-    <link rel="stylesheet" href="/view/css/estilos.css" />
+    <link rel="stylesheet" href="./view/css/estilos.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +18,7 @@
       <div class="bar-menu">
         <aside class="contenido-menu">
           <div class="logo">
-            <img src="/view/img/logo.png" alt="Logo" class="logo-menu" />
+            <img src="/Menu_Operaciones/view/img/logo.png" alt="Logo" class="logo-menu" />
           </div>
           <nav class="side-menu">
             <!-- BOTONES Y LOGOS -->
@@ -112,6 +112,39 @@
       <div class="contenido-operativo">
         <div id="main-contenido">
           <!--CONTENIDO QUE MUESTRAN LOS BOTONES LOS BOTONES-->
+          <div class="contenido-factura">
+            <h1>FACTURACIÓN</h1>
+            <div class="informacion-cliente">
+              <div class="contenido1 info">
+                <h2>Cliente</h2>
+              <input type="text" placeholder="Nombre del cliente" />
+              </div>
+              <div class="contemido3 info">
+                <h2>Direccion</h2>
+              <input type="text" placeholder="Direccion del cliente" />
+              </div>
+            </div>
+            <div class="productos-pedidos">
+              <div class="filtro">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e0e0e0"
+              >
+                <path
+                  d="M80-200v-80h400v80H80Zm0-200v-80h200v80H80Zm0-200v-80h200v80H80Zm744 400L670-354q-24 17-52.5 25.5T560-320q-83 0-141.5-58.5T360-520q0-83 58.5-141.5T560-720q83 0 141.5 58.5T760-520q0 29-8.5 57.5T726-410l154 154-56 56ZM560-400q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z"
+                />
+              </svg>
+              <input type="text" placeholder="Buscar producto" id="product" />
+              </div>
+              <div class="contenedor-tabla-facturacion">
+                <table class="t-factura">
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -519,7 +552,7 @@
       </div>
     </template>
 
-    <template id="tempProducto">
+    <template id="tempInsumo">
       <div class="contenedor-insumos mostrar-insumo">
         <h1>INSUMOS DISPONIBLES</h1>
         <div class="filtro">
@@ -695,6 +728,195 @@
       </div>
     </template>
     
+    <template id="tempProducto">
+      <div class="contenedor-productos mostrar-producto">
+        <h1>PRODUCTOS DISPONIBLES</h1>
+        <div class="filtro">
+          <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24px"
+        viewBox="0 -960 960 960"
+        width="24px"
+        fill="#e0e0e0"
+      >
+        <path
+          d="M80-200v-80h400v80H80Zm0-200v-80h200v80H80Zm0-200v-80h200v80H80Zm744 400L670-354q-24 17-52.5 25.5T560-320q-83 0-141.5-58.5T360-520q0-83 58.5-141.5T560-720q83 0 141.5 58.5T760-520q0 29-8.5 57.5T726-410l154 154-56 56ZM560-400q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z"
+        />
+      </svg>
+      <input
+        type="text"
+        placeholder="Buscar Productos"
+        ng-model="buscar-producto"
+      />
+        </div>
+        <div class="tabla">
+          <table class="tabla-productos">
+            <thead class="producto-muestra">
+              <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Fecha de Fabricación</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>Pan Frances</td>
+                <td>$5000</td>
+                <td>09/10/2024</td>
+                <td>500</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </template>
+
+    <template id="tempFacturacion">
+      
+    </template>
     <!-- LINKS -->
     <script src="./view/js/vista.js"></script>
     <script src="./controlador/controlador.js"></script>
