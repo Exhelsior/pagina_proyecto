@@ -88,7 +88,7 @@ body{
 /*------------------------------ventana inventarios------------------------------*/
 
 .contenido-inventario{
-    width: 100%;
+    width: 50%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -132,21 +132,20 @@ body{
 }
 
 .contenido-inventario th{
-    font-size: 1rem;
     font-weight: 600;
 }
 
 .contenido-inventario th, .contenido-inventario td{
-    padding: 1rem;
+    padding: 10px;
     text-align: center;
-    border-bottom: 1px solid #e0e0e0;;
+    border-bottom: 1px solid #e0e0e0;
+    font-size:small;
 }
 
 /*----------productos-----------*/
 .t-productos{
     overflow-x: auto;
     border-collapse: collapse;
-    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -169,7 +168,6 @@ body{
 .t-insumos{
     overflow-x: auto;
     border-collapse: collapse;
-    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -392,7 +390,6 @@ body{
     overflow-y: scroll;
     height: 400px;
 }
-
 
 
 
