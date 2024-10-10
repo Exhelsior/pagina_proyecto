@@ -15,7 +15,7 @@ body{
 .bar-menu{
     display: flex;
     padding: 5px;
-    background-image: url(/view/img/fondo.jpeg);
+    background-image: url(/Menu_Operaciones/view/img/fondo.jpeg);
     border-radius: 10px;
     border: solid 2px #B4923B;
     flex-direction: column;
@@ -182,13 +182,15 @@ body{
 /*------------------------------boton agregar------------------------------*/
 
 .add {
+    font-size: medium;
+    font-weight: 500;
     padding: 15px;
     width: 40%;
     border: none;
-    border-radius: 20px;
-    background-color: #efd79b9c;
+    border-radius: 25px;
+    background-color: #EFD79B;
     cursor: pointer;
-    box-shadow: 0px 1px 20px 1px rgb(0 0 0 / 53%);
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 6px 6px 0px;
     
 }
 
@@ -206,7 +208,7 @@ body{
     background-color: #ffff;
     border-radius: 12px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
-    max-width: 70%;
+    max-width: 50%;
     margin: 2rem auto;
 }
 
@@ -267,6 +269,132 @@ body{
     outline: none;
     font-size: 1.2rem;
 }
+
+/*---------------------------------PRODUCTOS-------------------------------*/
+
+.mostrar-producto{
+    margin-top: 5rem;
+}
+
+.contenedor-productos{
+    padding: 4rem;
+    background-color: #ffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
+    max-width: 50%;
+    margin: 2rem auto;
+}
+
+.contenedor-productos h1{
+    font-size: calc(2rem + 1vw);
+    color: black;
+    text-align  : center;
+    margin: 0 0 15px 0;
+
+}
+
+.contenedor-productos thead{
+    position: sticky;
+    top: 0px;
+    background-color: #EFD79B;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+
+}
+
+.contenedor-productos th{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.contenedor-productos th, .contenedor-productos td{
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;;
+}
+
+.tabla-productos{
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*---------------------------------PEDIDOS-------------------------------*/
+
+.contenido-factura{
+    padding: 4rem;
+    background-color: #ffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
+    max-width: 35%;
+    margin: 2rem auto;
+}
+
+.contenido-factura h1{
+    font-size: calc(2rem + 1vw);
+    color: black;
+    text-align  : center;
+    margin: 0 0 15px 0;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info input{
+    width: 65%;
+    height: 3vh;
+    border-radius: 5px;
+    border:solid 1px #ccc;
+
+}
+
+.productos-pedidos{
+    display: block;
+}
+
+.contenido-factura h2{
+    text-align: center;
+    font-size: medium;
+}
+
+.contenido-factura h3{
+    text-align: center;
+    font-size: larger;
+}
+
+.productos-pedidos thead {
+    position: sticky;
+    top: 0px;
+    background-color: #EFD79B;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.productos-pedidos th {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.productos-pedidos th, .productos-pedidos td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;;
+}
+
+.productos-pedidos {
+    overflow-y: scroll;
+    height: 400px;
+}
+
+
+
 
 
 

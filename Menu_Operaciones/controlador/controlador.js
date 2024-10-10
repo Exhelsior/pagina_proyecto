@@ -31,4 +31,8 @@ function mostrarProductos() {
 
 function mostrarPedidos() {
   vista.mostrarPlantilla("tempPedidos", "main-contenido");
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e5fa5e05cdc694238152064333b0706687bfe129
