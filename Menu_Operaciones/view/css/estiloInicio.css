@@ -14,7 +14,7 @@
 
 body {
   font-family: "Kodchasan", sans-serif;
-  background-image: url("./Assets/fondo.jpeg");
+  background-image: url("../img/fondo.jpeg");
   background-size: cover;
   margin: 0;
   padding: 0;
@@ -54,11 +54,6 @@ body {
   cursor: pointer;
   transition: var(--transition);
 
-}
-
-.navBTN:hover {
-  background-color: var(--primary-color);
-  color: white;
 }
 
 .image {
@@ -107,10 +102,6 @@ body {
   transition: var(--transition);
 }
 
-.boxes:focus {
-  border-color: #4a4a4a;
-}
-
 .button {
   font-size: 1.1rem;
   background-color: transparent;
@@ -121,7 +112,7 @@ body {
   transition: var(--transition);
 }
 
-.button:hover {
+.button:hover, .registro:hover, .navBTN:hover {
   background-color: var(--primary-color);
   color: white;
 }
@@ -146,16 +137,15 @@ footer {
 }
 
 .registro {
-  font-size: 1rem;
+  font-size: 1.1rem;
   background-color: transparent;
-  border: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 25px;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: var(--transition);
+  transition: var(--transition)
 }
 
-.registro:hover {
-  text-decoration: underline;
-}
 
 .contenedor-registro {
   display: flex;
