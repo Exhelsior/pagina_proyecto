@@ -1,5 +1,5 @@
-// const pagPedidos = document.getElementById('pag-pedidoss');
 let vista = new Vista();
+let modal = document.getElementById("modal-producto")
 const mainContenido = document.getElementById("main-contenido");
 
 window.onload = () => {
@@ -15,6 +15,23 @@ window.onload = () => {
   document
     .getElementById("pag-pedidos")
     .addEventListener("click", mostrarPedidos);
+    document
+    .getElementById("pag-envios")
+    .addEventListener("click", mostrarEnvios);
+
+    // modals
+    document
+    .addEventListener("click", function(event) {
+      if (event.target && event.target.id == 'add-modal') {
+        mostrarModal();
+      }
+    })
+
+    document
+    .querySelector(".close")
+    .addEventListener("click", function(){
+      cerrarModal()
+    })
 };
 
 function mostrarInventario() {
@@ -31,8 +48,23 @@ function mostrarProductos() {
 
 function mostrarPedidos() {
   vista.mostrarPlantilla("tempPedidos", "main-contenido");
-<<<<<<< HEAD
 }
-=======
+
+function mostrarEnvios() {
+  vista.mostrarPlantilla("tempEnvios", "main-contenido");
 }
->>>>>>> e5fa5e05cdc694238152064333b0706687bfe129
+
+// funciones de los modales
+
+function mostrarModal() {
+  modal.style.display = "flex";
+}
+
+function cerrarModal(){
+  modal.style.display = "none";
+}
+window.onclick = function(event){
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

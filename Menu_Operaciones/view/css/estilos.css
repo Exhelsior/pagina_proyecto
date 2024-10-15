@@ -88,8 +88,7 @@ body{
 /*------------------------------ventana inventarios------------------------------*/
 
 .contenido-inventario{
-    width: 50%;
-    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -103,7 +102,7 @@ body{
 .contenedor-grid { 
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     gap: 20px;
     align-items: center;
     justify-content: space-evenly;
@@ -139,7 +138,7 @@ body{
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #e0e0e0;
-    font-size:small;
+    font-size:smaller;
 }
 
 /*----------productos-----------*/
@@ -150,9 +149,9 @@ body{
     margin-right: auto;
 }
 
-.contendor-tabla-producto{
+.contenedor-tabla-producto{
     overflow-y: scroll;
-    height: 600px;
+    height: 420px;
 }
 
 .boton-add{
@@ -160,9 +159,11 @@ body{
     width: 100%;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 40px;
     margin-top: 2rem;
 }
+
+
 
 /*----------insumos-----------*/
 .t-insumos{
@@ -174,8 +175,37 @@ body{
 
 .contenedor-tabla-insumos{
     overflow-y: scroll;
-    height: 600px;
+    height: 420px;
 }
+
+/*------------------------------botones tablas------------------------------*/
+.b-caja {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-boton-tabla {
+    padding-top: 2px;
+    width: 35px;
+    background-color: #80f182;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;    
+}
+
+.del-boton-tabla {
+    padding-top: 2px;
+    width: 35px;
+    background-color: #ff4c4c;  
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;    
+}
+
+
 
 /*------------------------------boton agregar------------------------------*/
 
@@ -211,7 +241,7 @@ body{
 }
 
 .contenedor-insumos h1{
-    font-size: calc(2.5rem + 1vw);
+    font-size: calc(1rem + 1vw);
     color: black;
     text-align  : center;
     margin: 0 0 15px 0;
@@ -234,15 +264,14 @@ body{
 }
 
 .contenedor-insumos th, .contenedor-insumos td{
-    padding: 1rem;
-    text-align: left;
+    padding: 10px;
+    text-align: center;
     border-bottom: 1px solid #e0e0e0;;
 }
 
 .tabla-insumos{
     overflow-x: auto;
     border-collapse: collapse;
-    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -315,7 +344,6 @@ body{
 .tabla-productos{
     overflow-x: auto;
     border-collapse: collapse;
-    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -323,7 +351,7 @@ body{
 /*---------------------------------PEDIDOS-------------------------------*/
 
 .contenido-factura{
-    padding: 4rem;
+    padding: 20px;
     background-color: #ffff;
     border-radius: 12px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
@@ -332,7 +360,7 @@ body{
 }
 
 .contenido-factura h1{
-    font-size: calc(2rem + 1vw);
+    font-size: calc(1rem + 1vw);
     color: black;
     text-align  : center;
     margin: 0 0 15px 0;
@@ -349,7 +377,7 @@ body{
     height: 3vh;
     border-radius: 5px;
     border:solid 1px #ccc;
-
+    outline: none;
 }
 
 .productos-pedidos{
@@ -388,10 +416,200 @@ body{
 
 .productos-pedidos {
     overflow-y: scroll;
-    height: 400px;
+    height: 300px;
+}
+
+.barra-total {
+    width: 100%;
+    margin: 10px 0 10px 0;
+    height: 2px;
+    border-radius: 25px;
+    background-color: black;
+}
+
+/*---------------------------------PEDIDOS-------------------------------*/
+
+.envios {
+    display: block;
+    padding: 2rem;
+    background-color: #ffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
+    max-width: 60%;
+    margin: 2rem auto;
+}
+
+.envios h2{
+    font-size: calc(1.5rem + 1vw);
+    color: black;
+    text-align: center;
+    margin: 0 0 15px 0;
+}
+
+.contenedor-envios{
+    overflow-y: scroll;
+    max-height: 75vh;
+}
+
+.contenedor-envios{
+    display: flex;
+    margin: 5px 30px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.caja-envio{
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border:#e0e0e0 solid 1px;
+    border-radius: 10px;
+}
+
+.boton-bill {
+    padding-top: 2px;
+    width: 10%;
+    height: 3vh;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;
+}
+
+#add-bill{
+    background-color: #80f182;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+#del-bill{
+    background-color: #ff4c4c;  
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#fact-bill {
+    background-color: #4cb7ff; 
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.caja-botones-bill{
+    display: flex;
+    gap: 10px;
+}
+
+/* ----------------- Modal Productos ----------------- */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+}
+
+.modal-content-producto{
+    background-color: #fefefe;
+    padding: 40px;
+    margin: 50px 0 50px 0px;
+    border: 1px solid #888;
+    width: 25%;
+    height: max-content;
+    border-radius: 15px;
 }
 
 
+.modal-content-producto h1{
+    text-align: center;
+}
 
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.contenedor-contenido {
+    display: block;
+}
+
+.contenido {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.contenido h3 {
+ font-size: 1em;
+ width: 25%;
+}
+
+.contenido input{
+    width: 70%;
+    height: 3vh;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    outline: none;
+}
+
+.contenedor-boton {
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.contenedor-boton button{
+    width: 50%;
+}
+
+/* Estilos generales que ya tienes, para pantallas grandes */
+
+@media (max-width: 768px) {
+    /* Para tabletas y pantallas más pequeñas */
+    .caja-principal {
+        grid-template-columns: 30% 70%; /* Ajustar tamaño del menú y contenido */
+    }
+    .side-menu button {
+        font-size: 0.8rem; /* Reducir tamaño de la fuente de los botones del menú */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Para móviles */
+    .caja-principal {
+        grid-template-columns: 100%; /* Elimina la barra lateral en móviles */
+    }
+    .bar-menu {
+        display: none; /* Oculta el menú lateral en móviles */
+    }
+    .contenido-operativo {
+        padding: 0.5rem; /* Ajusta el padding para pantallas pequeñas */
+    }
+    .side-menu button {
+        font-size: 0.7rem; /* Aún más pequeño para móviles */
+    }
+    .contenido-inventario h1 {
+        font-size: 2rem; /* Ajusta el tamaño de títulos */
+    }
+    .inventario {
+        padding: 1rem; /* Reduce el padding */
+    }
+    .contenedor-tabla-producto {
+        height: auto; /* Ajusta la altura de las tablas en móviles */
+    }
+}
 
 
