@@ -1,120 +1,122 @@
 /*
  * Author: Juan David Robayo Olaya
- * Date: 09-10-2024
- * Description: En este css se determina el diseño de la página web, se usan variables para facilitar el cambio de colores y estilos.
+ * Date: 15-10-2024
+ * Description: CSS mejorado para la página de inicio con diseño más moderno y responsivo, incluyendo optimizaciones para el formulario de registro.
  */
 
- :root {
+:root {
   --primary-color: #180902;
-  --background-color: #efd59eab;
-  --box-shadow: 2px 0 26px 1px rgba(0, 0, 0, 0.1);
-  --border-radius: 50px;
+  --secondary-color: #3a1d0a;
+  --background-color: rgba(234, 222, 196, 0.9);
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --border-radius: 10px;
   --transition: all 0.3s ease;
 }
 
 body {
   font-family: "Kodchasan", sans-serif;
-  background-image: url("../img/fondo.jpeg");
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--primary-color);
 }
 
 .container {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   grid-template-columns: 1fr minmax(auto, 800px) 1fr;
-  gap: 20px;
+  gap: 30px;
   width: 100%;
   max-width: 1200px;
   height: 100vh;
-  padding: 20px;
+  padding: 30px;
   box-sizing: border-box;
 }
 
-.navegador {
-  grid-column: 2;
-  grid-row: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
 .navBTN {
-  font-size: 1.1rem;
+  font-size: 1rem;
   background-color: transparent;
   border: 2px solid var(--primary-color);
-  border-radius: 25px;
-  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  padding: 12px 24px;
   cursor: pointer;
   transition: var(--transition);
-
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .image {
-  grid-column: 2;
-  grid-row: 1;
+  grid-column: 1;
+  grid-row: 3;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5%;
+  flex-direction: column;
 }
 
 .logo {
-  width: 60%;
-  max-width: 300px;
+  max-width: 350px;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
 }
 
 .box {
+  grid-row: 1 / 4;
   grid-column: 2;
-  grid-row: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--background-color);
-  border: 2px solid var(--primary-color);
-  border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  padding: 40px;
+  border-radius: var(--border-radius);
+  padding: 20px;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
+  backdrop-filter: blur(10px);
+  overflow: auto;
+  padding-right: 17px;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+
+.box::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 
 #main-contenido {
   width: 100%;
   max-width: 400px;
 }
 
-.boxes {
-  width: 100%;
-  border: none;
-  background: transparent;
-  border-bottom: 1px solid var(--primary-color);
-  margin: 15px 0;
-  padding: 10px 5px;
-  font-size: 1rem;
-  outline: none;
-  transition: var(--transition);
-}
-
 .button {
-  font-size: 1.1rem;
-  background-color: transparent;
-  border: 2px solid var(--primary-color);
-  border-radius: 25px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.button:hover, .registro:hover, .navBTN:hover {
+  font-size: 1rem;
   background-color: var(--primary-color);
   color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.button:hover,
+.registro:hover,
+.navBTN:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 footer {
@@ -122,12 +124,14 @@ footer {
   grid-row: 4;
   text-align: center;
   padding: 20px 0;
+  font-size: 0.9rem;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 20px;
 }
 
 .botones {
@@ -137,39 +141,68 @@ footer {
 }
 
 .registro {
-  font-size: 1.1rem;
+  font-size: 1rem;
   background-color: transparent;
   border: 2px solid var(--primary-color);
-  border-radius: 25px;
-  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  padding: 12px 24px;
   cursor: pointer;
-  transition: var(--transition)
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
-
 
 .contenedor-registro {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 20px;
 }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+.boxes {
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid var(--primary-color);
+  padding: 8px 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: var(--transition);
+}
+
 
 .pie_caja {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   font-size: 0.9rem;
-  margin-top: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
-@media screen and (max-width: 768px) {
+/* Media queries */
+@media screen and (max-width: 1024px) {
   .container {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
-
-  .image, .box, footer {
-    grid-column: 1;
+    grid-template-columns: 1fr minmax(auto, 600px) 1fr;
+    gap: 20px;
   }
 
   .logo {
@@ -177,26 +210,61 @@ footer {
   }
 
   .box {
-    width: 90%;
-    padding: 20px;
-  }
-
-  .button, .registro {
-    font-size: 1rem;
+    width: 95%;
+    max-width: 450px;
+    padding: 40px;
   }
 }
 
-@media screen and (max-width: 480px) {
-  body {
-    background-size: 200%;
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .image,
+  .box,
+  footer,
+  .navegador {
+    grid-column: 1;
   }
 
   .logo {
-    width: 70%;
+    width: 45%;
+    max-width: 250px;
   }
 
   .box {
-    border-radius: 25px;
+    width: 90%;
+    padding: 30px;
+    max-width: 400px;
+  }
+
+  .button,
+  .registro,
+  .navBTN {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-size: cover;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .logo {
+    width: 55%;
+  }
+
+  .box {
+    width: 95%;
+    padding: 25px;
+    border-radius: var(--border-radius);
   }
 
   .botones {
@@ -204,11 +272,62 @@ footer {
     gap: 15px;
   }
 
-  .button, .registro {
+  .button,
+  .registro {
+    width: 100%;
+  }
+
+  .navBTN {
+    width: calc(50% - 5px);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .logo {
+    width: 65%;
+  }
+
+  .box {
+    padding: 20px;
+  }
+
+  .navegador {
+    gap: 10px;
+  }
+
+  .navBTN {
+    font-size: 0.8rem;
+    padding: 8px 16px;
     width: 100%;
   }
 
   .pie_caja {
     flex-direction: column;
+    font-size: 0.8rem;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .logo {
+    width: 75%;
+  }
+
+  .box {
+    padding: 15px;
+  }
+
+  .boxes,
+  .button,
+  .registro {
+    font-size: 0.85rem;
   }
 }

@@ -1,11 +1,11 @@
-<!-- 
- Creado por: Juan David Robayo Olaya
- Fecha: 30 de agosto del 2024
- Funcion: maquetacion del Incio de sesion de la pagina Master bread
- -->
+<!--
+ *Creado por: Juan David Robayo Olaya
+ *Fecha: 30 de agosto del 2024
+ *Funcion: maquetacion del Incio de sesion de la pagina Master bread
+-->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,96 +20,111 @@
     />
   </head>
 
-  <body>
-    <aside>
+  <body >
+    <main id="contenidoCompleto">
       <div class="container">
-        <div class="image">
+        <aside class="image">
+          <h1 style="font-size: xx-large;color: beige;">Bienvenido a</h1>
           <img class="logo" src="./view/img/logo.png" alt="logo" />
-        </div>
-        <div class="navegador">
-          <button id="iniciarSesion" class="navBTN">Iniciar sesion</button>
-          <button id="registrarse" class="navBTN">Registrate</button>
-        </div>
-
-        <div class="box">
+        </aside>
+        <section class="box">
           <div id="main-contenido">
-
+            <div class="content">
+              <h1>Ingrese su usuario</h1>
+              <input class="boxes" type="text" placeholder="Usuario" required />
+            </div>
+            <div class="content">
+              <h1>Ingrese su contraseña</h1>
+              <input class="boxes" type="password" placeholder="Contraseña" required />
+            </div>
+            <div class="botones">
+              <div class="pie_caja">
+                <a href="./index.html">
+                  <button id="mostraMenu" class="button">Iniciar sesion</button>
+                  </a>
+                  <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
+                  <button id="recovery" class="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
           <footer></footer>
         </div>
-      </div>
-    </aside>
+    </main>
 
     <!-- TEMPLATES-->
     <template id="tempInicio">
       <div class="content">
         <h1>Ingrese su usuario</h1>
-        <input class="boxes" type="text" placeholder="Usuario" />
+        <input class="boxes" type="text" placeholder="Usuario" required/>
       </div>
       <div class="content">
         <h1>Ingrese su contraseña</h1>
-        <input class="boxes" type="password" placeholder="Contraseña" />
+        <input class="boxes" type="password" placeholder="Contraseña" required/>
       </div>
-      <div class="botones">
-        <div>
-          <input class="button" type="button" value="Iniciar sesion" />
-        </div>
-        <div>
-          <input id="recovery" class="button" type="button" value="Olvide mi contraseña" />
-        </div>
-      </div>
+    <div class="botones">
       <div class="pie_caja">
-
+        <a href="./index.html">
+          <button id="mostraMenu" class="button">Iniciar sesion</button>
+          </a>
+          <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
+          <button id="recovery" class="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
       </div>
+    </div>
+
     </template>
 
     <template id="tempRegistro">
       <div class="contenedor-registro">
-        <div class="content">
-          <h1>Usuario</h1>
-          <input class="boxes" type="text" maxlength="10" />
-        </div>
-        <div class="content">
-          <h1>Nombres</h1>
-          <input class="boxes" type="text" />
-        </div>
-        <div class="content">
-          <h1>Apellidos</h1>
-          <input class="boxes" type="text" />
-        </div>
-        <div class="content">
-          <h1>Contraseña</h1>
-          <input class="boxes" type="text" />
-        </div>
-        <div class="content">
-          <h1>Cargo</h1>
-          <select class="boxes">
-            <option value="Option 1">Eliga</option>
-            <option value="Jefe de inventario">Jefe de inventario</option>
-            <option value="Despachador">Despachador</option>
-            <option value="Repartidor">Repartidor</option>
-          </select>
-        </div>
-        <div class="content">
-          <h1>Fecha de nacimiento</h1>
-          <input class="boxes" type="date" />
-        </div>
-        <div class="content">
-          <h1>Tipo de documento</h1>
-          <select class="boxes">
-            <option value="Option 1">Eliga</option>
-            <option value="cedula">Cedula</option>
-            <option value="pasaporte">Pasaporte</option>
-            <option value="permanencia">Permanencia</option>
-          </select>
-        </div>
-        <div class="content">
-          <h1>Numero de documento</h1>
-          <input class="boxes" type="text" maxlength="10" />
-        </div>
-        <div class="pie_caja">
-          <button id="iniciarSesion" class="registro">Registrate!</button>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input id="usuario" class="boxes" type="text" maxlength="10" />
+          </div>
+          <div class="form-group">
+            <label for="nombres">Nombres</label>
+            <input id="nombres" class="boxes" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="apellidos">Apellidos</label>
+            <input id="apellidos" class="boxes" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="contrasena">Contraseña</label>
+            <input id="contrasena" class="boxes" type="password" />
+          </div>
+          <div class="form-group">
+            <label for="cargo">Cargo</label>
+            <select id="cargo" class="boxes">
+              <option value="">Elija</option>
+              <option value="Jefe de inventario">Jefe de inventario</option>
+              <option value="Despachador">Despachador</option>
+              <option value="Repartidor">Repartidor</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            <input id="fecha_nacimiento" class="boxes" type="date" />
+          </div>
+          <div class="form-group">
+            <label for="tipo_documento">Tipo de documento</label>
+            <select id="tipo_documento" class="boxes">
+              <option value="">Elija</option>
+              <option value="cedula">Cédula</option>
+              <option value="pasaporte">Pasaporte</option>
+              <option value="permanencia">Permanencia</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="numero_documento">Número de documento</label>
+            <input id="numero_documento" class="boxes" type="text" maxlength="10" />
+          </div>
+          <div class="pie_caja">
+            <button id="iniciarSesion" class="registro" onclick="mostrarInicio()">Regístrate</button>
+            <button id="iniciarSesion" class="registro" onclick="mostrarInicio()">
+              Volver al inicio
+            </button>
+          </div>
         </div>
       </div>
     </template>
@@ -129,14 +144,15 @@
         Recuperar contraseña
       </button>
       <div>
-        <button id="iniciarSesion" class="registro">
+        <button id="iniciarSesion" class="registro" onclick="mostrarInicio()">
           Volver al inicio
         </button>
       </div>
     </template>
     
     <!-- LINKS-->
+    <script src="./view/js/atributos.js"></script>
     <script src="./view/js/vista.js"></script>
-    <script src="./controlador/controladorInicio.js"></script>
+    <script src="./controlador/controlador.js"></script>
   </body>
 </html>
