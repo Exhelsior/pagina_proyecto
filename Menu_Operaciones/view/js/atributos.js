@@ -1,4 +1,3 @@
-window.onload = () =>{
     // FONDOS DINAMICOS
 const fondos = [
     // añade la url del fondo aqui
@@ -15,8 +14,6 @@ const fondos = [
   }
   
   fondoRandom();
-
-}
 
 
 

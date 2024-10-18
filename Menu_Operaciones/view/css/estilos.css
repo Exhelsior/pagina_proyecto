@@ -99,7 +99,7 @@ body{
     font-size: 2.9rem;
 }
 
-.contenedor-grid { 
+.contenedor-grid {
     width: 100%;
     display: flex;
     /*flex-wrap: wrap;*/
@@ -192,17 +192,17 @@ body{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;    
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;
 }
 
 .del-boton-tabla {
     padding-top: 2px;
     width: 35px;
-    background-color: #ff4c4c;  
+    background-color: #ff4c4c;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;    
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;
 }
 
 
@@ -478,17 +478,17 @@ body{
 #add-bill{
     background-color: #80f182;
     border-radius: 5px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 #del-bill{
-    background-color: #ff4c4c;  
+    background-color: #ff4c4c;
     border-radius: 5px;
     cursor: pointer;
 }
 
 #fact-bill {
-    background-color: #4cb7ff; 
+    background-color: #4cb7ff;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -577,13 +577,38 @@ body{
 
 /* Estilos generales que ya tienes, para pantallas grandes */
 
-@media (max-width: 768px) {
-    /* Para tabletas y pantallas más pequeñas */
+@media (max-width: 1024px) {
+    /* Para pantallas de laptop y tabletas */
     .caja-principal {
-        grid-template-columns: 30% 70%; /* Ajustar tamaño del menú y contenido */
+        grid-template-columns: 20% 80%; /* Ajustar tamaño del menú y contenido */
+    }
+    .side-menu button {
+        font-size: 0.9rem; /* Reducir tamaño de la fuente de los botones del menú */
+    }
+    .contenido-inventario h1 {
+        font-size: 2.5rem; /* Ajusta el tamaño de títulos */
+    }
+    .inventario {
+        padding: 1.5rem; /* Reduce el padding */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Para tabletas y pantallas pequeñas */
+    .caja-principal {
+        grid-template-columns: 25% 75%; /* Ajustar tamaño del menú y contenido */
     }
     .side-menu button {
         font-size: 0.8rem; /* Reducir tamaño de la fuente de los botones del menú */
+    }
+    .contenido-inventario h1 {
+        font-size: 2rem; /* Ajusta el tamaño de títulos */
+    }
+    .inventario {
+        padding: 1rem; /* Reduce el padding */
+    }
+    .contenedor-tabla-producto {
+        height: 300px; /* Ajusta la altura de las tablas */
     }
 }
 
@@ -593,23 +618,45 @@ body{
         grid-template-columns: 100%; /* Elimina la barra lateral en móviles */
     }
     .bar-menu {
-        display: none; /* Oculta el menú lateral en móviles */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+        border-radius: 0;
+        border: none;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+        margin-bottom: 0;
+    }
+    .side-menu {
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 0;
+    }
+    .side-menu button {
+        font-size: 0.7rem; /* Aún más pequeño para móviles */
+        padding: 5px;
+        flex-grow: 1;
+        text-align: center;
+        border-bottom: none;
     }
     .contenido-operativo {
         padding: 0.5rem; /* Ajusta el padding para pantallas pequeñas */
     }
-    .side-menu button {
-        font-size: 0.7rem; /* Aún más pequeño para móviles */
-    }
     .contenido-inventario h1 {
-        font-size: 2rem; /* Ajusta el tamaño de títulos */
+        font-size: 1.5rem; /* Ajusta el tamaño de títulos */
     }
     .inventario {
-        padding: 1rem; /* Reduce el padding */
+        padding: 0.5rem; /* Reduce el padding */
     }
     .contenedor-tabla-producto {
         height: auto; /* Ajusta la altura de las tablas en móviles */
     }
 }
-
-
