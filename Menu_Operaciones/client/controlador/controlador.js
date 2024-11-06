@@ -7,12 +7,6 @@ window.onload = () => {
     .getElementById("pag-inventarios")
     .addEventListener("click", mostrarInventario);
   document
-    .getElementById("pag-insumo")
-    .addEventListener("click", mostrarInsumos);
-  document
-    .getElementById("pag-productos")
-    .addEventListener("click", mostrarProductos);
-  document
     .getElementById("pag-pedidos")
     .addEventListener("click", mostrarPedidos);
     document
@@ -47,14 +41,6 @@ window.onload = () => {
 
 function mostrarInventario() {
   vista.mostrarPlantilla("tempInventario", "main-contenido");
-}
-
-function mostrarInsumos() {
-  vista.mostrarPlantilla("tempInsumo", "main-contenido");
-}
-
-function mostrarProductos() {
-  vista.mostrarPlantilla("tempProducto", "main-contenido");
 }
 
 function mostrarPedidos() {
