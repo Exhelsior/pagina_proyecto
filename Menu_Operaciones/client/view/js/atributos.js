@@ -1,10 +1,11 @@
     // FONDOS DINAMICOS
 const fondos = [
     // añade la url del fondo aqui
-    '../img/fondoInicio.svg',
-    '../img/fondoInicio2.svg',
-    '../img/fondoInicio3.svg',
-    '../img/fondoInicio4.svg'
+    '/Menu_Operaciones/client/view/img/fondoInicio.svg',
+    '/Menu_Operaciones/client/view/img/fondoInicio2.svg',
+    '/Menu_Operaciones/client/view/img/fondoInicio3.svg',
+    '/Menu_Operaciones/client/view/img/fondoInicio4.svg',
+
   
   ];
   
