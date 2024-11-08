@@ -1,12 +1,32 @@
 USE masterbread;
 
+-- Deshabilitar la verificación de llaves foráneas:
+   SET FOREIGN_KEY_CHECKS = 0;
+
+-- Eliminar la tabla `Sesiones` primero, ya que tiene llaves foráneas:
+   DROP TABLE IF EXISTS Sesiones;
+
+-- Eliminar la tabla `RolesUsuarios`, que también tiene llaves foráneas:
+   DROP TABLE IF EXISTS RolesUsuarios;
+
+-- Eliminar la tabla `Usuarios`, que es la tabla referenciada por las otras tablas:
+   DROP TABLE IF EXISTS Usuarios; 
+
+-- Eliminar la tabla `Roles`, que no tiene dependencias:
+   DROP TABLE IF EXISTS Roles;
+
+-- Habilitar nuevamente la verificación de llaves foráneas:
+   SET FOREIGN_KEY_CHECKS = 1;
+
+
+
 -- Tabla Roles 
 CREATE TABLE `Roles` (
   `IdRoles` int PRIMARY KEY AUTO_INCREMENT,
   `NombreRol` varchar(100) NOT NULL UNIQUE
 );
 
--- Tabla Usuarios (sin la dependencia a RolesUsuarios)
+-- Tabla Usuarios 
 CREATE TABLE `Usuarios` (
   `IdUsuarios` int PRIMARY KEY AUTO_INCREMENT,
   `Contraseña_hash` varchar(255) NOT NULL,

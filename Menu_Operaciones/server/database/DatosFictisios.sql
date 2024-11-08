@@ -21,7 +21,7 @@ INSERT INTO RolesUsuarios (IdUsuarios, IdRoles) VALUES
 (1, 1), 
 (2, 2),  
 (3, 3),  
-(4, 4),
+(4, 4), 
 (5, 2);
 
 
