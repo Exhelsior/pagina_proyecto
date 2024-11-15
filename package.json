@@ -1,0 +1,12 @@
+{
+  "name": "pagina_proyecto",
+  "version": "1.0.0",
+  "description": "Aqui ira todo archivo HTML, CSS y JS del proyecto\r Tambien se hace el manejo de versiones de cada uno de los archivos respectivos al programa,\r para de esa manera cumplir con la norma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

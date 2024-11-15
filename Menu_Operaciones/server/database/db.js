@@ -1,18 +1,28 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
-const connection = mysql.createConnection({
+// Configuración de la conexión
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'masterbread'
+    database: 'masterbread',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
-connection.connect((err) => {  
-  if (err) {
-    console.error('Error al conectar a la base de datos:', err.stack);
-        return;
-    } 
-    console.log('Conexión exitosa a la base de datos.', connection.threadId);
-});
+// Función para probar la conexión
+async function testConnection() {
+    try {
+        const connection = await pool.getConnection();
+        console.log('Conexión exitosa a la base de datos');
+        connection.release();
+    } catch (error) {
+        console.error('Error al conectar a la base de datos:', error);
+    }
+}
 
-module.exports = connection;
+module.exports = {
+    pool,
+    testConnection
+};

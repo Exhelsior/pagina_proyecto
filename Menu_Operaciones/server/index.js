@@ -1,16 +1,18 @@
-const express = require("express");
-const userController = require("./controller/usuariosController");
-const insertUserController = require("./controller/insertarUsuarioController");
-// const deleteUser = require("./controller/usuarioDelete");
+// index.js
+const express = require('express');
+const { testConnection } = require('./database/db');
+const usuarioRoutes = require('./routes/routes.js');
 
 const app = express();
-const port = 3000;
 app.use(express.json());
 
-app.get("/users", userController.getUsers);
-app.get("/insert", insertUserController.createUser);
-// app.get("/deleteQuery", deleteUser.deleteUser);
+// Probar la conexión a la base de datos
+testConnection();
 
-app.listen(port, () => {
-  console.log(`Servidor escuchando en el puerto ${port}`);
+// Usar las rutas
+app.use('/usuarios', usuarioRoutes);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
