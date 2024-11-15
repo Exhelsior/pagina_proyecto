@@ -41,7 +41,7 @@ body{
 .logo img{
     display: flex;
     justify-content: center;
-    width: 72%;
+    width: 95%;
     border-radius: 10px;
 }
 
@@ -59,7 +59,7 @@ body{
     height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
 }
