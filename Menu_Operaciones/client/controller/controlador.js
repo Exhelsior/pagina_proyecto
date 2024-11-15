@@ -19,22 +19,6 @@ window.onload = () => {
           window.location.href = 'index.html';
       }
   });
-    
-    // modals
-    document
-    .addEventListener("click", function(event) {
-      if (event.target && event.target.id == 'add-modal') {
-        mostrarModal();
-      }
-    })
-
-    document
-    .querySelector(".close")
-    .addEventListener("click", function(){
-      cerrarModal()
-    })
-
-
 };
 
 
@@ -53,15 +37,3 @@ function mostrarEnvios() {
 
 // funciones de los modales
 
-function mostrarModal() {
-  modal.style.display = "flex";
-}
-
-function cerrarModal() {
-  modal.style.display = "none";
-}
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
