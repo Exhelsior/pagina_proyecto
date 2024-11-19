@@ -908,7 +908,7 @@
               </table>
             </div>
             <div class="boton-add">
-              <button id="add-modal" class="add">Agregar Producto</button>
+              <button id="add-producto" class="add">Agregar Producto</button>
             </div>
           </div>
           <div class="inventario insumos">
@@ -2457,40 +2457,10 @@
     </template>
 
     <!-- Modales -->
-    <div id="modal-producto" class="modal">
-      <div class="modal-content-producto">
-        <span class="close">&times;</span>
-        <h1>Agregar Producto</h1>
-        <div class="contenedor-contenido">
-          <div class="contenido">
-            <h3>Nombre</h3>
-            <input id="name-producto" type="text" />
-          </div>
-          <div class="contenido">
-            <h3>
-              Fecha de <br />
-              Fabricación
-            </h3>
-            <input type="date" id="fabric-date" />
-          </div>
-          <div class="contenido">
-            <h3>
-              Fecha de <br />
-              Vencimiento
-            </h3>
-            <input type="date" id="caducid-date" />
-          </div>
-          <div class="contenido">
-            <h3>Cantidad</h3>
-            <input type="number" id="cantidad-producto" />
-          </div>
-          <div class="contenido">
-            <h3>Precio</h3>
-            <input type="text" class="precio" />
-          </div>
-          <div class="contenedor-boton">
-            <button id="insert-product" class="add">Agregar Producto</button>
-          </div>
+    <div id="modal" class="modal">
+      <div class="modal-body">
+        <span id="close" class="close">&times;</span>
+        <h1 id="titulo-modal"></h1>
         </div>
       </div>
     </div>
@@ -2505,6 +2475,5 @@
     <!-- LINKS -->
     <script src="./view/js/vista.js"></script>
     <script src="./controller/controlador.js"></script>
-    <script src="./controlador/controlador-modals.js"></script>
   </body>
 </html>
