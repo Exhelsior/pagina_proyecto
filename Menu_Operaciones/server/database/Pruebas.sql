@@ -1,3 +1,5 @@
+SELECT*FROM usuarios;
+
 -- filtrar usuarios por su inicial de nombre --
 SELECT * FROM usuarios
 WHERE nombre LIKE ('P%');
@@ -21,5 +23,8 @@ VALUES ('$2y$10$HashedPassword6','Diego Pérez', 'diego@email.com', 'Pasaporte',
 
 INSERT INTO RolesUsuarios (IdUsuarios, IdRoles) 
 VALUES (LAST_INSERT_ID(), 3);
+
+-- borrar un dato en especifico --
+
 
 
