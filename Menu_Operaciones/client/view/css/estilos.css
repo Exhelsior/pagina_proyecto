@@ -527,7 +527,10 @@ body{
     justify-content: center;
 }
 
-.modal-content-producto{
+.show {
+    display: flex;
+}
+.modal-body{
     background-color: #fefefe;
     padding: 40px;
     margin: 50px 0 50px 0px;
@@ -538,7 +541,7 @@ body{
 }
 
 
-.modal-content-producto h1{
+.modal-body h1{
     text-align: center;
 }
 
@@ -555,41 +558,6 @@ body{
     cursor: pointer;
 }
 
-.contenedor-contenido {
-    display: block;
-}
-
-.contenido {
-    display: flex;
-    margin-top: 10px;
-    align-items: center;
-}
-
-.contenido h3 {
- font-size: 1em;
- width: 25%;
-}
-
-.contenido input{
-    width: 70%;
-    height: 3vh;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    outline: none;
-}
-
-.contenedor-boton {
-    display: flex;
-    width: 100%;
-    margin-top: 15px;
-    justify-content: center;
-}
-
-.contenedor-boton button{
-    width: 50%;
-}
-
-/* Estilos generales que ya tienes, para pantallas grandes */
 
 @media (max-width: 1024px) {
     /* Para pantallas de laptop y tabletas */
