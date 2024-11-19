@@ -1,6 +1,9 @@
 let vista = new Vista();
-let modal = document.getElementById("modal-producto")
 const mainContenido = document.getElementById("main-contenido");
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("close");
+
+
 
 window.onload = () => {
   document
@@ -19,11 +22,35 @@ window.onload = () => {
           window.location.href = 'index.html';
       }
   });
+  
+    document
+    .getElementById("pag-inventarios")
+    .addEventListener("click", mostrarModal);
+
+    document
+    .getElementById("pag-inventarios")
+    .addEventListener("click", ocultarModal);
+
 };
 
 
+const mostrarModal = () =>{
+    const openModal = document.querySelector("#add-producto");
+    openModal.addEventListener("click", () =>{
+      modal.classList.toggle("show");
+    })
+}
 
-function mostrarInventario() {
+const ocultarModal = () => {
+  const closeModal = document.querySelector("#close");
+  closeModal.addEventListener("click", () => {
+    modal.classList.toggle("show");
+  })
+}
+
+
+
+mostrarInventario = () => {
   vista.mostrarPlantilla("tempInventario", "main-contenido");
 }
 
@@ -35,5 +62,5 @@ function mostrarEnvios() {
   vista.mostrarPlantilla("tempEnvios", "main-contenido");
 }
 
-// funciones de los modales
+
 
