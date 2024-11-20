@@ -3,10 +3,7 @@ const { pool } = require('../database/db');
 
 const generarToken = async (req, res) => {
     const { email } = req.body;
-    const usuario = usuarios[0];
-    const token = crypto.randomBytes(20).toString("hex");
-    const expiracion = new Date(Date.now() + 3600000);
-
+  
     // Validación de email
     if (!email) {
       return res.status(400).json({ 
@@ -24,6 +21,10 @@ const generarToken = async (req, res) => {
     if (usuarios.length === 0) {
       return res.status(404).json({ mensaje: "Usuario no encontrado" });
     }
+
+    const usuario = usuarios[0];
+    const token = crypto.randomBytes(20).toString("hex");
+    const expiracion = new Date(Date.now() + 3600000);
 
     console.log('Datos para actualizar:', {
       token,
