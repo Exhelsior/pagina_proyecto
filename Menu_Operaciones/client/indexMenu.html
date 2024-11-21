@@ -1882,8 +1882,8 @@
           <h3>TOTAL A PAGAR: $50000</h3>
         </div>
         <div class="boton-add">
+          <button id="bill-add-product" class="add">Agregar Producto</button>
           <button class="add">Agendar Pedido</button>
-          <button class="add">Agregar Producto</button>
         </div>
       </div>
     </template>
@@ -2457,10 +2457,10 @@
     </template>
 
     <!-- Modales -->
-    <div id="modal" class="modal">
-      <div class="modal-body">
+    <div id="modal" class="hidden">
+      <div id="modal-content" >
         <span id="close" class="close">&times;</span>
-        <h1 id="titulo-modal"></h1>
+        <div id="modal-body"></div>
         </div>
       </div>
     </div>
@@ -2474,6 +2474,6 @@
 
     <!-- LINKS -->
     <script src="./view/js/vista.js"></script>
-    <script src="./controller/controlador.js"></script>
+    <script type="module" src="./controller/controlador.js"></script>
   </body>
 </html>
