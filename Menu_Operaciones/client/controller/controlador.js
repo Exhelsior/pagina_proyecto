@@ -1,5 +1,5 @@
-import { closeModal, openModal } from "../view/js/contenido-modal.js";
-import { listenerButton } from "./buttons.js";
+import { setupModalClose, openModal, outsideClose } from "../view/js/contenido-modal.js";
+import { listenerButton, listenerBillButton } from "./buttons.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -28,13 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function mostrarInventario() {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
     listenerButton(openModal);
-    closeModal();
-
+    setupModalClose();
+    outsideClose();
   }
 
 
   function mostrarPedidos() {
     vista.mostrarPlantilla("tempPedidos", "main-contenido");
+    listenerBillButton(openModal);
+    setupModalClose();
+    outsideClose();
   }
 
   function mostrarEnvios() {
