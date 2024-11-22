@@ -5,7 +5,7 @@ const getUsuarios = require('../controller/getUsuarios');
 const eliminarUsuario = require('../controller/deleteUsuarios');
 const actualizarUsuario = require('../controller/updateUsuarios');
 const tokenUsuarios = require('../controller/tokenUsuarios');
-const recoveryUsuarios = require('../controller/recoveryUsuarios');
+const recoveryUsuarios = require('../controller/recoveryUsuarios'); 
 
 // Rutas para usuarios
 router.post('/', crearUsuario);

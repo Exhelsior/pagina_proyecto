@@ -2,13 +2,13 @@ const { pool } = require('../database/db');
 
 const crearUsuario = async (req, res) => {
     try {
-        // const { Contraseña_hash, Nombre, Email, tipoDocumento, numeroDocumento, FechaCreacion } = req.body;
-        const Contraseña_hash = 'hash_de_contraseña';
-        const Nombre = 'Juan Pérez';
-        const Email = 'juan.perez@example.com';
-        const tipoDocumento = 'CC';
-        const numeroDocumento = '1234567890';
-        const FechaCreacion = '2024-11-15';
+         const { Contraseña_hash, Nombre, Email, tipoDocumento, numeroDocumento, FechaCreacion } = req.body;
+        // const Contraseña_hash = 'hash_de_contraseña';
+        // const Nombre = 'Juan Pérez';
+        // const Email = 'juan.perez@example.com';
+        // const tipoDocumento = 'CC';
+        // const numeroDocumento = '1234567890';
+        // const FechaCreacion = '2024-11-15';
 
 
         // Verificar si el email ya existe

@@ -41,7 +41,7 @@
             <div class="botones">
               <button id="mostraMenu" class="button">Iniciar sesion</button>
               <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
-              <button id="recovery" class="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
+              <button id="recovery" class="button" onclick="mostrarToken()">Olvide mi contraseña</button>
             </div>
           </div>
       </section>
@@ -66,7 +66,7 @@
             <div class="botones">
               <button id="mostraMenu" class="button">Iniciar sesion</button>
               <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
-              <button id="recovery" class="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
+              <button id="recovery" class="button" onclick="mostrarToken()">Olvide mi contraseña</button>
             </div>
           </div>
       </section>
@@ -79,10 +79,6 @@
         <div class="form-group">
           <label for="nombres">Nombres</label>
           <input id="nombres" class="boxes" type="text" />
-        </div>
-        <div class="form-group">
-          <label for="apellidos">Apellidos</label>
-          <input id="apellidos" class="boxes" type="text" />
         </div>
         <div class="form-group">
           <label for="apellidos">Correo</label>
@@ -124,25 +120,32 @@
     </div>
   </template>
 
-  <template id="tempRecovery">
-    <div class="content">
-      <h1>Ingrese ID de usuario</h1>
-      <input class="boxes" type="text" />
-    </div>
+  <template id="tempToken">
     <div class="content">
       <h1>Ingrese su correo</h1>
       <input class="boxes" type="email" />
     </div>
     </div>
     <div class="pie_caja">
-      <button id="showNotificationBtn" class="registro">
+      <button id="showNotificationBtn" class="registro" onclick="mostrarRecovery()">
+        Generar token
+      </button>
+  </template>
+
+  <template id="tempRecovery">
+    <div class="content">
+      <h1>Ingrese su token</h1>
+      <input class="boxes" type="email" />
+    </div>
+    <div class="content">
+      <h1>Ingrese su nueva contraseña</h1>
+      <input class="boxes" type="password" />
+    </div>
+    </div>
+    <div class="pie_caja">
+      <button id="showNotificationBtn" class="registro" onclick="mostrarInicio()">
         Recuperar contraseña
       </button>
-      <div>
-        <button id="iniciarSesion" class="registro" onclick="mostrarInicio()">
-          Volver al inicio
-        </button>
-      </div>
   </template>
 
   <!-- LINKS-->
