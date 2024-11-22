@@ -99,6 +99,7 @@ body{
 
 #main-contenido{
     width: 100%;
+    margin: auto;
 }
 /*------------------------------ventana inventarios------------------------------*/
 
@@ -514,7 +515,7 @@ body{
 
 /* ----------------- Modal Productos ----------------- */
 
-.modal {
+#modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -530,10 +531,11 @@ body{
 .show {
     display: flex;
 }
-.modal-body{
+
+#modal-content {
     background-color: #fefefe;
     padding: 40px;
-    margin: 50px 0 50px 0px;
+    margin: 5rem auto;
     border: 1px solid #888;
     width: 25%;
     height: max-content;
@@ -556,6 +558,26 @@ body{
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.form-content {
+    display: flex;
+    margin-bottom: 1em;
+    gap: 1rem;
+    align-items: center;
+    height: 7vh;
+}
+
+#modal-body h1 {
+    text-align: center;
+}
+
+.form-content input {
+    width: 65%;
+    height: 3vh;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    outline: none;
 }
 
 

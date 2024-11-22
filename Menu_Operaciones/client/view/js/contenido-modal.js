@@ -5,6 +5,7 @@ export function openModal(content) {
 
     modalBody.innerHTML = content;
     modal.style.display = "flex";
+    console.log("test");
 }
 
 //cerrar el modal
