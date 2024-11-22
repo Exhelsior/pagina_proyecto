@@ -54,7 +54,81 @@ const modalContent = {
 
     addBillProduct:
         `
-        <h1>Factura</h1>
+        <h1>Agregar Producto <br> a la Factura</h1>
+        <div class="tb-bill">
+            <table class="tabla-productos">
+                <thead class="head-pedidos">
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>PRECIO UNITARIO</th>
+                        <th>CANTIDAD</th>
+                        <th>CHECK</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Pan Frances</td>
+                        <td>$5000</td>
+                        <td>
+                            <input type="number" id="cant-bill-prodcut"/>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="check-producto"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>Pan Frances</td>
+                        <td>$5000</td>
+                        <td>
+                            <input type="number" id="cant-bill-prodcut"/>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="check-producto"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>Pan Frances</td>
+                        <td>$5000</td>
+                        <td>
+                            <input type="number" id="cant-bill-prodcut"/>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="check-producto"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>Pan Frances</td>
+                        <td>$5000</td>
+                        <td>
+                            <input type="number" id="cant-bill-prodcut"/>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="check-producto"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>Pan Frances</td>
+                        <td>$5000</td>
+                        <td>
+                            <input type="number" id="cant-bill-prodcut"/>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="check-producto"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="boton-add">
+            <button id="add-product-bill" class="add">Añadir Productos</button>
+        </div>
         `
 };
 

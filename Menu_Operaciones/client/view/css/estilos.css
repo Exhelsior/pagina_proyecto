@@ -116,8 +116,8 @@ body{
 }
 
 .contenedor-grid {
-    display: flex;
-    /*flex-wrap: wrap;*/
+    display: grid;
+    grid-template-columns: 51rem 43rem;
     gap: 20px;
     align-items: center;
     justify-content: space-evenly;
@@ -165,6 +165,7 @@ body{
 }
 
 .contenedor-tabla-producto{
+    width: 47rem;
     overflow-y: scroll;
     height: 420px;
 }
@@ -512,6 +513,30 @@ body{
     display: flex;
     gap: 10px;
 }
+/* ----------------- Modal Facturas ----------------- */
+.tb-bill th, .tb-bill td {
+    text-align: center;
+    padding: 5px;
+    height: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+#cant-bill-prodcut{
+    width: 4rem;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    overflow-y: scroll;
+}
+.tb-bill{
+    overflow-y: scroll;
+    height: 35vh;
+}
+.tb-bill thead {
+    position: sticky;
+    background-color: #EFD79B
+}
+
+
 
 /* ----------------- Modal Productos ----------------- */
 
