@@ -1,7 +1,7 @@
 /*
  * Author: Juan David Robayo Olaya
  * Date: 15-10-2024
- * Description: CSS mejorado para la página de inicio con diseño más moderno y responsivo, incluyendo optimizaciones para el formulario de registro.
+ * Description: CSS con diseño más moderno y responsivo
  */
 
 :root {
@@ -225,93 +225,6 @@ label {
 }
 
 /* Media queries */
-@media screen and (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr minmax(auto, 600px) 1fr;
-    gap: 20px;
-  }
-
-  .logo {
-    width: 50%;
-  }
-
-  .box {
-    width: 95%;
-    max-width: 450px;
-    padding: 40px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr;
-    padding: 20px;
-  }
-
-  .image,
-  .box,
-  footer,
-  .navegador {
-    grid-column: 1;
-  }
-
-  .logo {
-    width: 45%;
-    max-width: 250px;
-  }
-
-  .box {
-    width: 90%;
-    padding: 30px;
-    max-width: 400px;
-  }
-
-  .button,
-  .registro,
-  .navBTN {
-    font-size: 0.9rem;
-    padding: 10px 20px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  body {
-    background-size: cover;
-  }
-
-  .container {
-    padding: 15px;
-  }
-
-  .logo {
-    width: 55%;
-  }
-
-  .box {
-    width: 95%;
-    padding: 25px;
-    border-radius: var(--border-radius);
-  }
-
-  .botones {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .button,
-  .registro {
-    width: 100%;
-  }
-
-  .navBTN {
-    width: calc(50% - 5px);
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media screen and (max-width: 1200px) {
   .container {
     grid-template-columns: 1fr minmax(auto, 800px) 1fr;

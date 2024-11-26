@@ -1,5 +1,5 @@
 const crypto = require('crypto');
-const { pool } = require('../database/db');
+const { pool } = require('../../database/db');
 
 const generarToken = async (req, res) => {
     const { email } = req.body;

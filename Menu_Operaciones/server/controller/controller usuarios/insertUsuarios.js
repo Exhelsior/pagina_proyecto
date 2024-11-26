@@ -1,4 +1,4 @@
-const { pool } = require('../database/db');
+const { pool } = require('../../database/db');
 
 const crearUsuario = async (req, res) => {
     try {
@@ -10,7 +10,7 @@ const crearUsuario = async (req, res) => {
         // const numeroDocumento = '1234567890';
         // const FechaCreacion = '2024-11-15';
 
-
+        
         // Verificar si el email ya existe
         const [existeEmail] = await pool.query(
             'SELECT IdUsuarios FROM usuarios WHERE Email = ?',

@@ -1,5 +1,5 @@
 // controllers/usuarioControllers/deleteUsuario.js
-const { pool } = require('../database/db');
+const { pool } = require('../../database/db');
 
 const deleteUsuario = async (req, res) => {
         try {

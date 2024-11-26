@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const crearUsuario = require('../controller/insertUsuarios');
-const getUsuarios = require('../controller/getUsuarios');
-const eliminarUsuario = require('../controller/deleteUsuarios');
-const actualizarUsuario = require('../controller/updateUsuarios');
-const tokenUsuarios = require('../controller/tokenUsuarios');
-const recoveryUsuarios = require('../controller/recoveryUsuarios'); 
+const crearUsuario = require('../controller/controller usuarios/insertUsuarios');
+const getUsuarios = require('../controller/controller usuarios/getUsuarios');
+const eliminarUsuario = require('../controller/controller usuarios/deleteUsuarios');
+const actualizarUsuario = require('../controller/controller usuarios/updateUsuarios');
+const tokenUsuarios = require('../controller/controller usuarios/tokenUsuarios');
+const recoveryUsuarios = require('../controller/controller usuarios/recoveryUsuarios'); 
 
 // Rutas para usuarios
 router.post('/', crearUsuario);
