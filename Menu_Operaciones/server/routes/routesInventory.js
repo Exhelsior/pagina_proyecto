@@ -4,14 +4,22 @@ const {
     getInventory, 
     updateProducto,
     createProducto,
-    deleteProducto } = require('../controller/controller_inventario/inventarioController');
+    deleteProducto,
+    getInsumo,
+    updateInsumo,
+    createInsumo,
+    deleteInsumo } = require('../controller/controller_inventario/inventarioController');
 
 
 
-//Rutas de Inventario
-router.get('/:id', getInventory);
-router.put('/:id', updateProducto);
-router.post('/create-product', createProducto);
-router.delete('/delete-producto/:id', deleteProducto);
+//Rutas de Inventario 
+router.get('/producto/:id', getInventory);
+router.put('/producto/update/:id', updateProducto);
+router.post('/producto/create', createProducto);
+router.delete('/producto/delete/:id', deleteProducto);
+router.get('/insumo/:id', getInsumo);
+router.put('/insumo/update/:id', updateInsumo);
+router.post('/insumo/create', createInsumo);
+router.delete('/insumo/delete/:id', deleteInsumo);
 
 module.exports = router;

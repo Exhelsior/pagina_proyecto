@@ -115,7 +115,6 @@ const resetPassword = async (req, res) => {
 };
 
 const crearUsuario = async (req, res) => {
-<<<<<<< HEAD
   try {
     const {
       Contraseña_hash,
@@ -137,16 +136,6 @@ const crearUsuario = async (req, res) => {
       "SELECT IdUsuarios FROM usuarios WHERE Email = ?",
       [Email]
     );
-=======
-    try {
-         const { Contraseña_hash, Nombre, Email, tipoDocumento, numeroDocumento, FechaCreacion } = req.body;
-        
-        // Verificar si el email ya existe
-        const [existeEmail] = await pool.query(
-            'SELECT IdUsuarios FROM usuarios WHERE Email = ?',
-            [Email]
-        );
->>>>>>> cdf6166b57c25a6b7c166ab95d528e4f185b6293
 
     if (existeEmail.length > 0) {
       return res.status(400).json({
@@ -180,7 +169,6 @@ const crearUsuario = async (req, res) => {
   }
 };
 
-<<<<<<< HEAD
 const getUsuarios = async (req, res) => {
   try {
     const { id } = req.params;
@@ -196,20 +184,6 @@ const getUsuarios = async (req, res) => {
     });
   }
 };
-=======
-const getUsuarios =  async (req, res) => {
-        try {
-            const { id } = req.params;
-            const [usuarios] = await pool.query('SELECT * FROM usuarios  WHERE IdUsuarios = ?', [id]);
-            res.json(usuarios);
-        } catch (error) {
-            res.status(500).json({
-                error: 'Error al obtener usuarios',
-                detalles: error.message
-            });
-        }
-    };
->>>>>>> cdf6166b57c25a6b7c166ab95d528e4f185b6293
 
 const deleteUsuario = async (req, res) => {
   try {
