@@ -47,5 +47,6 @@ async function testConnection() {
 
 module.exports = {
     pool,
+    inventarypool,
     testConnection
 };
