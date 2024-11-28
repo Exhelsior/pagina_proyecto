@@ -18,8 +18,8 @@ const pool = mysql.createPool({
 const inventarypool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '8105',
-    database: 'masterbread',
+    password: 'root',// cambiar la contraseña de tu servidor a root
+    database: 'masterbreadInventario',//actualizar este nombre al database del inventario
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
