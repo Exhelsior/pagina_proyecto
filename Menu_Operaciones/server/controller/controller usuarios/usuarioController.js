@@ -1,6 +1,11 @@
+/**
+ * Creado el 26 de noviembre del 2024
+ * Funcion: diversos controladores para el manejo del CRUD para los usuarios
+ */
 const { pool } = require("../../database/db");
 const crypto = require("crypto");
 
+//update
 const actualizarUsuario = async (req, res) => {
   try {
     const { id } = req.params;
@@ -22,6 +27,7 @@ const actualizarUsuario = async (req, res) => {
   }
 };
 
+//token
 const generarToken = async (req, res) => {
   const { email } = req.body;
 
@@ -73,6 +79,7 @@ const generarToken = async (req, res) => {
   }
 };
 
+//recovery
 const resetPassword = async (req, res) => {
   const { token, nuevaContrasena } = req.body;
 
@@ -114,6 +121,7 @@ const resetPassword = async (req, res) => {
   }
 };
 
+//create
 const crearUsuario = async (req, res) => {
   try {
     const {
@@ -169,6 +177,7 @@ const crearUsuario = async (req, res) => {
   }
 };
 
+//get
 const getUsuarios = async (req, res) => {
   try {
     const { id } = req.params;
@@ -185,6 +194,7 @@ const getUsuarios = async (req, res) => {
   }
 };
 
+//delete
 const deleteUsuario = async (req, res) => {
   try {
     const { id } = req.params;

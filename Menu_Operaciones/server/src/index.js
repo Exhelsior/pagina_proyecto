@@ -1,4 +1,7 @@
-// index.js
+/**
+ * Creado el 26 de noviembre del 2024
+ * Funcion: Archivo encargado de la conexion principal y su ruta primaria 
+ */
 const express = require('express');
 const { testConnection } = require('../database/db.js');
 const usuarioRoutes = require('../routes/routes.js');

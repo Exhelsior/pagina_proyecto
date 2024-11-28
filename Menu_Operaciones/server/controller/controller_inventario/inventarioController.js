@@ -1,10 +1,10 @@
-const { pool } = require('../../database/db');
+const { inventarypool } = require('../../database/db');
 
 // ---------------------- Productos -------------------------------
 const getInventory = async (req, res) => {
     try {
         const {id} = req.params;
-        const [producto] = await pool.query('SELECT * FROM Producto WHERE Idproducto = ?', [id]);
+        const [producto] = await inventarypool.query('SELECT * FROM Producto WHERE Idproducto = ?', [id]);
         res.json(producto);
     } catch (error) {
         res.status(500).json({
@@ -19,7 +19,7 @@ const updateProducto = async (req, res) => {
         const{id} = req.params;
         const{NombreProducto, Precio, Cantidad, Lote, FechaVencimiento} = req.body;
 
-        const [result] = await pool.query(
+        const [result] = await inventarypool.query(
             'UPDATE Producto SET NombreProducto = ?, Precio = ?, Cantidad = ?, Lote = ?, FechaVencimiento = ? WHERE IdProducto = ?',
             [NombreProducto, Precio, Cantidad, Lote, FechaVencimiento, id]
         );
@@ -42,7 +42,7 @@ const createProducto = async (req, res) => {
     try {
         const { NombreProducto, Precio, Cantidad, Lote, FechaVencimiento} = req.body; 
         
-        const [result] = await pool.query(
+        const [result] = await inventarypool.query(
             "INSERT INTO Producto (`NombreProducto`, `Precio`, `Cantidad`, `Lote`, `FechaVencimiento`) VALUES (?, ?, ?, ?, ?)",
             [NombreProducto, Precio, Cantidad, Lote, FechaVencimiento]
         );
@@ -64,7 +64,7 @@ const deleteProducto = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const[result] = await pool.query(
+        const[result] = await inventarypool.query(
             'DELETE FROM Producto WHERE IdProducto = ?', [id]
         );
 
@@ -88,7 +88,7 @@ const deleteProducto = async (req, res) => {
 const getInsumo = async (req, res) => {
     try {
         const {id} = req.params;
-        const [insumo] = await pool.query('SELECT * FROM Insumos WHERE IdInsumo = ?', [id]);
+        const [insumo] = await inventarypool.query('SELECT * FROM Insumos WHERE IdInsumo = ?', [id]);
         res.json(insumo);
     } catch (error) {
         res.status(500).json({
@@ -103,7 +103,7 @@ const updateInsumo = async (req, res) => {
         const{id} = req.params;
         const{nombre, fehcaIngreso, fechaVencimiento, cantidad} = req.body;
 
-        const [result] = await pool.query(
+        const [result] = await inventarypool.query(
             'UPDATE Insumos SET nombre = ?, fechaIngreso = ?, fechaVencimiento = ?, cantidad = ? WHERE IdInsumo = ?',
             [nombre, fehcaIngreso, fechaVencimiento, cantidad, id]
         );
@@ -126,7 +126,7 @@ const createInsumo = async (req, res) => {
     try {
         const { nombre, fehcaIngreso, fechaVencimiento, cantidad } = req.body; 
         
-        const [result] = await pool.query(
+        const [result] = await inventarypool.query(
             "INSERT INTO Insumos (`nombre`, `fechaIngreso`, `fechaVencimiento`, `cantidad`) VALUES (?, ?, ?, ?)",
             [nombre, fehcaIngreso, fechaVencimiento, cantidad]
         );
@@ -148,7 +148,7 @@ const deleteInsumo = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const[result] = await pool.query(
+        const[result] = await inventarypool.query(
             'DELETE FROM Insumos WHERE IdInsumo = ?', [id]
         );
 
