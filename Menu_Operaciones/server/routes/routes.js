@@ -1,3 +1,8 @@
+/**
+ * Creado el 26 de noviembre del 2024
+ * Funcion: albergue de las rutas para su uso posterior en postman
+ */
+
 const express = require("express");
 const router = express.Router();
 const {
@@ -10,11 +15,11 @@ const {
 } = require("../controller/controller usuarios/usuarioController");
 
 // Rutas para usuarios
-router.post("/", crearUsuario);
+router.post("/create", crearUsuario);
 router.get("/get/:id", getUsuarios);
 router.get("/recovery", resetPassword);
-router.delete("/:id", deleteUsuario);
-router.put("/:id", actualizarUsuario);
+router.delete("/delete/:id", deleteUsuario);
+router.put("/update/:id", actualizarUsuario);
 router.post("/token", generarToken);
 
 module.exports = router;
