@@ -195,6 +195,19 @@ const deleteInsumo = async (req, res) => {
     }
 };
 
+const allCustomer = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const [customer] = await pool.query('SELECT * FROM clientes', [id]);
+        res.json(customer);
+    } catch (error){
+        res.status(500).json({
+            error: 'Error al obtener Clientes',
+            detealles: error.message
+        })
+    };
+};
+
 module.exports = {
     getAllInventory,
     getInventory,
@@ -205,5 +218,6 @@ module.exports = {
     getInsumo,
     updateInsumo,
     createInsumo,
-    deleteInsumo
+    deleteInsumo,
+    allCustomer
 };
