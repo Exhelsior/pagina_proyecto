@@ -2,6 +2,7 @@
  * Creado el 26 de noviembre del 2024
  * Funcion: albergue de las bases de datos usadas en el proyecto
  */
+require('dotenv').config();
 const mysql = require('mysql2/promise');
 
 // Configuración de la conexión
@@ -16,10 +17,10 @@ const pool = mysql.createPool({
 });
 
 const inventarypool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',// cambiar la contraseña de tu servidor a root
-    database: 'masterbreadInventario',//actualizar este nombre al database del inventario
+    host: process.env.DB_SECOND_HOST,
+    user: process.env.DB_SECOND_USER,
+    password: process.env.DB_SECOND_PASSWORD,// cambiar la contraseña de tu servidor a root
+    database: process.env.DB_SECOND_NAME,//actualizar este nombre al database del inventario
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
