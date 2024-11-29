@@ -4,7 +4,7 @@ const { inventarypool } = require('../../database/db');
 const getAllInventory = async (req, res) => {
     try {
         const {id} = req.params;
-        const [producto] = await pool.query('SELECT * FROM Producto', [id]);
+        const [producto] = await inventarypool.query('SELECT * FROM Producto', [id]);
         res.json(producto);
     } catch (error) {
         res.status(500).json({
@@ -101,7 +101,7 @@ const deleteProducto = async (req, res) => {
 const getAllInsumo = async (req, res) => {
     try {
         const {id} = req.params;
-        const [insumo] = await pool.query('SELECT * FROM Insumos', [id]);
+        const [insumo] = await inventarypool.query('SELECT * FROM Insumos', [id]);
         res.json(insumo);
     } catch (error) {
         res.status(500).json({
@@ -150,7 +150,7 @@ const updateInsumo = async (req, res) => {
 
 const createInsumo = async (req, res) => {
     try {
-        const { nombre, fehcaIngreso, fechaVencimiento, cantidad } = req.body; 
+        const { nombre, fechaIngreso, fechaVencimiento, cantidad } = req.body; 
         
         const [result] = await inventarypool.query(
             "INSERT INTO Insumos (`nombre`, `fechaIngreso`, `fechaVencimiento`, `cantidad`) VALUES (?, ?, ?, ?)",
@@ -198,7 +198,7 @@ const deleteInsumo = async (req, res) => {
 const allCustomer = async (req, res) => {
     try {
         const { id } = req.params;
-        const [customer] = await pool.query('SELECT * FROM clientes', [id]);
+        const [customer] = await inventarypool.query('SELECT * FROM clientes', [id]);
         res.json(customer);
     } catch (error){
         res.status(500).json({
