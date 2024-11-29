@@ -6,10 +6,10 @@ const mysql = require('mysql2/promise');
 
 // Configuración de la conexión
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'masterbread',
+    host: process.env.DB_MAIN_HOST,
+    user: process.env.DB_MAIN_USER,
+    password: process.env.DB_MAIN_PASSWORD,
+    database: process.env.DB_MAIN_NAME,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
@@ -29,21 +29,18 @@ const inventarypool = mysql.createPool({
 async function testConnection() {
     try {
         const connection = await pool.getConnection();
-        console.log('Conexión exitosa a la base de datos');
+        console.log('Conexión exitosa a la base de datos de usuarios');
         connection.release();
+
+        const connect = await inventarypool.getConnection();
+        console.log('Conexión exitosa a la base de datos de inventario');
+        connect.release();
+
     } catch (error) {
         console.error('Error al conectar a la base de datos:', error);
     }
 }
-async function testConnection() {
-    try {
-        const connection = await inventarypool.getConnection();
-        console.log('Conexión exitosa a la base de datos');
-        connection.release();
-    } catch (error) {
-        console.error('Error al conectar a la base de datos de inventario:', error);
-    }
-}
+
 
 module.exports = {
     pool,
