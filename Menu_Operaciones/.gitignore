@@ -1,0 +1,13 @@
+# proyecto_madre/.gitignore
+
+# Ignorar .env en todas las subcarpetas
+**/node_modules/
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+
+# Logs
+**/npm-debug.log
+**/yarn-error.log
