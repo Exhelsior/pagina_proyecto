@@ -123,7 +123,11 @@ const resetPassword = async (req, res) => {
 
 //create
 const crearUsuario = async (req, res) => {
+  const connection = await pool.getConnection();
+
   try {
+    await connection.beginTransaction();
+
     const {
       Contraseña_hash,
       Nombre,
@@ -131,28 +135,22 @@ const crearUsuario = async (req, res) => {
       tipoDocumento,
       numeroDocumento,
       FechaCreacion,
+      IdRol,
     } = req.body;
-    // const Contraseña_hash = 'hash_de_contraseña';
-    // const Nombre = 'Juan Pérez';
-    // const Email = 'juan.perez@example.com';
-    // const tipoDocumento = 'CC';
-    // const numeroDocumento = '1234567890';
-    // const FechaCreacion = '2024-11-15';
 
-    // Verificar si el email ya existe
-    const [existeEmail] = await pool.query(
+    const [existeEmail] = await connection.query(
       "SELECT IdUsuarios FROM usuarios WHERE Email = ?",
       [Email]
     );
 
     if (existeEmail.length > 0) {
+      await connection.rollback();
       return res.status(400).json({
         error: "El email ya está registrado",
       });
     }
 
-    // logica de insercion de usuarios
-    const [result] = await pool.query(
+    const [userResult] = await connection.query(
       "INSERT INTO Usuarios (`Contraseña_hash`, `Nombre`, `Email`, `tipoDocumento`, `numeroDocumento`, `FechaCreacion`) VALUES (?, ?, ?, ?, ?, ?)",
       [
         Contraseña_hash,
@@ -164,16 +162,28 @@ const crearUsuario = async (req, res) => {
       ]
     );
 
+    const newUserId = userResult.insertId;
+
+    await connection.query(
+      "INSERT INTO RolesUsuarios (`IdUsuarios`, `IdRoles`) VALUES (?, ?)",
+      [newUserId, IdRol]
+    );
+
+    await connection.commit();
+
     res.status(201).json({
-      id: result.insertId,
-      mensaje: "Usuario creado exitosamente",
+      id: newUserId,
+      mensaje: "Usuario creado y rol asignado exitosamente",
     });
   } catch (error) {
+    await connection.rollback();
     console.error("Error en crear usuario:", error);
     res.status(500).json({
       error: "Error al crear usuario",
       detalles: error.message,
     });
+  } finally {
+    connection.release();
   }
 };
 
@@ -189,6 +199,21 @@ const getUsuarios = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       error: "Error al obtener usuarios",
+      detalles: error.message,
+    });
+  }
+};
+
+//get roles
+const getRoles = async (req, res) => {
+  try {
+    const [usuarios] = await pool.query(
+      "SELECT R.IdUsuarios, U.Nombre AS NombreUsuario, RL.NombreRol AS NombreRol, R.IdRolUsuario FROM RolesUsuarios AS R JOIN Usuarios AS U ON R.IdUsuarios = U.IdUsuarios JOIN Roles AS RL ON R.IdRoles = RL.IdRoles;"
+    );
+    res.json(usuarios);
+  } catch (error) {
+    res.status(500).json({
+      error: "Error al obtener roles",
       detalles: error.message,
     });
   }
@@ -228,4 +253,5 @@ module.exports = {
   crearUsuario,
   getUsuarios,
   deleteUsuario,
+  getRoles,
 };

@@ -12,11 +12,13 @@ const {
   actualizarUsuario,
   generarToken,
   resetPassword,
+  getRoles,
 } = require("../controller/controller usuarios/usuarioController");
 
 // Rutas para usuarios
 router.post("/create", crearUsuario);
 router.get("/get/:id", getUsuarios);
+router.get("/roles", getRoles);
 router.get("/recovery", resetPassword);
 router.delete("/delete/:id", deleteUsuario);
 router.put("/update/:id", actualizarUsuario);
