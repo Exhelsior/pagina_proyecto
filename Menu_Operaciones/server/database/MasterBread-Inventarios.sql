@@ -17,11 +17,13 @@ CREATE TABLE Producto (
 
 CREATE TABLE EstadoPedidos (
 	IdEstado int AUTO_INCREMENT PRIMARY KEY,
-	IdPedido int,
+	IdPedidos int,
 	IdCliente int,
 	FechaPedido datetime,
 	EstadoPedido varchar(255),
 	Total decimal
+	FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE UPDATE CASCADE
+	FOREIGN KEY(IdCliente) REFERENCES Clientes (IdCliente) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Pedido (
@@ -30,7 +32,7 @@ CREATE TABLE Pedido (
 	Cantidad int,
 	PrecioUnitario decimal,
 	Total decimal,
-    FOREIGN KEY(IdCliente) REFERENCES Clientes (IdCliente) ON DELETE CASCADE
+    FOREIGN KEY(IdCliente) REFERENCES Clientes (IdCliente) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Envios (
@@ -40,16 +42,16 @@ CREATE TABLE Envios (
 	FechaEnvio datetime,
 	EstadoEnvio varchar(255),
 	Comentarios text,
-    FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE
+    FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE UPDATE CASCADE
 );
 
 CREATE TABLE ItemPedidos (
 	IdProducto int,
-	IdPedido int,
+	IdPedidos int,
 	cantidad int,
 	precio int,
-	FOREIGN KEY (IdProducto) REFERENCES Producto (IdProducto) ON DELETE CASCADE,
-    FOREIGN KEY (IdPedido) REFERENCES Pedido (IdPedido) ON DELETE CASCADE
+	FOREIGN KEY (IdProducto) REFERENCES Producto (IdProducto) ON DELETE CASCADE UPDATE CASCADE,
+    FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE UPDATE CASCADE
 );
 
 CREATE TABLE Insumos (
