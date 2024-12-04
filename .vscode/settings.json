@@ -14,5 +14,6 @@
             "username": "root",
             "database": "masterbread"
         }
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

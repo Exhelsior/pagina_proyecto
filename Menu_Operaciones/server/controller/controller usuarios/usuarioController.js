@@ -208,7 +208,7 @@ const getUsuarios = async (req, res) => {
 const getRoles = async (req, res) => {
   try {
     const [usuarios] = await pool.query(
-      "SELECT R.IdUsuarios, U.Nombre AS NombreUsuario, RL.NombreRol AS NombreRol, R.IdRolUsuario FROM RolesUsuarios AS R JOIN Usuarios AS U ON R.IdUsuarios = U.IdUsuarios JOIN Roles AS RL ON R.IdRoles = RL.IdRoles;"
+      "SELECT R.IdUsuarios, U.Nombre AS NombreUsuario, RL.NombreRol AS NombreRol, R.IdRoles FROM RolesUsuarios AS R JOIN Usuarios AS U ON R.IdUsuarios = U.IdUsuarios JOIN Roles AS RL ON R.IdRoles = RL.IdRoles;"
     );
     res.json(usuarios);
   } catch (error) {
