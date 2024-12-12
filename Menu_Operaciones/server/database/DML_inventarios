@@ -1,0 +1,112 @@
+-- Tabla Clientes
+-- Insertar registros
+INSERT INTO Clientes (NombreCompleto, Telefono, DireccionPrincipal)
+VALUES 
+    ('Carlos Gómez', '123456789', 'Calle Panaderos 45'),
+    ('Lucía Fernández', '987654321', 'Avenida Dulce 123');
+
+-- Actualizar registros
+UPDATE Clientes
+SET Telefono = '1122334455'
+WHERE NombreCompleto = 'Carlos Gómez';
+
+-- Eliminar registros
+DELETE FROM Clientes
+WHERE NombreCompleto = 'Lucía Fernández';
+
+-- Consultar registros
+SELECT * FROM Clientes;
+
+-- 2. Tabla Producto
+-- Insertar registros
+INSERT INTO Producto (NombreProducto, Precio, Cantidad, Lote, FechaVencimiento)
+VALUES 
+    ('Pan Integral', 1.50, 50, '2024-01-01', '2024-01-10'),
+    ('Croissant', 2.00, 30, '2024-01-02', '2024-01-08'),
+    ('Pastel de Chocolate', 15.00, 10, '2024-01-03', '2024-01-15');
+
+-- Actualizar registros
+UPDATE Producto
+SET Precio = 2.20
+WHERE NombreProducto = 'Croissant';
+
+-- Eliminar registros
+DELETE FROM Producto
+WHERE NombreProducto = 'Pastel de Chocolate';
+
+-- Consultar registros
+SELECT * FROM Producto;
+
+-- 3. Tabla Pedido
+-- Insertar registros
+INSERT INTO Pedido (IdCliente, Cantidad, PrecioUnitario, Total)
+VALUES 
+    (1, 10, 1.50, 15.00),
+    (1, 5, 2.00, 10.00);
+
+-- Actualizar registros
+UPDATE Pedido
+SET Cantidad = 12
+WHERE IdPedido = 1;
+
+-- Eliminar registros
+DELETE FROM Pedido
+WHERE IdPedido = 2;
+
+-- Consultar registros
+SELECT * FROM Pedido;
+
+-- 4. Tabla EstadoPedidos
+-- Insertar registros
+INSERT INTO EstadoPedidos (IdPedidos, IdCliente, FechaPedido, EstadoPedido, Total)
+VALUES 
+    (1, 1, '2024-12-12 08:30:00', 'Procesando', 15.00),
+    (1, 1, '2024-12-12 09:00:00', 'Enviado', 15.00);
+
+-- Actualizar registros
+UPDATE EstadoPedidos
+SET EstadoPedido = 'Entregado'
+WHERE IdEstado = 2;
+
+
+-- Eliminar registros
+DELETE FROM EstadoPedidos
+WHERE IdEstado = 1;
+
+-- Consultar registros
+SELECT * FROM EstadoPedidos;
+
+-- 5. Tabla Envios
+-- Insertar registros
+INSERT INTO Envios (IdPedidos, DireccionEnvio, FechaEnvio, EstadoEnvio, Comentarios)
+VALUES 
+    (1, 'Calle Panaderos 45', '2024-12-12 10:00:00', 'En tránsito', 'Entrega programada para hoy');
+    
+-- Actualizar registros
+UPDATE Envios
+SET EstadoEnvio = 'Entregado'
+WHERE IdEnvio = 1;
+
+-- Eliminar registros
+DELETE FROM Envios
+WHERE IdEnvio = 1;
+
+-- Consultar registros
+SELECT * FROM Envios;
+-- 6. Tabla ItemPedidos
+-- Insertar registros
+INSERT INTO ItemPedidos (IdProducto, IdPedidos, cantidad, precio)
+VALUES 
+    (1, 1, 6, 1.50),
+    (2, 1, 4, 2.00);
+    
+-- Actualizar registros
+UPDATE ItemPedidos
+SET cantidad = 7
+WHERE IdProducto = 1 AND IdPedidos = 1;
+
+-- Eliminar registros
+DELETE FROM ItemPedidos
+WHERE IdProducto = 2 AND IdPedidos = 1;
+Copiar código
+SELECT * FROM ItemPedidos;
