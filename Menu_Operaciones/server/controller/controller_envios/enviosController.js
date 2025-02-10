@@ -1,9 +1,9 @@
-const { inventarypool } = require('../../database/db');
+const { pool } = require('../../database/db');
 
 const getAllEnvios = async (req, res) => {
     try {
         const {id} = req.params;
-        const [envios] = await inventarypool.query('SELECT * FROM envios', [id]);
+        const [envios] = await pool.query('SELECT * FROM envios', [id]);
         res.json(envios);
     } catch (error) {
         res.status(500).json({
@@ -16,7 +16,7 @@ const getAllEnvios = async (req, res) => {
 const getEnvio = async (req, res) => {
     try {
         const {id} = req.params;
-        const [envio] = await inventarypool.query('SELECT * FROM envios WHERE IdEnvio = ?', [id]);
+        const [envio] = await pool.query('SELECT * FROM envios WHERE IdEnvio = ?', [id]);
         res.json(envio);
     } catch (error) {
         res.status(500).json({
@@ -31,7 +31,7 @@ const updateEnvio = async (req, res) => {
         const{id} = req.params;
         const {IdPedidos, DireccionEnvio, FechaEnvio, EstadoEnvio, Comentarios} = req.body;
 
-        const [result] = await inventarypool.query(
+        const [result] = await pool.query(
             'UPDATE envios SET IdPedidos = ?, DireccionEnvio = ?, FechaEnvio = ?, EstadoEnvio = ?, Comentarios = ? WHERE IdEnvio = ?',
             [IdPedidos, DireccionEnvio, FechaEnvio, EstadoEnvio, Comentarios, id]
         );
@@ -52,7 +52,7 @@ const createEnvio = async (req, res) => {
     try {
         const { IdPedidos, DireccionEnvio, FechaEnvio, EstadoEnvio, Comentarios } = req.body;
 
-        const [result] = await inventarypool.query(
+        const [result] = await pool.query(
             "INSERT INTO envios (`IdPedidos`, `DireccionEnvio`, `FechaEnvio`, `EstadoEnvio`, `Comentarios`) VALUES (?, ?, ?, ?, ?)",
             [IdPedidos, DireccionEnvio, FechaEnvio, EstadoEnvio, Comentarios]
         );
