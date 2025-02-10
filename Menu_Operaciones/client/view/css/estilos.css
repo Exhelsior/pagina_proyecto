@@ -572,6 +572,10 @@ body{
     text-align: center;
 }
 
+.form-content h3 { 
+    width: 30%;
+}
+
 .close {
     color: #aaa;
     float: right;

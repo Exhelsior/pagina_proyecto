@@ -17,6 +17,10 @@ const modalContent = {
                 <input type="date" id="venc-date-product">
             </div>
             <div class="form-content">
+                <h3>Precio Unitario</h3>
+                <input type="number" placeholder="Precio" id="price-product">
+            </div>
+            <div class="form-content">
                 <h3>Cantidad</h3>
                 <input type="number" placeholder="Cantidad" id="cant-product">
             </div>
