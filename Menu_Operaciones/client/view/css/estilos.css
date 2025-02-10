@@ -116,9 +116,7 @@ body{
 }
 
 .contenedor-grid {
-    display: grid;
-    grid-template-columns: 51rem 43rem;
-    gap: 20px;
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
 
