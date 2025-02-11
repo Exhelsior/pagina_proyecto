@@ -16,12 +16,12 @@ const {
 } = require("../controller/controller usuarios/usuarioController");
 
 // Rutas para usuarios
-router.post("/create", crearUsuario);
-router.get("/get/:id", getUsuarios);
-router.get("/roles", getRoles);
-router.get("/recovery", resetPassword);
-router.delete("/delete/:id", deleteUsuario);
-router.put("/update/:id", actualizarUsuario);
-router.post("/token", generarToken);
+router.post("/createUser", crearUsuario);
+router.get("/:id", getUsuarios);
+router.get("/rolesUser", getRoles);
+router.get("/recoveryUser", resetPassword);
+router.delete("delete/:id", deleteUsuario);
+router.put("update/:id", actualizarUsuario);
+router.post("/tokenUser", generarToken);
 
 module.exports = router;
