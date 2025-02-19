@@ -1,6 +1,4 @@
 export async function products() {
-    console.log("📢 Cargando productos...");
-
     try {
         const response = await fetch('http://localhost:3000/inventario');
         if (!response.ok) throw new Error("Producto no encontrado");
@@ -11,7 +9,7 @@ export async function products() {
         mostrarProductos(data);
 
     } catch (error) {
-        console.error("❌ Error:", error.message);
+        console.error("Error:", error.message);
     }
 }
 
@@ -19,7 +17,7 @@ export function mostrarProductos(productos) {
     const tbody = document.querySelector('.t-productos .t-body');
 
     if (!tbody) {
-        console.error("❌ Error: No se encontró el tbody en la tabla.");
+        console.error("Error: No se encontró el tbody en la tabla.");
         return;
     }
 
@@ -76,6 +74,4 @@ export function mostrarProductos(productos) {
 
         tbody.appendChild(fila);
     });
-
-    console.log("✅ Productos mostrados en la tabla.");
 }
