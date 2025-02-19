@@ -105,13 +105,7 @@ CREATE TABLE ItemPedidos (
    FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE Insumos (
-	IdInsumo INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(200), 
-    fehcaIngreso DATE, 
-    fechaVencimiento DATE, 
-    cantidad DECIMAL(10,1)
-);
+
 
 
 
