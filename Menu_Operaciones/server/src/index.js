@@ -13,7 +13,7 @@ const app = express(); // Aquí se define 'app' correctamente antes de usarlo
 
 // Middleware para permitir CORS
 app.use(cors({
-    origin: "*", // Cambia esto por la URL de tu frontend
+    origin: "*", // "*" permite cualquier url
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));

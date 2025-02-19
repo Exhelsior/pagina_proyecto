@@ -1,5 +1,6 @@
 import { setupModalClose, openModal, outsideClose } from "../view/js/contenido-modal.js";
 import { listenerButton, listenerBillButton } from "./buttons.js";
+import { products } from "./consultas.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -27,6 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
   function mostrarInventario() {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
+
+    // Esperar a que se cargue la plantilla se cargue antes de ejecutar el "products"
+    setTimeout(() => {
+      products();
+    })
     listenerButton(openModal);
     setupModalClose();
     outsideClose();
