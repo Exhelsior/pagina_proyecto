@@ -11,20 +11,18 @@ body{
     display: grid;
     grid-template-columns: 15% 85%;
     grid-template-rows: 100vh;
+    background-image: url(../img/fondoInicio4.svg);
+    background-size: cover;
 }
 
 .bar-menu{
     display: flex;
-    padding: 5px;
-    background-image: url(../img/fondo.svg);
-    border-radius: 10px;
-    border: solid 2px #B4923B;
+    background-color: #5f46338f;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     gap: 10px;
     overflow: auto;
-    padding-right: 17px;
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -61,35 +59,35 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
 }
 
-.side-menu button {
-    font-family: "Kodchasan", sans-serif;
-    font-weight: 700;
-    font-style: normal;
+.side-menu a {
     width: 100%;
     display: flex;
-    background-color: transparent;
+    padding: 25px 0px;
     cursor: pointer;
-    font-size: 0.99rem;
-    color: #000;
-    border: none;
-    border-bottom: .5px solid #efd79bcc;
-    border-radius: 30px;
     text-align: left;
     align-items: center;
     justify-content: left;
     gap: 10px;
 }
 
-.side-menu button:hover {
-    background-color: #efd79ba6;
+.side-menu svg {
+    fill: #fff9e1;
+    margin-left: 15px;
+}
+
+.side-menu a {
+    color: #fff9e1;
+}
+.side-menu a:hover {
+    background-color: #553d2abe;
 }
 
 .contenido-operativo{
     overflow-y: scroll;
-    background-color: #ccc;
+    background-color: transparent;
+    background-size: cover;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -113,6 +111,7 @@ body{
 .contenido-inventario h1 {
     text-align: center;
     font-size: 2.9rem;
+    color:#fff9e1;
 }
 
 .contenedor-grid {
@@ -309,6 +308,10 @@ body{
     margin: 0 0 15px 0;
     outline: none;
     font-size: 1.2rem;
+}
+
+.filtro svg {
+    fill: #7f8382;
 }
 
 /*---------------------------------PRODUCTOS-------------------------------*/
@@ -607,6 +610,9 @@ body{
     outline: none;
 }
 
+.t-boton svg {
+    fill: #0a0a0a;
+}
 
 @media (max-width: 1024px) {
     /* Para pantallas de laptop y tabletas */

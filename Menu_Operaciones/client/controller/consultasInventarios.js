@@ -57,12 +57,12 @@ export function mostrarProductos(productos) {
             <td>${producto.Cantidad}</td>
             <td>
                 <div class="b-caja">
-                        <button class="add-boton-tabla">
+                        <button class="add-boton-tabla t-boton">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="13"
                             height="16"
-                            fill="currentColor"
+                            fill="#0a0a0a"
                             class="bi bi-pencil"
                             viewBox="0 0 16 13"
                           >
@@ -71,7 +71,7 @@ export function mostrarProductos(productos) {
                             />
                           </svg>
                         </button>
-                        <button class="del-boton-tabla">
+                        <button class="del-boton-tabla t-boton">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -117,6 +117,3 @@ export const eliminarProducto = async (e) => {
     alert(`Error al elminar el producto: ${error.message}`);
   }
 };
-
-// document.querySelector(".t-productos .t-body").addEventListener("click", eliminarProducto)
-

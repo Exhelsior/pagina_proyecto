@@ -25,7 +25,7 @@ const modalContent = {
                 <input type="number" placeholder="Cantidad" id="cant-product">
             </div>
             <div class="boton-add">
-                <button id="btn-form-product" class="add">Agregar Producto</button>
+                <button id="btn-form-product" class="add" type="button">Agregar Producto</button>
             </div>
         </form>
         `,

@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarInventario() {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
-
     // Esperar a que la plantilla se cargue antes de ejecutar `products()`
     setTimeout(() => {
       products(); // Llamar a la función que carga los productos después de insertar la plantilla
