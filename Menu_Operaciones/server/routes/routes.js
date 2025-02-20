@@ -20,8 +20,8 @@ router.post("/createUser", crearUsuario);
 router.get("/:id", getUsuarios);
 router.get("/rolesUser", getRoles);
 router.get("/recoveryUser", resetPassword);
-router.delete("delete/:id", deleteUsuario);
-router.put("update/:id", actualizarUsuario);
+router.delete("/delete/:id", deleteUsuario);
+router.put("/update/:id", actualizarUsuario);
 router.post("/tokenUser", generarToken);
 
 module.exports = router;

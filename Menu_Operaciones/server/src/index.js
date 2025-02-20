@@ -8,6 +8,7 @@ const usuarioRoutes = require('../routes/routes.js');
 const inventoryRoutes = require('../routes/routesInventory.js');
 const customerRoutes = require('../routes/routesClientes.js');
 const envioRoutes = require('../routes/routesEnvios.js');
+const user = require('../routes/usuarioRoutes.js');
 
 const app = express();
 app.use(express.json());
@@ -19,7 +20,9 @@ testConnection();
 app.use('/usuarios', usuarioRoutes);
 app.use('/inventario', inventoryRoutes);
 app.use('/cliente', customerRoutes);
-app.use('/envio', envioRoutes)
+app.use('/envio', envioRoutes);
+app.use('/user', user);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

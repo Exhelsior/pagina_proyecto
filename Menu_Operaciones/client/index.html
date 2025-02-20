@@ -35,13 +35,17 @@
               <input id="usuario" class="boxes" type="text" placeholder="Usuario" required />
             </div>
             <div class="content">
+              <h1>Ingrese su email</h1>
+              <input id="email" class="boxes" type="email" placeholder="email" required />
+            </div>
+            <div class="content">
               <h1>Ingrese su contraseña</h1>
               <input id="contraseña" class="boxes" type="password" placeholder="Contraseña" required />
             </div>
             <div class="botones">
-              <button id="mostraMenu" class="button">Iniciar sesion</button>
-              <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
-              <button id="recovery" class="button" onclick="mostrarToken()">Olvide mi contraseña</button>
+              <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
+              <button id="registrarse" class="navBTN" type="submit" onclick="mostrarRegistro()">Registrate</button>
+              <button id="recovery" class="button" type="submit" onclick="mostrarToken()">Olvide mi contraseña</button>
             </div>
           </div>
       </section>
@@ -57,16 +61,20 @@
           <div id="form-Inicio">
             <div class="content">
               <h1>Ingrese su usuario</h1>
-              <input class="boxes" type="text" placeholder="Usuario" required />
+              <input id="usuario" class="boxes" type="text" placeholder="Usuario" required />
+            </div>
+            <div class="content">
+              <h1>Ingrese su email</h1>
+              <input id="email" class="boxes" type="email" placeholder="email" required />
             </div>
             <div class="content">
               <h1>Ingrese su contraseña</h1>
-              <input class="boxes" type="password" placeholder="Contraseña" required />
+              <input id="contraseña" class="boxes" type="password" placeholder="Contraseña" required />
             </div>
             <div class="botones">
-              <button id="mostraMenu" class="button">Iniciar sesion</button>
-              <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
-              <button id="recovery" class="button" onclick="mostrarToken()">Olvide mi contraseña</button>
+              <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
+              <button id="registrarse" class="navBTN" type="submit" onclick="mostrarRegistro()">Registrate</button>
+              <button id="recovery" class="button" type="submit" onclick="mostrarToken()">Olvide mi contraseña</button>
             </div>
           </div>
       </section>
@@ -82,7 +90,7 @@
         </div>
         <div class="form-group">
           <label for="apellidos">Correo</label>
-          <input id="apellidos" class="boxes" type="text" />
+          <input id="correo" class="boxes" type="email" />
         </div>
         <div class="form-group">
           <label for="contrasena">Contraseña</label>
@@ -111,7 +119,7 @@
           <input id="numero_documento" class="boxes" type="text" maxlength="10" />
         </div>
         <div class="pie_caja">
-          <button id="iniciarSesion" class="registro" onclick="mostrarInicio()">Regístrate</button>
+          <button id="iniciarSesion" class="registro" type="submit" onclick="mostrarInicio()">Regístrate</button>
           <button id="iniciarSesion" class="registro" onclick="mostrarInicio()">
             Volver al inicio
           </button>
@@ -152,6 +160,8 @@
   <script src="./view/js/atributos.js"></script>
   <script src="./view/js/vista.js"></script>
   <script src="./controller/controladorInicio.js"></script>
+  <script src="../server/controller/controller usuarios/login.js"></script>
+  <script src="./view/js/registro.js"></script>
 </body>
 
 </html>

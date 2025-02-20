@@ -4,6 +4,7 @@
  */
 const { pool } = require("../../database/db");
 const crypto = require("crypto");
+const bcrypt = require("bcrypt")
 
 //update
 const actualizarUsuario = async (req, res) => {
