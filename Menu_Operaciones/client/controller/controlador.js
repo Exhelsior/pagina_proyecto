@@ -1,3 +1,4 @@
+import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalClose, openModal, outsideClose } from "../view/js/contenido-modal.js"; 
 import { listenerButton, listenerBillButton } from "./buttons.js";
 import { eliminarProducto, products } from "./consultasInventarios.js"; // Importar la función que carga los productos
@@ -6,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
 
   window.onload = () => {
+
+    resaltarBotones(".boton");
+
     document
       .getElementById("pag-inventarios")
       .addEventListener("click", mostrarInventario);

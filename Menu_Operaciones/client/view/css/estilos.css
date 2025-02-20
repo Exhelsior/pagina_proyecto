@@ -80,8 +80,9 @@ body{
 .side-menu a {
     color: #fff9e1;
 }
-.side-menu a:hover {
+.side-menu a:hover, a.activo {
     background-color: #553d2abe;
+    border-bottom: solid 3px #fff9e1;
 }
 
 .contenido-operativo{
