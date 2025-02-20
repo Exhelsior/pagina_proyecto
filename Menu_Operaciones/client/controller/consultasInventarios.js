@@ -1,3 +1,4 @@
+// Trae los datos desde la base de datos
 export async function products() {
     try {
         const response = await fetch('http://localhost:3000/inventario');
@@ -13,6 +14,7 @@ export async function products() {
     }
 }
 
+// 
 export function mostrarProductos(productos) {
     const tbody = document.querySelector('.t-productos .t-body');
 
@@ -31,11 +33,26 @@ export function mostrarProductos(productos) {
     productos.forEach(producto => {
         const fila = document.createElement('tr');
 
+        const fechaVencimiento = new Date(producto.FechaVencimiento).toLocaleDateString("es-ES",
+          {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+          }
+        );
+
+        const lote = new Date(producto.Lote).toLocaleDateString("es-ES", 
+          {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+          });
+
         fila.innerHTML = `
             <td>${producto.IdProducto}</td>
             <td>${producto.NombreProducto}</td>
-            <td>${producto.Lote}</td>
-            <td>${producto.FechaVencimiento}</td>
+            <td>${lote}</td>
+            <td>${fechaVencimiento}</td>
             <td>$${producto.Precio}</td>
             <td>${producto.Cantidad}</td>
             <td>
@@ -75,3 +92,31 @@ export function mostrarProductos(productos) {
         tbody.appendChild(fila);
     });
 }
+
+export const eliminarProducto = async (e) => {
+  const botonEliminar = e.target.closest(".del-boton-tabla");
+  if (!botonEliminar) return;
+
+  const fila = botonEliminar.closest("tr");
+  const idProducto = fila.querySelector("td").textContent;
+
+  const confirmar = window.confirm(`¿Estas seguro de eliminar este producto? ID = ${idProducto}`);
+  if (!confirmar) return;
+
+  try {
+    const response = await fetch(`http://localhost:3000/inventario/delete/${idProducto}`, {
+      method: "DELETE"
+    });
+
+    if (!response.ok) throw new Error("No se pudo eliminar el producto");
+
+    fila.remove();
+    alert("Producto eliminado correctamente");
+  } catch (error) {
+    console.error("Error:", error.message);
+    alert(`Error al elminar el producto: ${error.message}`);
+  }
+};
+
+// document.querySelector(".t-productos .t-body").addEventListener("click", eliminarProducto)
+
