@@ -2,8 +2,13 @@
  * Creado el 26 de noviembre del 2024
  * Funcion: albergue de las bases de datos usadas en el proyecto
  */
+<<<<<<< Updated upstream
 require("dotenv").config();
+=======
+const colors =require("colors");
+>>>>>>> Stashed changes
 const mysql = require("mysql2/promise");
+require("dotenv").config();
 
 // Configuración de la conexión
 const pool = mysql.createPool({

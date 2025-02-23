@@ -10,7 +10,20 @@ const customerRoutes = require('../routes/routesClientes.js');
 const envioRoutes = require('../routes/routesEnvios.js');
 const user = require('../routes/usuarioRoutes.js');
 
+<<<<<<< Updated upstream
 const app = express();
+=======
+const app = express(); 
+
+// Middleware para permitir CORS
+app.use(cors({
+    origin: "*", 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Middleware para procesar JSON en las solicitudes
+>>>>>>> Stashed changes
 app.use(express.json());
 
 // Probar la conexión a la base de datos
