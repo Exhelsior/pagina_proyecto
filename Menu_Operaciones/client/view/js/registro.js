@@ -17,7 +17,7 @@ async function registrarUsuario() {
   };
 
   try {
-    const response = await fetch('http://localhost:3000/usuarios', {
+    const response = await fetch('http://localhost:3000/usuarios/createUser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
