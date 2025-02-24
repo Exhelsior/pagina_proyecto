@@ -20,6 +20,7 @@ app.use(cors({
 
 // Middleware para procesar JSON en las solicitudes
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Probar la conexión a la base de datos
 testConnection();

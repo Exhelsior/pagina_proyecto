@@ -53,6 +53,8 @@ const updateProducto = async (req, res) => {
 
 const createProducto = async (req, res) => {
     try {
+        console.log("Datos recibidos en el backend:", req.body);
+        
         const { NombreProducto, Precio, Cantidad, Lote, FechaVencimiento} = req.body; 
         
         const [result] = await pool.query(

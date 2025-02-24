@@ -117,3 +117,54 @@ export const eliminarProducto = async (e) => {
     alert(`Error al elminar el producto: ${error.message}`);
   }
 };
+
+export const sendProducto = async (event) => {
+
+  const NombreProducto = document.getElementById("name-product")?.value.trim();
+  const Precio = document.getElementById("price-product")?.value.trim();
+  const Cantidad = document.getElementById("cant-product")?.value.trim();
+  const Lote = document.getElementById("fab-date-product").value;
+  const FechaVencimiento = document.getElementById("venc-date-product").value;
+
+  // console.log("Nombre:", nombre);
+  // console.log("Precio:", precio);
+  // console.log("Cantidad:", cantidad);
+  // console.log("Lote:", lote);
+  // console.log("Fecha Vencimiento:", fechaVencimiento);
+
+  if (!NombreProducto || !Precio || !Cantidad || !Lote || !FechaVencimiento) {
+      alert("Todos los campos son obligatorios");
+      return;
+  }
+
+  const nuevoProducto = {
+    NombreProducto: String(NombreProducto),
+    Precio: parseFloat(Precio),
+    Cantidad: parseInt(Cantidad),
+    Lote: String(Lote),
+    FechaVencimiento: String(FechaVencimiento),
+  }
+
+  try {
+      const response = await fetch("http://localhost:3000/inventario/create", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify(nuevoProducto),
+      });
+
+      if (!response.ok) {
+          throw new Error("Error al enviar los datos");
+      }
+
+      const data = await response.json();
+      alert("Producto agregado correctamente");
+
+      // Opcional: Recargar la tabla después de agregar
+      products();
+  } catch (error) {
+      console.error("Error al enviar el producto:", error);
+      alert("Hubo un error al agregar el producto");
+  }
+};

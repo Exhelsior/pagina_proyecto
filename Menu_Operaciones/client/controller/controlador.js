@@ -1,41 +1,39 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
-import { setupModalClose, openModal, outsideClose } from "../view/js/contenido-modal.js"; 
+import { setupModalClose, openModal, outsideClose } from "../view/js/contenido-modal.js";
 import { listenerButton, listenerBillButton } from "./buttons.js";
-import { eliminarProducto, products } from "./consultasInventarios.js"; // Importar la función que carga los productos
+import { eliminarProducto, products } from "./consultasInventarios.js"; 
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
 
-  window.onload = () => {
+  resaltarBotones(".boton");
 
-    resaltarBotones(".boton");
+  document.getElementById("pag-inventarios").addEventListener("click", mostrarInventario);
+  document.getElementById("pag-pedidos").addEventListener("click", mostrarPedidos);
+  document.getElementById("pag-envios").addEventListener("click", mostrarEnvios);
 
-    document
-      .getElementById("pag-inventarios")
-      .addEventListener("click", mostrarInventario);
-
-    document
-      .getElementById("pag-pedidos")
-      .addEventListener("click", mostrarPedidos);
-
-    document
-      .getElementById("pag-envios")
-      .addEventListener("click", mostrarEnvios);
-
-    document.addEventListener("click", function(event) {
-      if (event.target && event.target.id == 'salir') {
-          window.location.href = 'index.html';
-      }
-    });
-  };
+  document.addEventListener("click", (event) => {
+    if (event.target.id === "salir") {
+      window.location.href = "index.html";
+    }
+  });
 
   function mostrarInventario() {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
-    // Esperar a que la plantilla se cargue antes de ejecutar `products()`
+
+    // Esperar a que la plantilla cargue y luego ejecutar products()
     setTimeout(() => {
-      products(); // Llamar a la función que carga los productos después de insertar la plantilla
-      document.querySelector(".t-productos .t-body").addEventListener("click", eliminarProducto);
-    }, 100);
+      const tablaBody = document.querySelector(".t-productos .t-body");
+      if (tablaBody) {
+        console.log("Cargando productos..."); // Debugging
+        products(); // Llama a la función para cargar los productos
+        tablaBody.addEventListener("click", eliminarProducto);
+      } else {
+        console.error("No se encontró .t-productos .t-body");
+      };
+
+    });
+
     listenerButton(openModal);
     setupModalClose();
     outsideClose();
