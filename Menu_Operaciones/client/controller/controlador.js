@@ -20,18 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarInventario() {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
-
     // Esperar a que la plantilla cargue y luego ejecutar products()
     setTimeout(() => {
       const tablaBody = document.querySelector(".t-productos .t-body");
       if (tablaBody) {
-        console.log("Cargando productos..."); // Debugging
         products(); // Llama a la función para cargar los productos
         tablaBody.addEventListener("click", eliminarProducto);
+
       } else {
         console.error("No se encontró .t-productos .t-body");
       };
-
     });
 
     listenerButton(openModal);

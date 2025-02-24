@@ -5,7 +5,7 @@ export async function products() {
         if (!response.ok) throw new Error("Producto no encontrado");
 
         const data = await response.json();
-        console.log("Productos recibidos:", data);
+        // console.log("Productos recibidos:", data);
 
         mostrarProductos(data);
 
@@ -14,7 +14,6 @@ export async function products() {
     }
 }
 
-// 
 export function mostrarProductos(productos) {
     const tbody = document.querySelector('.t-productos .t-body');
 
@@ -117,8 +116,9 @@ export const eliminarProducto = async (e) => {
     alert(`Error al elminar el producto: ${error.message}`);
   }
 };
+ 
 
-export const sendProducto = async (event) => {
+export const sendProducto = async () => {
 
   const NombreProducto = document.getElementById("name-product")?.value.trim();
   const Precio = document.getElementById("price-product")?.value.trim();
@@ -137,13 +137,26 @@ export const sendProducto = async (event) => {
       return;
   }
 
-  const nuevoProducto = {
-    NombreProducto: String(NombreProducto),
-    Precio: parseFloat(Precio),
-    Cantidad: parseInt(Cantidad),
-    Lote: String(Lote),
-    FechaVencimiento: String(FechaVencimiento),
+  const precioNum = parseFloat(Precio);
+  const cantidadNum = parseInt(Cantidad);
+
+  if (isNaN(precioNum) || precioNum <= 0) {
+    alert("El precio debe ser un número mayor a 0");
+    return
   }
+
+  if (isNaN(cantidadNum) || cantidadNum <= 0) {
+    alert("La cantidad debe ser un número mayor a 0");
+    return;
+  }
+
+  const nuevoProducto = {
+    NombreProducto,
+    Precio: precioNum,
+    Cantidad: cantidadNum,
+    Lote,
+    FechaVencimiento,
+  };
 
   try {
       const response = await fetch("http://localhost:3000/inventario/create", {
@@ -158,7 +171,6 @@ export const sendProducto = async (event) => {
           throw new Error("Error al enviar los datos");
       }
 
-      const data = await response.json();
       alert("Producto agregado correctamente");
 
       // Opcional: Recargar la tabla después de agregar
