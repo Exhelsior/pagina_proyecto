@@ -4,13 +4,13 @@
  *Funcion: maquetacion del Incio de sesion de la pagina Master bread
 -->
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./view/img/icon.ico" type="icono" />
+  <link rel="icon" href="./public/icon.ico" type="icono" />
   <title>Iniciar sesion</title>
   <link rel="stylesheet" href="./view/css/estiloInicio.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,11 +25,12 @@
     <div class="container">
       <aside class="image">
         <h1 style="font-size: xx-large;color: beige;">Bienvenido a</h1>
-        <img class="logo" src="./view/img/logo.png" alt="logo" />
+        <img class="logo" src="./public/logo.png" alt="logo" />
       </aside>
       <section class="box">
         <!-- caja que actualiza contenido -->
         <div id="main-contenido">
+          <form id="form-Inicio">
             <div class="content">
               <h1>Ingrese su usuario</h1>
               <input id="usuario" class="boxes" type="text" placeholder="Usuario" required />
@@ -44,10 +45,11 @@
             </div>
             <div class="botones">
               <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
-              <button id="registrarse" class="navBTN" type="submit" onclick="mostrarRegistro()">Registrate</button>
-              <button id="recovery" class="button" type="submit" >Olvide mi contraseña</button>
+              <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
+              <button id="recovery" class="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
             </div>
-          </div>
+          </form>
+        </div>
       </section>
       <footer> Derechos reservados © </footer>
     </div>
@@ -56,33 +58,33 @@
 
   <!-- TEMPLATES-->
   <template id="tempInicio">
-        <!-- caja que actualiza contenido -->
-        <div id="main-contenido">
-          <div id="form-Inicio">
-            <div class="content">
-              <h1>Ingrese su usuario</h1>
-              <input id="usuario" class="boxes" type="text" placeholder="Usuario" required />
-            </div>
-            <div class="content">
-              <h1>Ingrese su email</h1>
-              <input id="email" class="boxes" type="email" placeholder="email" required />
-            </div>
-            <div class="content">
-              <h1>Ingrese su contraseña</h1>
-              <input id="contraseña" class="boxes" type="password" placeholder="Contraseña" required />
-            </div>
-            <div class="botones">
-              <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
-              <button id="registrarse" class="navBTN" type="submit" onclick="mostrarRegistro()" >Registrate</button>
-              <button id="recovery" class="button" type="submit" >Olvide mi contraseña</button>
-            </div>
-          </div>
+    <!-- caja que actualiza contenido -->
+    <div id="main-contenido">
+      <form id="form-Inicio">
+        <div class="content">
+          <h1>Ingrese su usuario</h1>
+          <input id="usuario" class="boxes" type="text" placeholder="Usuario" required />
+        </div>
+        <div class="content">
+          <h1>Ingrese su email</h1>
+          <input id="email" class="boxes" type="email" placeholder="email" required />
+        </div>
+        <div class="content">
+          <h1>Ingrese su contraseña</h1>
+          <input id="contraseña" class="boxes" type="password" placeholder="Contraseña" required />
+        </div>
+        <div class="botones">
+          <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
+          <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
+          <button id="recovery" class="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
+        </div>
+      </form>
       </section>
     </div>
   </template>
 
   <template id="tempRegistro">
-    <div class="contenedor-registro">
+    <form class="contenedor-registro">
       <div class="form-grid">
         <div class="form-group">
           <label for="nombres">Nombres</label>
@@ -120,12 +122,12 @@
         </div>
         <div class="pie_caja">
           <button id="iniciarSesion" class="registro" type="submit">Regístrate</button>
-          <button id="iniciarSesion" class="registro" type="submit">
+          <button id="VolverInicioSesion" class="registro" onclick="mostrarInicio()">
             Volver al inicio
           </button>
         </div>
       </div>
-    </div>
+    </form>
   </template>
 
   <template id="tempToken">
@@ -158,9 +160,10 @@
 
   <!-- LINKS-->
   <script src="./view/js/atributos.js"></script>
-  <script src="./view/js/vista.js"></script>
-  <script src="./controller/controladorInicio.js"></script>
-  <script src="./controller/register.js"></script>
+  <script src="./view/js/vista.js" defer></script>
+  <script src="./controller/controladorInicio.js" defer></script>
+  <script src="./controller/register.js" defer></script>
+
 </body>
 
 </html>

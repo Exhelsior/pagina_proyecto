@@ -99,10 +99,10 @@ class TransicionFondo {
 }
 
 const fondos = [
-  "/client/view/img/fondoInicio.svg",
-  "/client/view/img/fondoInicio2.svg",
-  "/client/view/img/fondoInicio3.svg",
-  "/client/view/img/fondoInicio4.svg"
+"../../public/fondoInicio.svg",
+"../../public/fondoInicio2.svg",
+"../../public/fondoInicio3.svg",
+"../../public/fondoInicio4.svg"
 ];
 
 const transicionFondo = new TransicionFondo(fondos);

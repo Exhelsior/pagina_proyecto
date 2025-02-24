@@ -11,6 +11,15 @@ const envioRoutes = require('../routes/routesEnvios.js');
 
 const app = express(); // Aquí se define 'app' correctamente antes de usarlo
 
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, '../../client')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/index.html'));
+});
+
+
 // Middleware para permitir CORS
 app.use(cors({
     origin: "*", // "*" permite cualquier url
@@ -29,7 +38,7 @@ app.use('/usuarios', usuarioRoutes);
 app.use('/inventario', inventoryRoutes);
 app.use('/envio', envioRoutes);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+    console.log(`Servidor corriendo en el url http://localhost:${PORT}`);
 });

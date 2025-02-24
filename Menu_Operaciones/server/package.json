@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon src/index.js && start http://localhost:3000",
+    "run": "node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "description": "union via node a la base de datos sql de master bread",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
