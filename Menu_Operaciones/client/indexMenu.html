@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Master Bread</title>
-    <link rel="icon" href="./view/img/icon.ico" type="icono" />
+    <link rel="icon" href="./public/icon.ico" type="icono" />
     <link rel="stylesheet" href="./view/css/estilos.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,12 +19,12 @@
       <div class="bar-menu">
         <aside class="contenido-menu">
           <div class="logo">
-            <img src="./view/img/logo.png" alt="Logo" class="logo-menu" />
+            <img src="./public/logo.png" alt="Logo" class="logo-menu" />
           </div>
           <nav class="side-menu">
             <!-- BOTONES Y LOGOS -->
-            <button id="pag-inventarios" class="boton">
-              <svg
+            <a id="pag-inventarios" class="boton">
+              <svg class="svg-color"
                 xmlns="http://www.w3.org/2000/svg"
                 height="40px"
                 viewBox="0 -960 960 960"
@@ -35,10 +35,10 @@
                   d="M620-163 450-333l56-56 114 114 226-226 56 56-282 282Zm220-397h-80v-200h-80v120H280v-120h-80v560h240v80H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h167q11-35 43-57.5t70-22.5q40 0 71.5 22.5T594-840h166q33 0 56.5 23.5T840-760v200ZM480-760q17 0 28.5-11.5T520-800q0-17-11.5-28.5T480-840q-17 0-28.5 11.5T440-800q0 17 11.5 28.5T480-760Z"
                 />
               </svg>
-              <h1>INVENTARIOS</h1>
-            </button>
-            <button id="pag-pedidos" class="boton">
-              <svg
+              <h1>PRODUCTOS</h1>
+            </a>
+            <a id="pag-pedidos" class="boton">
+              <svg class="svg-color"
                 xmlns="http://www.w3.org/2000/svg"
                 height="40px"
                 viewBox="0 -960 960 960"
@@ -50,9 +50,9 @@
                 />
               </svg>
               <h1>PEDIDOS</h1>
-            </button>
-            <button id="pag-envios" class="boton">
-              <svg
+            </a>
+            <a id="pag-envios" class="boton">
+              <svg class="svg-color"
                 xmlns="http://www.w3.org/2000/svg"
                 height="40px"
                 viewBox="0 -960 960 960"
@@ -64,9 +64,9 @@
                 />
               </svg>
               <h1>ENVIOS</h1>
-            </button>
-            <button id="salir" class="boton">
-              <svg
+            </a>
+            <a id="salir" class="boton">
+              <svg class="svg-color"
                 xmlns="http://www.w3.org/2000/svg"
                 height="40px"
                 viewBox="0 -960 960 960"
@@ -78,7 +78,7 @@
                 />
               </svg>
               <h1>LOGOUT</h1>
-            </button>
+            </a>
           </nav>
         </aside>
       </div>
@@ -92,7 +92,7 @@
     <!-- templates -->
     <template id="tempInventario">
       <div class="contenido-inventario">
-        <h1>INVENTARIOS</h1>
+        <h1>PRODUCTOS</h1>
         <div class="contenedor-grid">
           <div class="inventario">
             <h2>INVENTARIO PRODUCTOS</h2>
@@ -123,407 +123,7 @@
                     <th>ACCIONES</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>001</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>002</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>003</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>004</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>005</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>006</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>007</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>008</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>009</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>010</td>
-                    <td>Pan Bagget</td>
-                    <td>06/SEP/2024</td>
-                    <td>15/SEP/2025</td>
-                    <td>$$$$</td>
-                    <td>500</td>
-                    <td>
-                      <div class="b-caja">
-                        <button class="add-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="13"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-pencil"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"
-                            />
-                          </svg>
-                        </button>
-                        <button class="del-boton-tabla">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-x"
-                            viewBox="0 0 16 13"
-                          >
-                            <path
-                              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                <tbody class="t-body">
                 </tbody>
               </table>
             </div>
@@ -1273,9 +873,10 @@
       <span></span>
       <span></span>
     </div>
-
+    <div id="listaProducts"></div>
     <!-- LINKS -->
     <script src="./view/js/vista.js"></script>
     <script type="module" src="./controller/controlador.js"></script>
+    <script src="./controller/consultasInventarios.js"></script>
   </body>
 </html>
