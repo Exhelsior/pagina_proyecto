@@ -180,3 +180,14 @@ export const sendProducto = async () => {
       alert("Hubo un error al agregar el producto");
   }
 };
+
+export function searchProducto(){
+  const input = document.getElementById("search-product").value.toLowerCase();
+  const tabla = document.querySelector(".t-productos .t-body");
+  const filas = tabla.getElementsByTagName("tr");
+
+  for (let i = 1; i < filas.length; i++) {
+    let filaText = filas[i].textContent.toLowerCase();
+    filas[i].style.display = filaText.includes(input) ? "" : "none";
+  }
+}
