@@ -181,13 +181,13 @@ export const sendProducto = async () => {
   }
 };
 
-export function searchProducto(){
+export function searchProducto() {
   const input = document.getElementById("search-product").value.toLowerCase();
   const tabla = document.querySelector(".t-productos .t-body");
   const filas = tabla.getElementsByTagName("tr");
 
-  for (let i = 1; i < filas.length; i++) {
-    let filaText = filas[i].textContent.toLowerCase();
-    filas[i].style.display = filaText.includes(input) ? "" : "none";
+  for (let i = 0; i < filas.length; i++) { // Empieza desde 0
+      let filaText = filas[i].textContent.toLowerCase();
+      filas[i].style.display = filaText.includes(input) ? "" : "none";
   }
 }
