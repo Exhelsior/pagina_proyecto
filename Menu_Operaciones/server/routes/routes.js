@@ -6,6 +6,9 @@
 const express = require("express");
 const router = express.Router();
 const {
+  loginUsuario,
+} = require("../controller/controller usuarios/login");
+const {
   crearUsuario,
   getUsuarios,
   deleteUsuario,
@@ -17,11 +20,12 @@ const {
 
 // Rutas para usuarios
 router.post("/createUser", crearUsuario);
-router.get("/:id", getUsuarios);
+router.post("/login", loginUsuario);
 router.get("/rolesUser", getRoles);
 router.get("/recoveryUser", resetPassword);
+router.post("/tokenUser", generarToken);
+router.get("/:id", getUsuarios);
 router.delete("/delete/:id", deleteUsuario);
 router.put("/update/:id", actualizarUsuario);
-router.post("/tokenUser", generarToken);
 
 module.exports = router;

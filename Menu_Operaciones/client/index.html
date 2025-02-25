@@ -30,7 +30,7 @@
       <section class="box">
         <!-- caja que actualiza contenido -->
         <div id="main-contenido">
-          <form id="form-Inicio">
+          <form id="form-Inicio" novalidate>
             <div class="content">
               <h1>Ingrese su usuario</h1>
               <input id="usuario" class="boxes" type="text" placeholder="Usuario" required />
@@ -44,15 +44,13 @@
               <input id="contraseña" class="boxes" type="password" placeholder="Contraseña" required />
             </div>
             <div class="botones">
-              <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
-              <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
-              <button id="recovery" class="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
+              <button id="mostraMenu" class="button" type="submit" disabled>Iniciar sesion</button>
+              <button id="recovery" class="button" type="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
             </div>
           </form>
         </div>
       </section>
       <footer> Derechos reservados © </footer>
-    </div>
     </div>
   </main>
 
@@ -75,59 +73,10 @@
         </div>
         <div class="botones">
           <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
-          <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
           <button id="recovery" class="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
         </div>
       </form>
-      </section>
     </div>
-  </template>
-
-  <template id="tempRegistro">
-    <form class="contenedor-registro">
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="nombres">Nombres</label>
-          <input id="nombres" class="boxes" type="text" />
-        </div>
-        <div class="form-group">
-          <label for="apellidos">Correo</label>
-          <input id="correo" class="boxes" type="email" />
-        </div>
-        <div class="form-group">
-          <label for="contrasena">Contraseña</label>
-          <input id="contrasena" class="boxes" type="password" />
-        </div>
-        <div class="form-group">
-          <label for="cargo">Cargo</label>
-          <select id="cargo" class="boxes">
-            <option value>Elija</option>
-            <option value="Jefe de inventario">Jefe de inventario</option>
-            <option value="Despachador">Despachador</option>
-            <option value="Repartidor">Repartidor</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="tipo_documento">Tipo de documento</label>
-          <select id="tipo_documento" class="boxes">
-            <option value>Elija</option>
-            <option value="cedula">Cédula</option>
-            <option value="pasaporte">Pasaporte</option>
-            <option value="permanencia">Permanencia</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="numero_documento">Número de documento</label>
-          <input id="numero_documento" class="boxes" type="text" maxlength="10" />
-        </div>
-        <div class="pie_caja">
-          <button id="iniciarSesion" class="registro" type="submit">Regístrate</button>
-          <button id="VolverInicioSesion" class="registro" onclick="mostrarInicio()">
-            Volver al inicio
-          </button>
-        </div>
-      </div>
-    </form>
   </template>
 
   <template id="tempToken">
@@ -135,11 +84,11 @@
       <h1>Ingrese su correo</h1>
       <input class="boxes" type="email" />
     </div>
-    </div>
     <div class="pie_caja">
       <button id="showNotificationBtn" class="registro" onclick="mostrarRecovery()">
         Generar token
       </button>
+    </div>
   </template>
 
   <template id="tempRecovery">
@@ -151,19 +100,19 @@
       <h1>Ingrese su nueva contraseña</h1>
       <input class="boxes" type="password" />
     </div>
-    </div>
     <div class="pie_caja">
       <button id="showNotificationBtn" class="registro" onclick="mostrarInicio()">
         Restablecer contraseña
       </button>
+    </div>
   </template>
 
   <!-- LINKS-->
   <script src="./view/js/atributos.js"></script>
-  <script src="./view/js/vista.js" defer></script>
-  <script src="./controller/controladorInicio.js" defer></script>
-  <script src="./controller/register.js" defer></script>
-
+  <script src="./view/js/vista.js"></script>
+  <script src="./controller/controladorInicio.js"></script>
+  <script src="./controller/register.js"></script>
+  
 </body>
 
 </html>

@@ -19,7 +19,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../client/index.html'));
 });
 
-
 // Middleware para permitir CORS
 app.use(cors({
     origin: "*", // "*" permite cualquier url
