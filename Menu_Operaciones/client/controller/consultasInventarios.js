@@ -1,4 +1,5 @@
 // import { closeModal } from "../view/js/contenido-modal.js";
+import { closeModal } from "../view/js/contenido-modal.js";
 import { listenerDeleteProduct } from "./buttons.js";
 
 // Trae los datos desde la base de datos
@@ -103,21 +104,37 @@ export const eliminarProducto = async (e) => {
   const idProducto = fila.querySelector("td").textContent;
 
   listenerDeleteProduct();
+  const btnDelete = document.getElementById("delete");
+  const btnCancel = document.getElementById("cancelDelete");
+  console.log(btnDelete)
+  if (btnDelete) {
+  btnDelete.addEventListener("click", async() => {
+    try { 
+      const response = await fetch(`http://localhost:3000/inventario/delete/${idProducto}`, {
+        method: "DELETE"
+      });
+  
+      if (!response.ok) throw new Error("No se pudo eliminar el producto");
+  
+      fila.remove();
+      closeModal();
+    } catch (error) {
+      console.error("Error:", error.message);
+      alert(`Error al elminar el producto: ${error.message}`);
+    }
+  })
+  }
+  if(btnCancel) {
+    btnCancel.addEventListener("click", () => {
+      closeModal();
+    })
+  } else {
+  console.error("Botón de confirmación no encontrado en el modal");
+  };
 
-  // try { 
-  //   const response = await fetch(`http://localhost:3000/inventario/delete/${idProducto}`, {
-  //     method: "DELETE"
-  //   });
-
-  //   if (!response.ok) throw new Error("No se pudo eliminar el producto");
-
-  //   fila.remove();
-  //   alert("Producto eliminado correctamente");
-  // } catch (error) {
-  //   console.error("Error:", error.message);
-  //   alert(`Error al elminar el producto: ${error.message}`);
-  // }
 }
+  
+
 
  
 

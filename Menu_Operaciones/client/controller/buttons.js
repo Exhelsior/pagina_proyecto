@@ -113,12 +113,11 @@ export const modalContent = {
 
     confirmProduct:
         `
-        <h1>Producto Agregado</h1>
         <div class="confirm-product">
             <p>¿Esta seguro de eliminar este producto?</p>
         </div>
-        <div class="caja-boton">
-            <button id="confirmDelete" class="add">Eliminar</button>
+        <div class="boton-add">
+            <button id="delete" class="add">Eliminar</button>
             <button id="cancelDelete" class="cancel">Cancelar</button>
         </div>
         `,
