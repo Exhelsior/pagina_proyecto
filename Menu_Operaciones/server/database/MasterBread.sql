@@ -70,20 +70,20 @@ CREATE TABLE Producto (
 	FechaVencimiento date
 );
 
+CREATE TABLE Pedido (
+	IdPedido int AUTO_INCREMENT PRIMARY KEY,
+	Cantidad int,
+	PrecioUnitario decimal,
+	Total decimal
+);
+
 CREATE TABLE EstadoPedidos (
 	IdEstado int AUTO_INCREMENT PRIMARY KEY,
 	IdPedidos int,
 	FechaPedido datetime,
 	EstadoPedido varchar(255),
 	Total decimal,
-	FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE,
-);
-
-CREATE TABLE Pedido (
-	IdPedido int AUTO_INCREMENT PRIMARY KEY,
-	Cantidad int,
-	PrecioUnitario decimal,
-	Total decimal,
+	FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Envios (
@@ -104,6 +104,7 @@ CREATE TABLE ItemPedidos (
 	FOREIGN KEY (IdProducto) REFERENCES Producto (IdProducto) ON DELETE CASCADE ON UPDATE CASCADE,
    FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 
 

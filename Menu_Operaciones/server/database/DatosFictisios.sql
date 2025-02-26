@@ -24,6 +24,7 @@ INSERT INTO RolesUsuarios (IdUsuarios, IdRoles) VALUES
 (4, 4), 
 (5, 2);
 
+
 -- Iinsertar ejemplo de datos de sesiones
 INSERT INTO Sesiones (IdUsuario, IdRolUsuario, FechaInicio, FechaFin, DireccionIP, Dispositivo) VALUES 
 (1, 1, '2024-01-15 09:30:00', '2024-01-15 17:45:00', '192.168.1.100', 'Windows 11 - Chrome'),

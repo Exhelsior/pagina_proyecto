@@ -11,18 +11,30 @@ export function openModal(content) {
 
     setTimeout(() => {
         const btnAgregar = document.getElementById("btn-form-product");
-
+        
         if (btnAgregar) {
             if (btnAgregar) {
-                console.log("Boton listo para enviar los datos");
                 btnAgregar.addEventListener("click", (event) => {
                     sendProducto(event);
+                    const modal = document.getElementById("modal");
+                    modal.style.display = "none";
                 })
-            } else {
+            } 
+            else {
                 console.error("boton no encontrado")
             }
         }
     })
+}
+
+// confirmacion del modal
+
+export function modalDelete(content) {
+    const modal = document.getElementById("modal");
+    const modalBody = document.getElementById("modal-body");
+
+    modalBody.innerHTML = content;
+    modal.style.display = "flex";
 }
 
 //cerrar el modal

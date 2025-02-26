@@ -1,5 +1,7 @@
+import { modalDelete } from "../view/js/contenido-modal.js";
+
 //contenido modales
-const modalContent = {
+export const modalContent = {
     addProduct: 
         `
         <h1>Producto</h1>
@@ -107,7 +109,19 @@ const modalContent = {
         <div class="boton-add">
             <button id="add-product-bill" class="add">Añadir Productos</button>
         </div>
+        `,
+
+    confirmProduct:
         `
+        <h1>Producto Agregado</h1>
+        <div class="confirm-product">
+            <p>¿Esta seguro de eliminar este producto?</p>
+        </div>
+        <div class="caja-boton">
+            <button id="confirmDelete" class="add">Eliminar</button>
+            <button id="cancelDelete" class="cancel">Cancelar</button>
+        </div>
+        `,
 };
 
 //eventos botones
@@ -116,6 +130,11 @@ export function listenerButton(openCallbackModal){
         openCallbackModal(modalContent.addProduct);
     })
 }
+
+export function listenerDeleteProduct() {
+    modalDelete(modalContent.confirmProduct);
+}
+
 
 export function listenerBillButton(openCallbackModal) {
     document.getElementById("bill-add-product").addEventListener("click", () => {

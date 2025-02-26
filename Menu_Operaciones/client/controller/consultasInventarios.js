@@ -1,3 +1,6 @@
+// import { closeModal } from "../view/js/contenido-modal.js";
+import { listenerDeleteProduct } from "./buttons.js";
+
 // Trae los datos desde la base de datos
 export async function products() {
     try {
@@ -70,7 +73,7 @@ export function mostrarProductos(productos) {
                             />
                           </svg>
                         </button>
-                        <button class="del-boton-tabla t-boton">
+                        <button id="confirmDelete" class="del-boton-tabla t-boton" >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -99,23 +102,23 @@ export const eliminarProducto = async (e) => {
   const fila = botonEliminar.closest("tr");
   const idProducto = fila.querySelector("td").textContent;
 
-  const confirmar = window.confirm(`¿Estas seguro de eliminar este producto? ID = ${idProducto}`);
-  if (!confirmar) return;
+  listenerDeleteProduct();
 
-  try {
-    const response = await fetch(`http://localhost:3000/inventario/delete/${idProducto}`, {
-      method: "DELETE"
-    });
+  // try { 
+  //   const response = await fetch(`http://localhost:3000/inventario/delete/${idProducto}`, {
+  //     method: "DELETE"
+  //   });
 
-    if (!response.ok) throw new Error("No se pudo eliminar el producto");
+  //   if (!response.ok) throw new Error("No se pudo eliminar el producto");
 
-    fila.remove();
-    alert("Producto eliminado correctamente");
-  } catch (error) {
-    console.error("Error:", error.message);
-    alert(`Error al elminar el producto: ${error.message}`);
-  }
-};
+  //   fila.remove();
+  //   alert("Producto eliminado correctamente");
+  // } catch (error) {
+  //   console.error("Error:", error.message);
+  //   alert(`Error al elminar el producto: ${error.message}`);
+  // }
+}
+
  
 
 export const sendProducto = async () => {
@@ -125,12 +128,6 @@ export const sendProducto = async () => {
   const Cantidad = document.getElementById("cant-product")?.value.trim();
   const Lote = document.getElementById("fab-date-product").value;
   const FechaVencimiento = document.getElementById("venc-date-product").value;
-
-  // console.log("Nombre:", nombre);
-  // console.log("Precio:", precio);
-  // console.log("Cantidad:", cantidad);
-  // console.log("Lote:", lote);
-  // console.log("Fecha Vencimiento:", fechaVencimiento);
 
   if (!NombreProducto || !Precio || !Cantidad || !Lote || !FechaVencimiento) {
       alert("Todos los campos son obligatorios");
@@ -170,8 +167,6 @@ export const sendProducto = async () => {
       if (!response.ok) {
           throw new Error("Error al enviar los datos");
       }
-
-      alert("Producto agregado correctamente");
 
       // Opcional: Recargar la tabla después de agregar
       products();

@@ -233,9 +233,19 @@ body{
     background-color: #EFD79B;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 6px 6px 0px;
-    
 }
-
+.cancel {
+    font-size: medium;
+    font-weight: 500;
+    padding: 15px;
+    width: 40%;
+    border: none;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color:#ccc;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 6px 6px 0px;
+}
 .add:hover {
     background-color: #E5D392;
 }
