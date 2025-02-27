@@ -1,7 +1,7 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
-import { setupModalClose, openModal, outsideClose } from "../view/js/contenido-modal.js";
-import { listenerButton, listenerBillButton } from "./buttons.js";
-import { eliminarProducto, products } from "./consultasInventarios.js"; 
+import { setupModalListeners, openModal, setupModalClose, outsideClose } from "./contenido-modal.js";
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -20,28 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarInventario() {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
-
-    // Esperar a que la plantilla cargue y luego ejecutar products()
-    setTimeout(() => {
-      const tablaBody = document.querySelector(".t-productos .t-body");
-      if (tablaBody) {
-        console.log("Cargando productos..."); // Debugging
-        products(); // Llama a la función para cargar los productos
-        tablaBody.addEventListener("click", eliminarProducto);
-      } else {
-        console.error("No se encontró .t-productos .t-body");
-      };
-
-    });
-
-    listenerButton(openModal);
+    setupModalListeners(openModal);
     setupModalClose();
     outsideClose();
   }
 
   function mostrarPedidos() {
     vista.mostrarPlantilla("tempPedidos", "main-contenido");
-    listenerBillButton(openModal);
+    setupModalListeners(openModal);
     setupModalClose();
     outsideClose();
   }
