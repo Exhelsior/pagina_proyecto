@@ -1,7 +1,12 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
+<<<<<<< HEAD
 import { setupModalClose, openModal, outsideClose } from "../view/js/contenido-modal.js";
 import { listenerButton, listenerBillButton } from "./buttons.js";
 import { eliminarProducto, products, searchProducto } from "./consultasInventarios.js"; 
+=======
+import { setupModalListeners, openModal, setupModalClose, outsideClose } from "./contenido-modal.js";
+import { products } from "./controladorInventario/crudAPI.js"; // Asegúrate de que la ruta sea correcta
+>>>>>>> createI
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -20,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarInventario() {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
+<<<<<<< HEAD
 
     setTimeout(() => {
         const tablaBody = document.querySelector(".t-productos .t-body");
@@ -41,13 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     listenerButton(openModal);
+=======
+    products(); // Llamar a la función products para cargar los productos
+    setupModalListeners(openModal);
+>>>>>>> createI
     setupModalClose();
     outsideClose();
 }
 
   function mostrarPedidos() {
     vista.mostrarPlantilla("tempPedidos", "main-contenido");
-    listenerBillButton(openModal);
+    setupModalListeners(openModal);
     setupModalClose();
     outsideClose();
   }
@@ -55,5 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function mostrarEnvios() {
     vista.mostrarPlantilla("tempEnvios", "main-contenido");
   }
+<<<<<<< HEAD
 
 });
+=======
+});
+>>>>>>> createI
