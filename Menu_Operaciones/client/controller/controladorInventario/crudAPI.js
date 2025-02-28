@@ -1,3 +1,4 @@
+import { closeModal } from "../contenido-modal.js";
 import { apiClient } from "./API_REST.js";
 
 export async function products() {
@@ -63,3 +64,55 @@ export function showProducts(productos){
         `;
     }).join("");
 }
+
+export const addProduct = async () => {
+    const NombreProducto = document.getElementById("name-product").value.trim(); 
+    const Precio = document.getElementById("price-product").value.trim();
+    const Cantidad = document.getElementById("cant-product").value.trim();
+    const Lote = document.getElementById("fab-date-product").value;
+    const FechaVencimiento = document.getElementById("venc-date-product").value;
+    
+    if (!NombreProducto || !Precio || !Cantidad || !Lote || !FechaVencimiento) {
+        alert("Todos los campos son requeridos");
+        return;
+    };
+
+    const precioNum = parseFloat(Precio);
+    const cantidadNum = parseInt(Cantidad);
+
+    if (isNaN(precioNum) || precioNum <= 0) {
+        alert("El precio debe ser un numero mayor a  0");
+        return;
+    };
+
+    if (isNaN(cantidadNum) || cantidadNum <= 0) {
+        alert("La cantidad debe ser un numero mayor a 0");
+        return;
+    };
+
+    const nuevoProducto = {
+        NombreProducto,
+        Precio: precioNum,
+        Cantidad: cantidadNum,
+        Lote,
+        FechaVencimiento,
+    };
+    console.log(nuevoProducto);
+    try {
+        const response = await apiClient.create(nuevoProducto);
+        console.log(response);
+        if (!response) {
+            throw new Error(" Error al crear el producto");
+        } 
+
+        alert("Producto creado exitosamente");
+        console.log("producto creado:", response);
+        products();
+
+        closeModal()
+        
+    } catch (error) {
+        console.error(error.message);
+        alert(`Error al crear el producto: ${error.message}`);
+    }
+};

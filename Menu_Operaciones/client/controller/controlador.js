@@ -1,12 +1,6 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
-<<<<<<< HEAD
-import { setupModalClose, openModal, outsideClose } from "../view/js/contenido-modal.js";
-import { listenerButton, listenerBillButton } from "./buttons.js";
-import { eliminarProducto, products, searchProducto } from "./consultasInventarios.js"; 
-=======
 import { setupModalListeners, openModal, setupModalClose, outsideClose } from "./contenido-modal.js";
-import { products } from "./controladorInventario/crudAPI.js"; // Asegúrate de que la ruta sea correcta
->>>>>>> createI
+import { addProduct, products } from "./controladorInventario/crudAPI.js"; // Asegúrate de que la ruta sea correcta
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -25,35 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarInventario() {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
-<<<<<<< HEAD
-
-    setTimeout(() => {
-        const tablaBody = document.querySelector(".t-productos .t-body");
-        const inputBusqueda = document.getElementById("search-product");
-
-        if (tablaBody) {
-            products(); // Cargar productos
-            tablaBody.addEventListener("click", eliminarProducto);
-        } else {
-            console.error("No se encontró .t-productos .t-body");
-        }
-
-        // Agregar evento para ejecutar la búsqueda
-        if (inputBusqueda) {
-            inputBusqueda.addEventListener("input", searchProducto);
-        } else {
-            console.error("No se encontró el input de búsqueda");
-        }
-    });
-
-    listenerButton(openModal);
-=======
     products(); // Llamar a la función products para cargar los productos
     setupModalListeners(openModal);
->>>>>>> createI
+    
+    document.addEventListener('click', (event) => {
+      if (event.target.id === 'btn-form-product') {
+        addProduct(); // Llamar a la función addProduct para agregar un producto
+      } 
+    })
     setupModalClose();
     outsideClose();
-}
+  }
 
   function mostrarPedidos() {
     vista.mostrarPlantilla("tempPedidos", "main-contenido");
@@ -65,9 +41,4 @@ document.addEventListener("DOMContentLoaded", () => {
   function mostrarEnvios() {
     vista.mostrarPlantilla("tempEnvios", "main-contenido");
   }
-<<<<<<< HEAD
-
 });
-=======
-});
->>>>>>> createI
