@@ -17,11 +17,11 @@ const modalContent = {
             </div>
             <div class="form-content">
                 <h3>Precio Unitario</h3>
-                <input type="number" placeholder="Precio" id="price-product">
+                <input type="number" placeholder="Precio" id="price-product" min="1">
             </div>
             <div class="form-content">
                 <h3>Cantidad</h3>
-                <input type="number" placeholder="Cantidad" id="cant-product">
+                <input type="number" placeholder="Cantidad" id="cant-product" min="1">
             </div>
             <div class="boton-add">
                 <button id="btn-form-product" class="add" type="button">Agregar Producto</button>

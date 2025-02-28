@@ -7,7 +7,7 @@ export async function products() {
         if (!data) throw new Error("No se encontraron los productos");
 
         showProducts(data);
-        console.log(data);
+        // console.log(data);
     } catch (error) {
         console.error("Error", error.message);
     }
@@ -29,7 +29,7 @@ export function showProducts(productos){
     }
 
     tbody.innerHTML = productos.map((producto, index) => {
-        console.log(`Index: ${index}, ID: ${producto.IdProducto}, Nombre: ${producto.NombreProducto}`);
+        // console.log(`Index: ${index}, ID: ${producto.IdProducto}, Nombre: ${producto.NombreProducto}`);
         function formatearFecha(fecha) {
                 return new Date(fecha).toLocaleDateString("es-ES", {
                     year: "numeric",
@@ -116,3 +116,27 @@ export const addProduct = async () => {
         alert(`Error al crear el producto: ${error.message}`);
     }
 };
+
+export const deleteProduct = async (e) => {
+
+    const btnDelete = e.target.closest('.del-boton-tabla');
+    if (!btnDelete) return;
+
+    const row = btnDelete.closest('tr');
+    const idProducto = row.querySelector('td').textContent;
+    // console.log(idProducto);
+    const confirm = window.confirm(`¿Estás seguro de eliminar el producto con ID: ${idProducto}?`);
+    if (!confirm) return;
+
+    try {
+        const response = await apiClient.delete(idProducto);
+        if (!response) throw new Error("Error al eliminar el producto");
+
+        row.remove();
+        alert("Producto eliminado exitosamente");
+    }catch (error) {
+        console.error("Error:", error.message);
+        alert(`Error al eliminar el producto: ${error.message}`);
+    }
+
+}

@@ -96,44 +96,44 @@
 //     });
 // }
 
-// export const eliminarProducto = async (e) => {
-//   const botonEliminar = e.target.closest(".del-boton-tabla");
-//   if (!botonEliminar) return;
+export const eliminarProducto = async (e) => {
+  const botonEliminar = e.target.closest(".del-boton-tabla");
+  if (!botonEliminar) return;
 
-//   const fila = botonEliminar.closest("tr");
-//   const idProducto = fila.querySelector("td").textContent;
+  const fila = botonEliminar.closest("tr");
+  const idProducto = fila.querySelector("td").textContent;
 
-//   listenerDeleteProduct();
-//   const btnDelete = document.getElementById("delete");
-//   const btnCancel = document.getElementById("cancelDelete");
-//   console.log(btnDelete)
-//   if (btnDelete) {
-//   btnDelete.addEventListener("click", async() => {
-//     try { 
-//       const response = await fetch(`http://localhost:3000/inventario/delete/${idProducto}`, {
-//         method: "DELETE"
-//       });
+  listenerDeleteProduct();
+  const btnDelete = document.getElementById("delete");
+  const btnCancel = document.getElementById("cancelDelete");
+  console.log(btnDelete)
+  if (btnDelete) {
+  btnDelete.addEventListener("click", async() => {
+    try { 
+      const response = await fetch(`http://localhost:3000/inventario/delete/${idProducto}`, {
+        method: "DELETE"
+      });
   
-//       if (!response.ok) throw new Error("No se pudo eliminar el producto");
+      if (!response.ok) throw new Error("No se pudo eliminar el producto");
   
-//       fila.remove();
-//       closeModal();
-//     } catch (error) {
-//       console.error("Error:", error.message);
-//       alert(`Error al elminar el producto: ${error.message}`);
-//     }
-//   })
-//   }
-//   if(btnCancel) {
-//     btnCancel.addEventListener("click", () => {
-//       closeModal();
-//     })
-//   } else {
-//   console.error("Botón de confirmación no encontrado en el modal");
-//   };
+      fila.remove();
+      closeModal();
+    } catch (error) {
+      console.error("Error:", error.message);
+      alert(`Error al elminar el producto: ${error.message}`);
+    }
+  })
+  }
+  if(btnCancel) {
+    btnCancel.addEventListener("click", () => {
+      closeModal();
+    })
+  } else {
+  console.error("Botón de confirmación no encontrado en el modal");
+  };
 
-// }
-  
+}
+   
 
 
  
