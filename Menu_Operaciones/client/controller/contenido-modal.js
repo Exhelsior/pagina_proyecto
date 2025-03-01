@@ -1,5 +1,5 @@
 // Contenido de los modales
-const modalContent = {
+ export const modalContent = {
     addProduct: `
         <h1>Producto</h1>
         <form id="tb-add-producto">
@@ -60,7 +60,17 @@ const modalContent = {
         <div class="boton-add">
             <button id="add-product-bill" class="add">Añadir Productos</button>
         </div>
+    `,
+
+    aceptDelete: `
+        <p>¿Estás seguro de eliminar el producto?</p>
+        <div class="boton-add">
+            <button id="delete-product" class="add">Eliminar</button>
+            <button id="cancel-delete" class="cancel">Cancelar</button>
+        </div>
     `
+
+
 };
 
 // Función para abrir el modal
@@ -105,4 +115,8 @@ export function setupModalListeners(openCallbackModal) {
     document.getElementById("bill-add-product")?.addEventListener("click", () => {
         openCallbackModal(modalContent.addBillProduct);
     });
+    
+    document.getElementById("confirmDelete")?.addEventListener("click", () =>
+        openCallbackModal(modalContent.aceptDelete)
+    );
 }

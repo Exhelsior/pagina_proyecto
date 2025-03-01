@@ -174,7 +174,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 40px;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 
@@ -600,6 +600,11 @@ body{
 
 .modal-body h1{
     text-align: center;
+}
+
+#modal-content p{
+    text-align: center;
+    font-size: x-large;
 }
 
 .form-content h3 { 

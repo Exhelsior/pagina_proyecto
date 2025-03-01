@@ -1,6 +1,6 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalListeners, openModal, setupModalClose, outsideClose } from "./contenido-modal.js";
-import { addProduct, deleteProduct, products } from "./controladorInventario/crudAPI.js"; // Asegúrate de que la ruta sea correcta
+import { addProduct, deleteProduct, products, updateProduct } from "./controladorInventario/crudAPI.js"; // Asegúrate de que la ruta sea correcta
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -21,13 +21,32 @@ document.addEventListener("DOMContentLoaded", () => {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
     products(); // Llamar a la función products para cargar los productos
 
-    document.querySelector(".t-productos .t-body").addEventListener("click", deleteProduct); // Llamar a la función deleteProduct para eliminar un producto
+    document.querySelector(".t-productos .t-body").addEventListener("click", (event) => {
+      const target = event.target;
+      const btnEdit = target.closest(".add-boton-tabla");
+      const btnDelete = target.closest(".del-boton-tabla");
+
+      if (btnDelete) {
+        deleteProduct(event); // Llamar a la función deleteProduct para eliminar un producto
+      }
+
+      if (btnEdit) {
+        updateProduct(event); // Llamar a la función updateProduct para actualizar un producto
+      }
+    });
+
+/*     document.querySelector(".t-productos .t-body").addEventListener("click", updateProduct); // Llamar a la función updateProduct para actualizar un producto
+
+    document.querySelector(".t-productos .t-body").addEventListener("click", deleteProduct); // Llamar a la función deleteProduct para eliminar un producto */
+
     setupModalListeners(openModal);
+
     document.addEventListener('click', (event) => {
       if (event.target.id === 'btn-form-product') {
         addProduct(); // Llamar a la función addProduct para agregar un producto
       } 
-    })
+    });
+
     setupModalClose();
     outsideClose();
   }
