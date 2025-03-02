@@ -9,7 +9,8 @@ const usuarioRoutes = require('../routes/routes.js');
 const inventoryRoutes = require('../routes/routesInventory.js');
 const envioRoutes = require('../routes/routesEnvios.js');
 
-const app = express(); // Aquí se define 'app' correctamente antes de usarlo
+const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 const path = require('path');
 
@@ -38,6 +39,10 @@ app.use('/inventario', inventoryRoutes);
 app.use('/envio', envioRoutes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el url http://localhost:${PORT}`);
+app.listen(PORT, (error) => {
+    if (error) {
+        console.error('Error al iniciar el servidor:', error);
+        return;
+    }
+    console.log(`Servidor corriendo en el port:${PORT}`);
 });

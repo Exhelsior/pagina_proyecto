@@ -7,15 +7,6 @@ const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 
 const saltRounds = 10;
-const plainPassword = 'password123';
-
-bcrypt.hash(plainPassword, saltRounds, function(err, hash) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('Hashed password:', hash);
-    }
-});
 
 //update
 const actualizarUsuario = async (req, res) => {
@@ -152,7 +143,7 @@ const crearUsuario = async (req, res) => {
     const hashedPassword = await bcrypt.hash(Contraseña_hash, saltRounds);
 
     const [existeEmail] = await connection.query(
-      "SELECT IdUsuarios FROM usuarios WHERE Email = ?",
+      "SELECT IdUsuarios FROM Usuarios WHERE Email = ?",
       [Email]
     );
 
@@ -238,7 +229,7 @@ const deleteUsuario = async (req, res) => {
     const { id } = req.params;
 
     const [result] = await pool.query(
-      "DELETE FROM usuarios WHERE IdUsuarios = ?",
+      "DELETE FROM Usuarios WHERE IdUsuarios = ?",
       [id]
     );
 

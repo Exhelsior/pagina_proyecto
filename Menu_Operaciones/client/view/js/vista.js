@@ -1,19 +1,22 @@
 class Vista {
   constructor() {}
-  /**
-   * Carga FORM en DESTINO. confirma que la plantilla exista
-   * @param {string} temp: id de la plantilla a cargar
-   * @param {string} destino: id del elemento donde se cargará
-   */
+
   mostrarPlantilla(temp, destino) {
-    //limpia contenido
     let dest = document.getElementById(destino);
+    
+    // Si el destino ya contiene un formulario, no lo borres
+    if (dest.querySelector("form")) {
+      console.log("El formulario ya está cargado, evitando sobreescribirlo.");
+      return;
+    }
+
+    // Limpiar contenido solo si es necesario
     dest.innerHTML = "";
     let template = document.getElementById(temp);
+    
     if (template) {
-      //si la plantilla existe...
       let clon = template.content.cloneNode(true);
-      dest.appendChild(clon); //inserta
+      dest.appendChild(clon);
     }
   }
 }

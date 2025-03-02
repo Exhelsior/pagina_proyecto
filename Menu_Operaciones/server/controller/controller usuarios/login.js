@@ -3,8 +3,9 @@ const bcrypt = require("bcrypt");
 
 // Login de usuario
 async function loginUsuario(req, res) {
+    console.log("Datos recibidos en el backend:", req.body);
     const { email, password } = req.body;
-
+    
     if (!email || !password) {
         return res.status(400).json({ message: "Email y contraseña son requeridos" });
     }
@@ -20,7 +21,7 @@ async function loginUsuario(req, res) {
         );
 
         if (user.length === 0) {
-            return res.status(401).json({ message: "Credenciales inválidas de correo" });
+            return res.status(401).json({ message: "Correo electrónico no encontrado" });
         }
 
         console.log("Usuario encontrado:", user[0]);
@@ -28,7 +29,7 @@ async function loginUsuario(req, res) {
         // Verificar contraseña
         const match = await bcrypt.compare(password, user[0].Contraseña_hash);
         if (!match) {
-            return res.status(401).json({ message: "Credenciales inválidas de contraseña" });
+            return res.status(401).json({ message: "Contraseña incorrecta" });
         }
 
         // Registrar sesión
@@ -38,6 +39,7 @@ async function loginUsuario(req, res) {
         );
 
         res.json({
+            success: true,
             message: "Inicio de sesión exitoso",
             user: {
                 id: user[0].IdUsuarios,

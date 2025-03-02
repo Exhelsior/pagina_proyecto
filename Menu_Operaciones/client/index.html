@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,8 +15,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700&display=swap"
     rel="stylesheet" />
+  <script src="./controller/login.js" defer></script>
 </head>
 
 <body>
@@ -32,10 +32,6 @@
         <div id="main-contenido">
           <form id="form-Inicio" novalidate>
             <div class="content">
-              <h1>Ingrese su usuario</h1>
-              <input id="usuario" class="boxes" type="text" placeholder="Usuario" required />
-            </div>
-            <div class="content">
               <h1>Ingrese su email</h1>
               <input id="email" class="boxes" type="email" placeholder="email" required />
             </div>
@@ -44,8 +40,8 @@
               <input id="contraseña" class="boxes" type="password" placeholder="Contraseña" required />
             </div>
             <div class="botones">
-              <button id="mostraMenu" class="button" type="submit" disabled>Iniciar sesion</button>
-              <button id="recovery" class="button" type="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
+              <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
+              <!-- <button id="recovery" class="button" type="button" onclick="mostrarRecovery()">Olvide mi contraseña</button> -->
             </div>
           </form>
         </div>
@@ -58,11 +54,7 @@
   <template id="tempInicio">
     <!-- caja que actualiza contenido -->
     <div id="main-contenido">
-      <form id="form-Inicio">
-        <div class="content">
-          <h1>Ingrese su usuario</h1>
-          <input id="usuario" class="boxes" type="text" placeholder="Usuario" required />
-        </div>
+      <form id="form-Inicio" novalidate>
         <div class="content">
           <h1>Ingrese su email</h1>
           <input id="email" class="boxes" type="email" placeholder="email" required />
@@ -73,13 +65,13 @@
         </div>
         <div class="botones">
           <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
-          <button id="recovery" class="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
+          <button id="recovery" class="button" type="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
         </div>
       </form>
     </div>
   </template>
 
-  <template id="tempToken">
+<!--   <template id="tempToken">
     <div class="content">
       <h1>Ingrese su correo</h1>
       <input class="boxes" type="email" />
@@ -106,13 +98,11 @@
       </button>
     </div>
   </template>
-
+ -->
   <!-- LINKS-->
   <script src="./view/js/atributos.js"></script>
   <script src="./view/js/vista.js"></script>
   <script src="./controller/controladorInicio.js"></script>
-  <script src="./controller/register.js"></script>
-  
 </body>
 
 </html>
