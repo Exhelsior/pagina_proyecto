@@ -142,16 +142,94 @@ export const deleteProduct = async (e) => {
         if (!response) throw new Error("Error al eliminar el producto");
 
         row.remove();
-        alert("Producto eliminado exitosamente");
+        closeModal();
     }catch (error) {
         console.error("Error:", error.message);
         alert(`Error al eliminar el producto: ${error.message}`);
     }
 }
 
-export const updateProduct = async (e) => {
-    const row = e.target.closest('tr');
-    const index = row.dataset.index;
-    console.log(`Actualizar producto con index: ${index}`);
+export function getRowData() {
+    const target = event.target
+        if (target.closest(".add-boton-tabla")){
+
+            const row = target.closest("tr");
+            const index = row.dataset.index;
+            const cell = [...row.children].slice(0,-1);
+
+            const dataRow = cell.map(cell => cell.innerHTML);
+            console.log(dataRow);
+            return { index, dataRow };
+        }
 }
+
+
+export function updateForm( { dataRow } ) {
+    openModal(modalContent.formEdit);
+    const confirmUpdate = document.getElementById("btn-edit-product");
+    const cancelUpdate = document.getElementById("cancel-update");
+
+    document.querySelector('#producto-id').value = dataRow[0];
+    document.querySelector('#name-product').value = dataRow[1];
+    document.querySelector('#price-product').value = dataRow[4].replace("$", "");
+    document.querySelector('#cant-product').value = dataRow[5];
+
+    function convertirFecha(fecha) {
+        if (fecha.includes("/")) { // Si la fecha está en formato DD/MM/YYYY
+            const [dia, mes, año] = fecha.split("/");
+            return `${año}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`;
+        }
+        return fecha; // Si ya está en formato correcto
+    }
+
+    document.querySelector('#fab-date-product').value = convertirFecha(dataRow[2]);
+    document.querySelector('#venc-date-product').value = convertirFecha(dataRow[3]);
+
+    confirmUpdate.addEventListener("click", async () => {
+        const idProducto = document.getElementById("producto-id").value;
+        const NombreProducto = document.getElementById("name-product").value.trim(); 
+        const Precio = document.getElementById("price-product").value.trim();
+        const Cantidad = document.getElementById("cant-product").value.trim();
+        const Lote = document.getElementById("fab-date-product").value;
+        const FechaVencimiento = document.getElementById("venc-date-product").value;
+
+        const precioNum = parseFloat(Precio);
+        const cantidadNum = parseInt(Cantidad);
+
+        
+        if (isNaN(precioNum) || precioNum <= 0) {
+            alert("El precio debe ser un numero mayor a  0");
+            return;
+        };
+
+        if (isNaN(cantidadNum) || cantidadNum <= 0) {
+            alert("La cantidad debe ser un numero mayor a 0");
+            return;
+        };
+
+        const actualProducto = {
+            NombreProducto,
+            Precio: precioNum,
+            Cantidad: cantidadNum,
+            Lote,
+            FechaVencimiento,
+        };
+        
+        try {
+            const response = await apiClient.update(idProducto, actualProducto);
+            if (!response) throw new Error("Error al actualizar el producto");
+
+            alert("Producto actualizado exitosamente");
+            products();
+            closeModal();
+        } catch (error) {
+            console.errror(error.message);
+            alert(`Error al actualizar el producto: ${error.message}`);
+        }
+    })
+
+    cancelUpdate.addEventListener("click", () => {
+        closeModal();
+    });
+};
 

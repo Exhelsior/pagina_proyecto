@@ -68,8 +68,47 @@
             <button id="delete-product" class="add">Eliminar</button>
             <button id="cancel-delete" class="cancel">Cancelar</button>
         </div>
-    `
+    `,
+    formEdit: `
+    <h1>Editar Producto</h1>
+    <form id="tb-edit-producto">
 
+        <div id="form-edit" class="form-content">
+            <h3>ID</h3>
+            <input type="text" id="producto-id" readonly>
+        </div>
+
+        <div id="form-edit" class="form-content">
+            <h3>Nombre</h3>
+            <input type="text" placeholder="Nombre del producto" id="name-product">
+        </div>
+
+        <div class="form-content">
+            <h3>Fecha de <br> fabricación</h3>
+            <input type="date" id="fab-date-product">
+        </div>
+
+        <div class="form-content">
+            <h3>Fecha de <br> vencimiento</h3>
+            <input type="date" id="venc-date-product">
+        </div>
+
+        <div class="form-content">
+            <h3>Precio Unitario</h3>
+            <input type="number" placeholder="Precio" id="price-product" min="1">
+        </div>
+
+        <div class="form-content">
+            <h3>Cantidad</h3>
+            <input type="number" placeholder="Cantidad" id="cant-product" min="1">
+        </div>
+
+        <div class="boton-add">
+            <button id="btn-edit-product" class="add" type="button">Actualizar</button>
+            <button id="cancel-update" type="button" class="cancel">Cancelar</button>
+        </div>
+        </form>
+    `
 
 };
 

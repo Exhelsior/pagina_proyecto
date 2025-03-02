@@ -1,6 +1,6 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalListeners, openModal, setupModalClose, outsideClose } from "./contenido-modal.js";
-import { addProduct, deleteProduct, products, updateProduct } from "./controladorInventario/crudAPI.js"; // Asegúrate de que la ruta sea correcta
+import { addProduct, deleteProduct, getRowData, products, updateForm } from "./controladorInventario/crudAPI.js"; // Asegúrate de que la ruta sea correcta
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -31,13 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (btnEdit) {
-        updateProduct(event); // Llamar a la función updateProduct para actualizar un producto
+        const rowData = getRowData(event);
+        if (rowData) {
+          updateForm(rowData); // Llamar a la función updateForm para mostrar el formulario de edición
+        } // Llamar a la función updateProduct para actualizar un producto
+/*         updateProduct(); */
       }
     });
-
-/*     document.querySelector(".t-productos .t-body").addEventListener("click", updateProduct); // Llamar a la función updateProduct para actualizar un producto
-
-    document.querySelector(".t-productos .t-body").addEventListener("click", deleteProduct); // Llamar a la función deleteProduct para eliminar un producto */
 
     setupModalListeners(openModal);
 
