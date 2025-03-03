@@ -108,7 +108,9 @@
             <button id="cancel-update" type="button" class="cancel">Cancelar</button>
         </div>
         </form>
-    `
+    `,
+
+    loged: '<h1>¡Bienvenido!</h1><p>Has iniciado sesión correctamente</p>',
 
 };
 

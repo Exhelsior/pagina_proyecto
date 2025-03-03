@@ -177,21 +177,6 @@ body{
     margin-top: 3rem;
 }
 
-
-
-/*----------insumos-----------*/
-.t-insumos{
-    overflow-x: auto;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contenedor-tabla-insumos{
-    overflow-y: scroll;
-    height: 420px;
-}
-
 /*------------------------------botones tablas------------------------------*/
 .b-caja {
     display: flex;
@@ -254,56 +239,7 @@ body{
 .add:hover {
     background-color: #DFC178;
 }
-/*------------------------------ventana insumos------------------------------*/
 
-.mostrar-insumo{
-    margin-top: 5rem;
-}
-
-.contenedor-insumos{
-    padding: 4rem;
-    background-color: #ffff;
-    border-radius: 12px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
-    max-width: 50%;
-    margin: 2rem auto;
-}
-
-.contenedor-insumos h1{
-    font-size: calc(1rem + 1vw);
-    color: black;
-    text-align  : center;
-    margin: 0 0 15px 0;
-
-}
-
-.contenedor-insumos thead{
-    position: sticky;
-    top: 0px;
-    background-color: #EFD79B;
-    color: black;
-    font-size: larger;
-    font-weight: bolder;
-
-}
-
-.contenedor-insumos th{
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.contenedor-insumos th, .contenedor-insumos td{
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0;;
-}
-
-.tabla-insumos{
-    overflow-x: auto;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .tabla{
     overflow-y: scroll;
@@ -405,7 +341,7 @@ body{
     gap: 10px;
 }
 
-.info input{
+.contenido-info input{
     width: 65%;
     height: 3vh;
     border-radius: 5px;
@@ -417,8 +353,9 @@ body{
     display: block;
 }
 
-.contenido-factura h2{
-    text-align: center;
+.contenido-info h2{
+    width: 25%;
+    text-align: right;
     font-size: medium;
 }
 
@@ -457,10 +394,17 @@ body{
     margin: 10px 0 10px 0;
     height: 2px;
     border-radius: 25px;
-    background-color: black;
+    background-color: #ccc;
 }
 
-/*---------------------------------PEDIDOS-------------------------------*/
+.contenido-info {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 10px;
+}
+
+/*---------------------------------ENVIOS-------------------------------*/
 
 .envios {
     display: block;
@@ -592,7 +536,7 @@ body{
     padding: 40px;
     margin: 5rem auto;
     border: 1px solid #888;
-    width: 25%;
+    width: auto;
     height: max-content;
     border-radius: 15px;
 }

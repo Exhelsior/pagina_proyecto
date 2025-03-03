@@ -60,5 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarEnvios() {
     vista.mostrarPlantilla("tempEnvios", "main-contenido");
+    
   }
 });

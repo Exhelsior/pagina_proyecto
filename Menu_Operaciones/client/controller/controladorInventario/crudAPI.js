@@ -29,7 +29,7 @@ export function showProducts(productos){
     }
 
     tbody.innerHTML = productos.map((producto, index) => {
-        console.log(`Index: ${index}, ID: ${producto.IdProducto}, Nombre: ${producto.NombreProducto}`);
+/*         console.log(`Index: ${index}, ID: ${producto.IdProducto}, Nombre: ${producto.NombreProducto}`); */
         function formatearFecha(fecha) {
                 return new Date(fecha).toLocaleDateString("es-ES", {
                     year: "numeric",
@@ -161,8 +161,7 @@ export function getRowData() {
             console.log(dataRow);
             return { index, dataRow };
         }
-}
-
+    }
 
 export function updateForm( { dataRow } ) {
     openModal(modalContent.formEdit);
@@ -180,8 +179,8 @@ export function updateForm( { dataRow } ) {
             return `${año}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`;
         }
         return fecha; // Si ya está en formato correcto
-    }
-
+    
+}
     document.querySelector('#fab-date-product').value = convertirFecha(dataRow[2]);
     document.querySelector('#venc-date-product').value = convertirFecha(dataRow[3]);
 

@@ -1,3 +1,4 @@
+
 let vista = new Vista();
 const mainContenido = document.getElementById("main-contenido");
 
