@@ -1,6 +1,6 @@
 let vista;
 let mainContenido;
-let vistaActual = "inicio"; // Controla qué vista está activa
+let vistaActual = "inicio"; 
 
 document.addEventListener('DOMContentLoaded', () => {
   inicializar();

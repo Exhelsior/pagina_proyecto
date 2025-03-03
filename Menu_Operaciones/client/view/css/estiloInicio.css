@@ -45,6 +45,28 @@ body::before {
   z-index: -2;
 }
 
+.errorsito {
+  color: red;
+  font-size: 1rem;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.logeado {
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  z-index: 1000; 
+}
+
+
 .container {
   display: grid;
   grid-template-rows: auto auto 1fr auto;

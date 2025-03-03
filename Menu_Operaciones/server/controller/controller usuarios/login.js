@@ -3,7 +3,6 @@ const bcrypt = require("bcrypt");
 
 // Login de usuario
 async function loginUsuario(req, res) {
-    console.log("Datos recibidos en el backend:", req.body);
     const { email, password } = req.body;
     
     if (!email || !password) {
