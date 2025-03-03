@@ -61,12 +61,6 @@ CREATE TABLE Sesiones (
   FOREIGN KEY (IdUsuario) REFERENCES Usuarios (IdUsuarios) ON DELETE CASCADE
 );
 
-CREATE TABLE Clientes (
-	IdCliente int AUTO_INCREMENT PRIMARY KEY,
-	NombreCompleto varchar(255),
-	Telefono varchar(255),
-	DireccionPrincipal varchar(255)
-);
 
 CREATE TABLE Producto (
 	IdProducto int AUTO_INCREMENT PRIMARY KEY,
@@ -77,24 +71,20 @@ CREATE TABLE Producto (
 	FechaVencimiento date
 );
 
+CREATE TABLE Pedido (
+	IdPedido int AUTO_INCREMENT PRIMARY KEY,
+	Cantidad int,
+	PrecioUnitario decimal,
+	Total decimal
+);
+
 CREATE TABLE EstadoPedidos (
 	IdEstado int AUTO_INCREMENT PRIMARY KEY,
 	IdPedidos int,
-	IdCliente int,
 	FechaPedido datetime,
 	EstadoPedido varchar(255),
 	Total decimal,
-	FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY(IdCliente) REFERENCES Clientes (IdCliente) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE Pedido (
-	IdPedido int AUTO_INCREMENT PRIMARY KEY,
-	IdCliente int,
-	Cantidad int,
-	PrecioUnitario decimal,
-	Total decimal,
-    FOREIGN KEY(IdCliente) REFERENCES Clientes (IdCliente) ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Envios (
@@ -116,13 +106,8 @@ CREATE TABLE ItemPedidos (
    FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE Insumos (
-	IdInsumo INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(200), 
-    fehcaIngreso DATE, 
-    fechaVencimiento DATE, 
-    cantidad DECIMAL(10,1)
-);
+
+
 
 
 

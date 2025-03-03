@@ -10,7 +10,7 @@ const {
 
 
 //Rutas de Inventario 
-router.get('/producto', getAllInventory);
+router.get('/', getAllInventory);
 router.get('/:id', getInventory);
 router.put('/update/:id', updateProducto);
 router.post('/create', createProducto);

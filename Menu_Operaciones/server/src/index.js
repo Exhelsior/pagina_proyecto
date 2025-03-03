@@ -1,6 +1,7 @@
 /**
  * Creado el 26 de noviembre del 2024
  * Funcion: Archivo encargado de la conexión principal y su ruta primaria 
+ * Funcion: Archivo encargado de la conexión principal y su ruta primaria 
  */
 const express = require('express');
 const cors = require('cors');
@@ -29,13 +30,16 @@ app.use(cors({
 
 // Middleware para procesar JSON en las solicitudes
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Probar la conexión a la base de datos
 testConnection();
 
 // Definir las rutas
+// Definir las rutas
 app.use('/usuarios', usuarioRoutes);
 app.use('/inventario', inventoryRoutes);
+app.use('/envio', envioRoutes);
 app.use('/envio', envioRoutes);
 
 const PORT = process.env.PORT || 3000;

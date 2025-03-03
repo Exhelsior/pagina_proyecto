@@ -139,15 +139,15 @@
       <div class="contenido-factura">
         <h1>FACTURACIÓN</h1>
         <div class="informacion-cliente">
-          <div class="contenido1 info">
+          <div class="contenido-info">
             <h2>Cliente</h2>
             <input type="text" placeholder="Nombre del cliente" />
           </div>
-          <div class="contenido2 info">
+          <div class="contenido-info">
             <h2>Fecha de Envio</h2>
             <input type="date" />
           </div>
-          <div class="contenido3 info">
+          <div class="contenido-info">
             <h2>Direccion</h2>
             <input type="text" placeholder="Direccion del cliente" />
           </div>
@@ -280,9 +280,10 @@
             </table>
           </div>
         </div>
-        <div class="valor-total">
-          <div class="barra-total"></div>
-          <h3>TOTAL A PAGAR: $50000</h3>
+        <div class="barra-total"></div>
+        <div class="contenido-info">
+          <h2>TOTAL A PAGAR:</h2>
+          <input type="number" readonly />
         </div>
         <div class="boton-add">
           <button id="bill-add-product" class="add">Agregar Producto</button>

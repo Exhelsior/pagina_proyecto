@@ -18,6 +18,7 @@ body{
 .bar-menu{
     display: flex;
     background-color: #5f46338f;
+    background-color: #5f46338f;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -70,6 +71,7 @@ body{
     align-items: center;
     justify-content: left;
     gap: 10px;
+    color: #fff9e1;
 }
 
 .side-menu svg {
@@ -77,16 +79,16 @@ body{
     margin-left: 15px;
 }
 
-.side-menu a {
-    color: #fff9e1;
-}
-.side-menu a:hover, a.activo {
+.side-menu a:hover, 
+.side-menu a.activo {
     background-color: #553d2abe;
     border-bottom: solid 3px #fff9e1;
 }
 
 .contenido-operativo{
     overflow-y: scroll;
+    background-color: transparent;
+    background-size: cover;
     background-color: transparent;
     background-size: cover;
     display: flex;
@@ -112,6 +114,7 @@ body{
 .contenido-inventario h1 {
     text-align: center;
     font-size: 2.9rem;
+    color:#fff9e1;
     color:#fff9e1;
 }
 
@@ -243,10 +246,27 @@ body{
     border-radius: 25px;
     background-color: #ffffff;
     color:#000;
+    background-color: #F5E4B5;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 6px 6px 0px;
+}
+.cancel {
+    font-size: medium;
+    font-weight: 500;
+    padding: 15px;
+    width: 40%;
+    border: none;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color:#000;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 6px 6px 0px;
 }
 
+.cancel:hover{
+    background-color: #dadada; /* Fondo blanco en hover */
+    color: #000; /* Mantener legibilidad */
+}
 .cancel:hover{
     background-color: #dadada; /* Fondo blanco en hover */
     color: #000; /* Mantener legibilidad */
@@ -330,6 +350,10 @@ body{
     fill: #7f8382;
 }
 
+.filtro svg {
+    fill: #7f8382;
+}
+
 /*---------------------------------PRODUCTOS-------------------------------*/
 
 .mostrar-producto{
@@ -405,7 +429,7 @@ body{
     gap: 10px;
 }
 
-.info input{
+.contenido-info input{
     width: 65%;
     height: 3vh;
     border-radius: 5px;
@@ -417,8 +441,9 @@ body{
     display: block;
 }
 
-.contenido-factura h2{
-    text-align: center;
+.contenido-info h2{
+    width: 25%;
+    text-align: right;
     font-size: medium;
 }
 
@@ -457,10 +482,17 @@ body{
     margin: 10px 0 10px 0;
     height: 2px;
     border-radius: 25px;
-    background-color: black;
+    background-color: #ccc;
 }
 
-/*---------------------------------PEDIDOS-------------------------------*/
+.contenido-info {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 10px;
+}
+
+/*---------------------------------ENVIOS-------------------------------*/
 
 .envios {
     display: block;
@@ -567,9 +599,15 @@ body{
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.71);
+    background-color: rgba(0, 0, 0, 0.71);
     justify-content: center;
 }
 
+.x-close {
+    justify-content: right;
+    display: flex;
+    width: 100%;
+}
 .x-close {
     justify-content: right;
     display: flex;
@@ -582,7 +620,15 @@ body{
     text-align: center;
     align-content: center;
 }
+.confirm-product {
+    text-align: center;
+    align-content: center;
+}
 
+.confirm-product p {
+    font-size: x-large;
+    font-weight: bold;
+}
 .confirm-product p {
     font-size: x-large;
     font-weight: bold;
@@ -592,7 +638,7 @@ body{
     padding: 40px;
     margin: 5rem auto;
     border: 1px solid #888;
-    width: 25%;
+    width: auto;
     height: max-content;
     border-radius: 15px;
 }
@@ -600,6 +646,11 @@ body{
 
 .modal-body h1{
     text-align: center;
+}
+
+#modal-content p{
+    text-align: center;
+    font-size: x-large;
 }
 
 #modal-content p{
@@ -644,6 +695,9 @@ body{
     outline: none;
 }
 
+.t-boton svg {
+    fill: #0a0a0a;
+}
 .t-boton svg {
     fill: #0a0a0a;
 }

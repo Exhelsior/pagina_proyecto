@@ -23,11 +23,11 @@ const pool = mysql.createPool({
 async function testConnection() {
   try {
     const connection = await pool.getConnection();
-    console.log("Conexión exitosa a la base de datos de usuarios");
+    console.log(colors.blue("Conexión exitosa a la base de datos"));
     connection.release();
 
   } catch (error) {
-    console.error("Error al conectar a la base de datos:", error);
+    console.error(colors.red.bold("Error al conectar a la base de datos:", error.message));
   }
 }
 
