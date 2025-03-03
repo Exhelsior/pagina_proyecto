@@ -1,23 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     const formInicio = document.getElementById("form-Inicio");
-    console.log("Formulario detectado:", formInicio); // Verificar si el formulario existe
-
-    if (!formInicio) {
-        console.error("No se encontró el formulario de inicio de sesión.");
-        return;
-    }
+    const error = document.getElementById("errorMessage");
+    const loginUser = document.getElementById("loginUser");
 
     formInicio.addEventListener("submit", async function (event) {
-        event.preventDefault(); // Detiene la recarga de la página
-        console.log("Formulario enviado");
+        event.preventDefault();
+        error.classList.add("hidden");
+        loginUser.classList.add("hidden");
 
         const email = document.getElementById("email")?.value.trim();
         const contraseña = document.getElementById("contraseña")?.value.trim();
 
-        console.log("Datos capturados:", { email, contraseña });
-
         if (!email || !contraseña) {
-            alert("Por favor complete todos los campos.");
+            watchError("Por favor complete todos los campos.");
             return;
         }
 
@@ -32,17 +27,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const data = await response.json();
-            console.log("Respuesta del servidor:", data);
-
             if (data.success) {
-                console.log("Inicio de sesión exitoso, redirigiendo...");
+                logeado("Inicio de sesión exitoso, redirigiendo...");
+            setTimeout(() => {
                 window.location.href = "./indexMenu.html";
+            }, 3000);
             } else {
-                alert(data.message || "Error en las credenciales.");
+                watchError(data.message || "Error en las credenciales.");
             }
         } catch (error) {
             console.error("Error en la petición:", error);
-            alert("Error en el servidor. Por favor, intente nuevamente más tarde.");
+            watchError("Error en el servidor. Por favor, intente nuevamente más tarde.");
         }
     });
+    function watchError(message) {
+        error.textContent = message;
+        error.classList.remove("hidden");
+    };
+
+    function logeado(message) {
+        loginUser.textContent = message;
+        loginUser.classList.remove("hidden");
+    }
 });

@@ -23,6 +23,7 @@ function mostrarInicio() {
       vista.mostrarPlantilla("tempInicio", "main-contenido");
     }, 100);
   }
+
 }
 
 /* function mostrarToken() {

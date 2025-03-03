@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Master Bread</title>
-    <link rel="icon" href="./public/icon.ico" type="icono" />
+    <link rel="icon" href="./view/img/icon.ico" type="icono" />
     <link rel="stylesheet" href="./view/css/estilos.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -862,7 +862,9 @@
     <!-- Modales -->
     <div id="modal" class="hidden">
       <div id="modal-content">
-        <span id="close" class="close">&times;</span>
+        <div class="x-close">
+          <span id="close" class="close">&times;</span>
+        </div>
         <div id="modal-body"></div>
       </div>
     </div>
@@ -877,6 +879,5 @@
     <!-- LINKS -->
     <script src="./view/js/vista.js"></script>
     <script type="module" src="./controller/controlador.js"></script>
-    <script src="./controller/consultasInventarios.js"></script>
   </body>
 </html>
