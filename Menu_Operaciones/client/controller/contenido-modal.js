@@ -108,7 +108,10 @@
             <button id="cancel-update" type="button" class="cancel">Cancelar</button>
         </div>
         </form>
-    `
+    `,
+    login : `
+    <h1>Iniciar Sesión</h1>
+ `
 
 };
 
