@@ -100,7 +100,11 @@ CREATE TABLE Envios (
     estado ENUM('enviado', 'cancelado', 'entregado') NOT NULL,
     FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE
 );
+<<<<<<< HEAD
 
+=======
+-- REINICIAR LOS ID-AUTO INCREMENT--------------------
+>>>>>>> b0b697234d91208fee6f7891c3400680de9c9dd5
 ALTER TABLE Roles AUTO_INCREMENT = 1;
 ALTER TABLE Usuarios AUTO_INCREMENT = 1;
 ALTER TABLE RolesUsuarios AUTO_INCREMENT = 1;
@@ -109,12 +113,15 @@ ALTER TABLE Producto AUTO_INCREMENT = 1;
 ALTER TABLE Pedido AUTO_INCREMENT = 1;
 ALTER TABLE itemPedido AUTO_INCREMENT = 1;
 ALTER TABLE Envios AUTO_INCREMENT = 1;
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> b0b697234d91208fee6f7891c3400680de9c9dd5
 
 -- Índices
 CREATE INDEX `idx_usuarios_email` ON `Usuarios` (`Email`);
