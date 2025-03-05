@@ -53,17 +53,9 @@ body::before {
 }
 
 .logeado {
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 50%;
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  z-index: 1000; 
+  font-size: 1rem;
+  margin-top: 5px;
+  text-align: center;
 }
 
 

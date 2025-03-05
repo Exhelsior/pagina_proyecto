@@ -1,6 +1,6 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalListeners, openModal, setupModalClose, outsideClose } from "./contenido-modal.js";
-import { addProduct, deleteProduct, getRowData, products, updateForm } from "./controladorInventario/crudAPI.js"; // Asegúrate de que la ruta sea correcta
+import { addProduct, deleteProduct, getRowData, products, tSearch, updateForm } from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function mostrarInventario() {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
     products(); // Llamar a la función products para cargar los productos
+
+    document.getElementById("search-product").addEventListener("keyup", tSearch)
 
     document.querySelector(".t-productos .t-body").addEventListener("click", (event) => {
       const target = event.target;
