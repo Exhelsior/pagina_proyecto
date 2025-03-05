@@ -1,6 +1,6 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalListeners, openModal, setupModalClose, outsideClose } from "./contenido-modal.js";
-import { addProduct, deleteProduct, getRowData, products, updateForm } from "./controladorInventario/crudAPI.js"; // Asegúrate de que la ruta sea correcta
+import { addProduct, deleteProduct, getRowData, products, tSearch, updateForm } from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     vista.mostrarPlantilla("tempInventario", "main-contenido");
     products(); // Llamar a la función products para cargar los productos
 
+    document.getElementById("search-product").addEventListener("keyup", tSearch)
+
     document.querySelector(".t-productos .t-body").addEventListener("click", (event) => {
       const target = event.target;
       const btnEdit = target.closest(".add-boton-tabla");
@@ -29,13 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (btnDelete) {
         deleteProduct(event); // Llamar a la función deleteProduct para eliminar un producto
       }
-
+      
       if (btnEdit) {
         const rowData = getRowData(event);
         if (rowData) {
           updateForm(rowData); // Llamar a la función updateForm para mostrar el formulario de edición
-        } // Llamar a la función updateProduct para actualizar un producto
-/*         updateProduct(); */
+        } 
       }
     });
 

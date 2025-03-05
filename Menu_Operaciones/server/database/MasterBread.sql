@@ -22,6 +22,12 @@ USE masterbread;
 
 
 -- Tabla Roles 
+
+create database masterbread;
+
+
+create database masterbread;
+
 CREATE TABLE Roles (
   IdRoles int PRIMARY KEY AUTO_INCREMENT,
   NombreRol varchar(100) NOT NULL UNIQUE
@@ -61,50 +67,67 @@ CREATE TABLE Sesiones (
   FOREIGN KEY (IdUsuario) REFERENCES Usuarios (IdUsuarios) ON DELETE CASCADE
 );
 
-
 CREATE TABLE Producto (
-	IdProducto int AUTO_INCREMENT PRIMARY KEY,
-	NombreProducto varchar(255),
-	Precio decimal,
-	Cantidad int,
-	Lote date,
-	FechaVencimiento date
+    IdProducto INT AUTO_INCREMENT PRIMARY KEY,
+    NombreProducto VARCHAR(225) NOT NULL,
+    Precio DECIMAL(10,2) NOT NULL,
+    Cantidad INT NOT NULL,
+    Lote VARCHAR(50),
+    FechaVencimiento DATE
+    IdProducto INT AUTO_INCREMENT PRIMARY KEY,
+    NombreProducto VARCHAR(225) NOT NULL,
+    Precio DECIMAL(10,2) NOT NULL,
+    Cantidad INT NOT NULL,
+    Lote VARCHAR(50),
+    FechaVencimiento DATE
 );
 
 CREATE TABLE Pedido (
-	IdPedido int AUTO_INCREMENT PRIMARY KEY,
-	Cantidad int,
-	PrecioUnitario decimal,
-	Total decimal
+    idPedido INT AUTO_INCREMENT PRIMARY KEY,
+    nameCliente VARCHAR(100) NOT NULL,
+    fechaCreacion DATE NOT NULL,
+	fechaEntrega DATE NOT NULL,
+    direccion VARCHAR(255),
+    telefono VARCHAR(20)
 );
 
-CREATE TABLE EstadoPedidos (
-	IdEstado int AUTO_INCREMENT PRIMARY KEY,
-	IdPedidos int,
-	FechaPedido datetime,
-	EstadoPedido varchar(255),
-	Total decimal,
-	FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE itemPedido (
+    idItemPedido INT AUTO_INCREMENT PRIMARY KEY,
+    idPedido INT NOT NULL,
+    idProducto INT NOT NULL,
+    cantidad INT NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE,
+    FOREIGN KEY (idProducto) REFERENCES producto(idProducto) ON DELETE CASCADE
+CREATE TABLE itemPedido (
+    idItemPedido INT AUTO_INCREMENT PRIMARY KEY,
+    idPedido INT NOT NULL,
+    idProducto INT NOT NULL,
+    cantidad INT NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE,
+    FOREIGN KEY (idProducto) REFERENCES producto(idProducto) ON DELETE CASCADE
 );
+
+
 
 CREATE TABLE Envios (
-	IdEnvio int AUTO_INCREMENT PRIMARY KEY,
-	IdPedidos int,
-	DireccionEnvio varchar(255),
-	FechaEnvio datetime,
-	EstadoEnvio varchar(255),
-	Comentarios text,
-    FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE
+    idEnvio INT AUTO_INCREMENT PRIMARY KEY,
+    idPedido INT UNIQUE NOT NULL,
+    fechaEnvio DATE,
+    estado ENUM('enviado', 'cancelado', 'entregado') NOT NULL,
+    FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE
 );
 
-CREATE TABLE ItemPedidos (
-	IdProducto int,
-	IdPedidos int,
-	cantidad int,
-	precio int,
-	FOREIGN KEY (IdProducto) REFERENCES Producto (IdProducto) ON DELETE CASCADE ON UPDATE CASCADE,
-   FOREIGN KEY (IdPedidos) REFERENCES Pedido (IdPedido) ON DELETE CASCADE ON UPDATE CASCADE
-);
+ALTER TABLE Roles AUTO_INCREMENT = 1;
+ALTER TABLE Usuarios AUTO_INCREMENT = 1;
+ALTER TABLE RolesUsuarios AUTO_INCREMENT = 1;
+ALTER TABLE Sesiones AUTO_INCREMENT = 1;
+ALTER TABLE Producto AUTO_INCREMENT = 1;
+ALTER TABLE Pedido AUTO_INCREMENT = 1;
+ALTER TABLE itemPedido AUTO_INCREMENT = 1;
+ALTER TABLE Envios AUTO_INCREMENT = 1;
+
 
 
 
