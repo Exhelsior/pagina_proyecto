@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (btnDelete) {
         deleteProduct(event); // Llamar a la función deleteProduct para eliminar un producto
       }
-
+      
       if (btnEdit) {
         const rowData = getRowData(event);
         if (rowData) {
