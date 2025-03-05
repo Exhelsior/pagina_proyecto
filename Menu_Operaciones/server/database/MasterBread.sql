@@ -25,6 +25,9 @@ USE masterbread;
 
 create database masterbread;
 
+
+create database masterbread;
+
 CREATE TABLE Roles (
   IdRoles int PRIMARY KEY AUTO_INCREMENT,
   NombreRol varchar(100) NOT NULL UNIQUE
@@ -71,6 +74,12 @@ CREATE TABLE Producto (
     Cantidad INT NOT NULL,
     Lote VARCHAR(50),
     FechaVencimiento DATE
+    IdProducto INT AUTO_INCREMENT PRIMARY KEY,
+    NombreProducto VARCHAR(225) NOT NULL,
+    Precio DECIMAL(10,2) NOT NULL,
+    Cantidad INT NOT NULL,
+    Lote VARCHAR(50),
+    FechaVencimiento DATE
 );
 
 CREATE TABLE Pedido (
@@ -90,7 +99,16 @@ CREATE TABLE itemPedido (
     total DECIMAL(10,2) NOT NULL,
     FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE,
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto) ON DELETE CASCADE
+CREATE TABLE itemPedido (
+    idItemPedido INT AUTO_INCREMENT PRIMARY KEY,
+    idPedido INT NOT NULL,
+    idProducto INT NOT NULL,
+    cantidad INT NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE,
+    FOREIGN KEY (idProducto) REFERENCES producto(idProducto) ON DELETE CASCADE
 );
+
 
 
 CREATE TABLE Envios (
@@ -100,11 +118,7 @@ CREATE TABLE Envios (
     estado ENUM('enviado', 'cancelado', 'entregado') NOT NULL,
     FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE
 );
-<<<<<<< HEAD
 
-=======
--- REINICIAR LOS ID-AUTO INCREMENT--------------------
->>>>>>> b0b697234d91208fee6f7891c3400680de9c9dd5
 ALTER TABLE Roles AUTO_INCREMENT = 1;
 ALTER TABLE Usuarios AUTO_INCREMENT = 1;
 ALTER TABLE RolesUsuarios AUTO_INCREMENT = 1;
@@ -113,15 +127,12 @@ ALTER TABLE Producto AUTO_INCREMENT = 1;
 ALTER TABLE Pedido AUTO_INCREMENT = 1;
 ALTER TABLE itemPedido AUTO_INCREMENT = 1;
 ALTER TABLE Envios AUTO_INCREMENT = 1;
-<<<<<<< HEAD
 
 
 
 
 
 
-=======
->>>>>>> b0b697234d91208fee6f7891c3400680de9c9dd5
 
 -- Índices
 CREATE INDEX `idx_usuarios_email` ON `Usuarios` (`Email`);
