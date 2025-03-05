@@ -34,8 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rowData = getRowData(event);
         if (rowData) {
           updateForm(rowData); // Llamar a la función updateForm para mostrar el formulario de edición
-        } // Llamar a la función updateProduct para actualizar un producto
-/*         updateProduct(); */
+        } 
       }
     });
 
