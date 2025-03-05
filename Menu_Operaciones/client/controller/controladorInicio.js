@@ -21,17 +21,100 @@ function mostrarInicio() {
     vistaActual = "inicio"; // Cambia la vista activa
     setTimeout(() => {
       vista.mostrarPlantilla("tempInicio", "main-contenido");
+      const botonLogin = document.getElementById("mostraMenu");
+      const error = document.createElement("div");
+      const loginUser = document.createElement("div");
+
+      botonLogin.addEventListener("click", async (event) => {
+        event.preventDefault();
+        error.classList.add("hidden");
+        loginUser.classList.add("hidden");
+
+        const email = document.getElementById("email")?.value.trim();
+        const contraseña = document.getElementById("contraseña")?.value.trim();
+
+        if (!email || !contraseña) {
+          watchError("Por favor complete todos los campos.");
+          return;
+        }
+
+        try {
+          const response = await fetch("http://localhost:3000/usuarios/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ 
+              email: email, 
+              password: contraseña 
+            })
+          });
+
+          const data = await response.json();
+          if (data.success) {
+            logeado(`Bienvenido ${data.user.nombre}, redirigiendo...`);
+            setTimeout(() => {
+              window.location.href = "./indexMenu.html";
+            }, 3000);
+          } else {
+            watchError(data.message || "Error en las credenciales.");
+          }
+        } catch (error) {
+          console.error("Error en la petición:", error);
+          watchError("Error en el servidor. Por favor, intente nuevamente más tarde.");
+        }
+      });
+
+      function watchError(message) {
+        error.textContent = message;
+        error.classList.remove("hidden");
+      }
+
+      function logeado(message) {
+        loginUser.textContent = message;
+        loginUser.classList.remove("hidden");
+      }
     }, 100);
   }
-
 }
 
-/* function mostrarToken() {
+
+function mostrarToken() {
   if (vistaActual !== "token") {
     vistaActual = "token"; // Cambia la vista activa
     setTimeout(() => {
       vista.mostrarPlantilla("tempToken", "main-contenido");
-    }, 100);
+      const botoncito = document.getElementById("showNotificationBtn");
+      botoncito.addEventListener("click", async (event) => {
+            console.log(tempToken)
+              event.preventDefault();
+              const email = document.getElementById("tokenEmail")?.value.trim();
+      
+              if (!email) {
+                  console.error("Por favor complete todos los campos.");
+                  return;
+              }
+      
+              try {
+                  const response = await fetch("http://localhost:3000/usuarios/recoveryUser", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ 
+                          email: email
+                      })
+                  });
+      
+                  const data = await response.json();
+                  if (data.success) {
+                    console.error(`Token enviado a ${email}`);
+                    mostrarRecovery(); // Añadido: cambiar a la plantilla recovery después del éxito
+                  } else {
+                    console.error(data.message || "Error en las credenciales.");
+                  }
+              } catch (error) {
+                  console.error("Error en la petición:", error);
+                  console.error("Error en el servidor. Por favor, intente nuevamente más tarde.");
+              }
+          });
+      }, 100);
   }
 }
 
@@ -40,6 +123,40 @@ function mostrarRecovery() {
     vistaActual = "recovery"; // Cambia la vista activa
     setTimeout(() => {
       vista.mostrarPlantilla("tempRecovery", "main-contenido");
+      const botoncote = document.getElementById("showNotificationBtn");
+      botoncote.addEventListener("click", async (event)=> {
+        console.log(tempRecovery)
+        event.preventDefault();
+        const recoveryToken = document.getElementById("recoveryToken")?.value.trim();
+        const newPassword = document.getElementById("newPassword")?.value.trim();
+
+        if (!recoveryToken || !newPassword) {
+            console.error("Por favor complete todos los campos.");
+            return;
+        }
+
+        try {
+          const response = await fetch("http://localhost:3000/usuarios/newPassword", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ 
+                  recoveryToken: recoveryToken,
+                  newPassword: newPassword
+              })
+          });
+          
+          const data = await response.json();
+          if (data.success) {
+            console.error("Contraseña cambiada correctamente");
+            mostrarInicio(); // Añadido: cambiar a la plantilla inicio después del éxito
+          } else {
+            console.error(data.message || "Error en las credenciales.");
+          }
+        } catch (error) {
+          console.error("Error en la petición:", error);
+          console.error("Error en el servidor. Por favor, intente nuevamente más tarde.");
+        }
+      } )
     }, 100);
   }
-} */
+} 

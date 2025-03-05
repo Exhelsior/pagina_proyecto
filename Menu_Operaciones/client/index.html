@@ -6,6 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,9 +29,9 @@
       </aside>
       <section class="box">
         <span class="login">
-          <div id="loginUser" class="logeado"></div> 
+          <div id="loginUser" class="logeado"></div>
         </span>
-        <div id="errorMessage" class="errorsito"></div> 
+        <div id="errorMessage" class="errorsito"></div>
         <!-- caja que actualiza contenido -->
         <div id="main-contenido">
           <form id="form-Inicio" novalidate>
@@ -44,7 +45,8 @@
             </div>
             <div class="botones">
               <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
-              <!-- <button id="recovery" class="button" type="button" onclick="mostrarRecovery()">Olvide mi contraseña</button> -->
+              <button id="recovery" class="button" type="button" onclick="mostrarToken()">Olvide mi
+                contraseña</button>
             </div>
           </form>
         </div>
@@ -54,8 +56,7 @@
   </main>
 
   <!-- TEMPLATES-->
-  <template id="tempInicio">
-    <!-- caja que actualiza contenido -->
+   <template id="tempInicio">
     <div id="main-contenido">
       <form id="form-Inicio" novalidate>
         <div class="content">
@@ -68,41 +69,47 @@
         </div>
         <div class="botones">
           <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
-          <button id="recovery" class="button" type="button" onclick="mostrarRecovery()">Olvide mi contraseña</button>
+          <button id="recovery" class="button" type="button" onclick="mostrarToken()">Olvide mi
+            contraseña</button>
         </div>
       </form>
     </div>
-  </template>
+   </template>
 
-<!--   <template id="tempToken">
+  <template id="tempToken">
     <div class="content">
-      <h1>Ingrese su correo</h1>
-      <input class="boxes" type="email" />
-    </div>
+      <div id="tokenNodal">
+        <div class="content">
+          <h1>Ingrese su correo</h1>
+          <input id="tokenEmail" class="boxes" type="email" />
+        </div>
     <div class="pie_caja">
-      <button id="showNotificationBtn" class="registro" onclick="mostrarRecovery()">
+      <button id="showNotificationBtn" class="registro" type="submit">
         Generar token
       </button>
+    </div>
     </div>
   </template>
 
   <template id="tempRecovery">
     <div class="content">
-      <h1>Ingrese su token</h1>
-      <input class="boxes" type="email" />
-    </div>
-    <div class="content">
-      <h1>Ingrese su nueva contraseña</h1>
-      <input class="boxes" type="password" />
-    </div>
-    <div class="pie_caja">
-      <button id="showNotificationBtn" class="registro" onclick="mostrarInicio()">
-        Restablecer contraseña
-      </button>
+      <div id="recoveryNodal">
+        <h1>Ingrese su token</h1>
+        <input id="recoveryToken" class="boxes" type="email" />
+      </div>
+      <div class="content">
+        <h1>Ingrese su nueva contraseña</h1>
+        <input id="newPassword" class="boxes" type="password" />
+      </div>
+      <div class="pie_caja">
+        <button id="showNotificationBtn" class="registro">
+          Restablecer contraseña
+        </button>
+      </div>
     </div>
   </template>
- -->
-  <!-- LINKS-->
+
+  <!-- LINKS -->
   <script src="./view/js/atributos.js"></script>
   <script src="./view/js/vista.js"></script>
   <script src="./controller/controladorInicio.js"></script>
