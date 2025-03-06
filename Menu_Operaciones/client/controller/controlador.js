@@ -55,4 +55,56 @@ document.addEventListener("DOMContentLoaded", () => {
   function mostrarEnvios() {
     vista.mostrarPlantilla("tempEnvios", "main-contenido");
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Obtener los botones
+    const btnAddBill = document.getElementById('add-bill');
+    const btnDelBill = document.getElementById('del-bill');
+    const btnVerPedido = document.getElementById('ver-pedido-btn');
+  
+    // Función para obtener y mostrar los datos del pedido
+    const obtenerPedido = async (pedidoId) => {
+      try {
+        // Aquí haces la llamada a la API para obtener los detalles del pedido
+        const response = await fetch(`http://localhost:3000/pedidos/${pedidoId}`);
+        
+        if (!response.ok) {
+          throw new Error('No se pudo obtener la información del pedido');
+        }
+  
+        const pedido = await response.json();
+        
+        // Mostrar los detalles en el div de pedido-info
+        const pedidoInfoDiv = document.getElementById('pedido-info');
+        pedidoInfoDiv.innerHTML = `
+          <h3>Detalles del Pedido</h3>
+          <p>ID del pedido: ${pedido.id}</p>
+          <p>Fecha: ${pedido.fecha}</p>
+          <p>Estado: ${pedido.estado}</p>
+          <p>Detalles del producto: ${pedido.producto}</p>
+        `;
+      } catch (error) {
+        console.error('Error obteniendo el pedido:', error);
+        alert('Hubo un error al obtener el pedido');
+      }
+    };
+  
+    // Agregar eventos de clic a los botones
+    btnAddBill.addEventListener('click', () => {
+      // Llamar la función para mostrar el pedido (puedes poner el ID que corresponda)
+      obtenerPedido(1); // Ejemplo con un ID de pedido ficticio
+    });
+  
+    btnDelBill.addEventListener('click', () => {
+      // Eliminar el pedido o hacer algo similar
+      console.log('Eliminar pedido');
+      // Aquí puedes agregar la lógica de eliminar
+    });
+  
+    btnVerPedido.addEventListener('click', () => {
+      // Llamar a la función para mostrar un pedido específico
+      obtenerPedido(1); // Cambia el ID según sea necesario
+    });
+  });
+  
 });
