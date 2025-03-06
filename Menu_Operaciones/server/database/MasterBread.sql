@@ -23,7 +23,7 @@ USE masterbread;
 
 -- Tabla Roles 
 
-create database masterbread;
+
 
 
 create database masterbread;
@@ -91,14 +91,6 @@ CREATE TABLE Pedido (
     telefono VARCHAR(20)
 );
 
-CREATE TABLE itemPedido (
-    idItemPedido INT AUTO_INCREMENT PRIMARY KEY,
-    idPedido INT NOT NULL,
-    idProducto INT NOT NULL,
-    cantidad INT NOT NULL,
-    total DECIMAL(10,2) NOT NULL,
-    FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE,
-    FOREIGN KEY (idProducto) REFERENCES producto(idProducto) ON DELETE CASCADE
 CREATE TABLE itemPedido (
     idItemPedido INT AUTO_INCREMENT PRIMARY KEY,
     idPedido INT NOT NULL,

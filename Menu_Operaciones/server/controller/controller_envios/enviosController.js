@@ -29,11 +29,11 @@ const getEnvio = async (req, res) => {
 const updateEnvio = async (req, res) => {
     try {
         const{id} = req.params;
-        const {IdPedidos, DireccionEnvio, FechaEnvio, EstadoEnvio, Comentarios} = req.body;
+        const { idPedido, fechaEnvio, estado } = req.body;
 
         const [result] = await pool.query(
-            'UPDATE envios SET IdPedidos = ?, DireccionEnvio = ?, FechaEnvio = ?, EstadoEnvio = ?, Comentarios = ? WHERE IdEnvio = ?',
-            [IdPedidos, DireccionEnvio, FechaEnvio, EstadoEnvio, Comentarios, id]
+            'UPDATE envios SET idPedido = ?, fechaEnvio = ?, estado = ? WHERE IdEnvio = ?',
+            [idPedido, fechaEnvio, estado, id]
         );
 
         if (result.affectedRows > 0) {
@@ -50,11 +50,11 @@ const updateEnvio = async (req, res) => {
 
 const createEnvio = async (req, res) => {
     try {
-        const { IdPedidos, DireccionEnvio, FechaEnvio, EstadoEnvio, Comentarios } = req.body;
+        const { idPedido, fechaEnvio, estado } = req.body;
 
         const [result] = await pool.query(
-            "INSERT INTO envios (`IdPedidos`, `DireccionEnvio`, `FechaEnvio`, `EstadoEnvio`, `Comentarios`) VALUES (?, ?, ?, ?, ?)",
-            [IdPedidos, DireccionEnvio, FechaEnvio, EstadoEnvio, Comentarios]
+            "INSERT INTO envios (`idPedido`, `fechaEnvio`, `estado`) VALUES (?, ?, ?)",
+            [idPedido, fechaEnvio, estado]
         );
 
         res.status(201).json({

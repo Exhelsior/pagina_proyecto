@@ -9,6 +9,8 @@ const { testConnection } = require('../database/db.js');
 const usuarioRoutes = require('../routes/routes.js');
 const inventoryRoutes = require('../routes/routesInventory.js');
 const envioRoutes = require('../routes/routesEnvios.js');
+const pedidoRoutes = require('../routes/routesPedidos.js')
+
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -40,7 +42,8 @@ testConnection();
 app.use('/usuarios', usuarioRoutes);
 app.use('/inventario', inventoryRoutes);
 app.use('/envio', envioRoutes);
-app.use('/envio', envioRoutes);
+app.use('/pedidos', pedidoRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
