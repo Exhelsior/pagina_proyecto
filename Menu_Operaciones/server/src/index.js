@@ -38,7 +38,6 @@ app.use(express.urlencoded({ extended: true }));
 testConnection();
 
 // Definir las rutas
-// Definir las rutas
 app.use('/usuarios', usuarioRoutes);
 app.use('/inventario', inventoryRoutes);
 app.use('/envio', envioRoutes);

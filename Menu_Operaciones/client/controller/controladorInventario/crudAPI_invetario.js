@@ -1,13 +1,14 @@
 import { closeModal, modalContent, openModal } from "../contenido-modal.js";
-import { apiClient } from "./API_REST.js";
+import { apiClient } from "../API_REST.js";
+const path = "inventario";
 
 export async function products() {
     try {
-        const data = await apiClient.getAll();
+        const data = await apiClient.getAllProductos("inventario");
         if (!data) throw new Error("No se encontraron los productos");
 
         showProducts(data);
-        // console.log(data);
+        console.log(data);
     } catch (error) {
         console.error("Error", error.message);
     }
@@ -99,7 +100,7 @@ export const addProduct = async () => {
     };
     console.log(nuevoProducto);
     try {
-        const response = await apiClient.create(nuevoProducto);
+        const response = await apiClient.createProducto(nuevoProducto, path);
         console.log(response);
         if (!response) {
             throw new Error(" Error al crear el producto");
@@ -138,7 +139,7 @@ export const deleteProduct = async (e) => {
     }
 
     try {
-        const response = await apiClient.delete(idProducto);
+        const response = await apiClient.deleteProducto(path, idProducto);
         if (!response) throw new Error("Error al eliminar el producto");
 
         row.remove();
@@ -215,7 +216,7 @@ export function updateForm( { dataRow } ) {
         };
         
         try {
-            const response = await apiClient.update(idProducto, actualProducto);
+            const response = await apiClient.updateProducto(path, idProducto, actualProducto);
             if (!response) throw new Error("Error al actualizar el producto");
 
             alert("Producto actualizado exitosamente");

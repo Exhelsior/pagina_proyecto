@@ -19,11 +19,11 @@ const {
 } = require("../controller/controller usuarios/usuarioController");
 
 // Rutas para usuarios
-router.post("/createUser", crearUsuario);
+router.post("/create", crearUsuario);
 router.post("/login", loginUsuario);
-router.get("/rolesUser", getRoles);
-router.get("/recoveryUser", resetPassword);
-router.post("/tokenUser", generarToken);
+router.get("/roles", getRoles);
+router.get("/recovery", resetPassword);
+router.post("/token", generarToken);
 router.get("/:id", getUsuarios);
 router.delete("/delete/:id", deleteUsuario);
 router.put("/update/:id", actualizarUsuario);
