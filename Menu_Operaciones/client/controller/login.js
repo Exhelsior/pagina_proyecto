@@ -1,3 +1,6 @@
+import { response } from "express";
+import { watch } from "fs";
+
 document.addEventListener('DOMContentLoaded', function() {
     const formInicio = document.getElementById("form-Inicio");
     const error = document.getElementById("errorMessage");
@@ -49,4 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loginUser.textContent = message;
         loginUser.classList.remove("hidden");
     }
+    
 });
+
