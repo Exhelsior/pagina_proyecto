@@ -1,10 +1,10 @@
 let vista;
 let mainContenido;
-let vistaActual = "inicio"; 
+let vistaActual = "inicio";
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   inicializar();
-  
+
   // Solo mostrar el inicio si no hay otra vista cargada
   if (!document.getElementById("form-Inicio")) {
     mostrarInicio();
@@ -42,10 +42,10 @@ function mostrarInicio() {
           const response = await fetch("http://localhost:3000/usuarios/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ 
-              email: email, 
-              password: contraseña 
-            })
+            body: JSON.stringify({
+              email: email,
+              password: contraseña,
+            }),
           });
 
           const data = await response.json();
@@ -59,7 +59,9 @@ function mostrarInicio() {
           }
         } catch (error) {
           console.error("Error en la petición:", error);
-          watchError("Error en el servidor. Por favor, intente nuevamente más tarde.");
+          watchError(
+            "Error en el servidor. Por favor, intente nuevamente más tarde."
+          );
         }
       });
 
@@ -76,7 +78,6 @@ function mostrarInicio() {
   }
 }
 
-
 function mostrarToken() {
   if (vistaActual !== "token") {
     vistaActual = "token"; // Cambia la vista activa
@@ -84,37 +85,42 @@ function mostrarToken() {
       vista.mostrarPlantilla("tempToken", "main-contenido");
       const botoncito = document.getElementById("showNotificationBtn");
       botoncito.addEventListener("click", async (event) => {
-            console.log(tempToken)
-              event.preventDefault();
-              const email = document.getElementById("tokenEmail")?.value.trim();
-      
-              if (!email) {
-                  console.error("Por favor complete todos los campos.");
-                  return;
-              }
-      
-              try {
-                  const response = await fetch("http://localhost:3000/usuarios/recoveryUser", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({ 
-                          email: email
-                      })
-                  });
-      
-                  const data = await response.json();
-                  if (data.success) {
-                    console.error(`Token enviado a ${email}`);
-                    mostrarRecovery(); // Añadido: cambiar a la plantilla recovery después del éxito
-                  } else {
-                    console.error(data.message || "Error en las credenciales.");
-                  }
-              } catch (error) {
-                  console.error("Error en la petición:", error);
-                  console.error("Error en el servidor. Por favor, intente nuevamente más tarde.");
-              }
-          });
-      }, 100);
+        console.log(tempToken);
+        event.preventDefault();
+        const email = document.getElementById("tokenEmail")?.value.trim();
+
+        if (!email) {
+          alert("Por favor complete todos los campos.");
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            "http://localhost:3000/usuarios/recoveryUser",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email: email,
+              }),
+            }
+          );
+
+          const data = await response.json();
+          if (data.success) {
+            alert(`Token enviado a ${email}`);
+            mostrarRecovery(); // Añadido: cambiar a la plantilla recovery después del éxito
+          } else {
+            alert(data.message || "Error en las credenciales.");
+          }
+        } catch (error) {
+          console.error("Error en la petición:", error);
+          alert(
+            "Error en el servidor. Por favor, intente nuevamente más tarde."
+          );
+        }
+      });
+    }, 100);
   }
 }
 
@@ -124,39 +130,48 @@ function mostrarRecovery() {
     setTimeout(() => {
       vista.mostrarPlantilla("tempRecovery", "main-contenido");
       const botoncote = document.getElementById("showNotificationBtn");
-      botoncote.addEventListener("click", async (event)=> {
-        console.log(tempRecovery)
+      botoncote.addEventListener("click", async (event) => {
+        console.log(tempRecovery);
         event.preventDefault();
-        const recoveryToken = document.getElementById("recoveryToken")?.value.trim();
-        const newPassword = document.getElementById("newPassword")?.value.trim();
+        const recoveryToken = document
+          .getElementById("recoveryToken")
+          ?.value.trim();
+        const newPassword = document
+          .getElementById("newPassword")
+          ?.value.trim();
 
         if (!recoveryToken || !newPassword) {
-            console.error("Por favor complete todos los campos.");
-            return;
+          alert("Por favor complete todos los campos.");
+          return;
         }
 
         try {
-          const response = await fetch("http://localhost:3000/usuarios/newPassword", {
+          const response = await fetch(
+            "http://localhost:3000/usuarios/newPassword",
+            {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ 
-                  recoveryToken: recoveryToken,
-                  newPassword: newPassword
-              })
-          });
-          
+              body: JSON.stringify({
+                recoveryToken: recoveryToken,
+                newPassword: newPassword,
+              }),
+            }
+          );
+
           const data = await response.json();
           if (data.success) {
-            console.error("Contraseña cambiada correctamente");
+            alert("Contraseña cambiada correctamente");
             mostrarInicio(); // Añadido: cambiar a la plantilla inicio después del éxito
           } else {
-            console.error(data.message || "Error en las credenciales.");
+            alert(data.message || "Error en las credenciales.");
           }
         } catch (error) {
           console.error("Error en la petición:", error);
-          console.error("Error en el servidor. Por favor, intente nuevamente más tarde.");
+          console.error(
+            "Error en el servidor. Por favor, intente nuevamente más tarde."
+          );
         }
-      } )
+      });
     }, 100);
   }
-} 
+}
