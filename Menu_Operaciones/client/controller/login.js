@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const data = await response.json();
             if (data.success) {
-                logeado("Inicio de sesión exitoso, redirigiendo...");
+                logeado(`Bienvenido ${data.user.nombre}, redirigiendo...`);
             setTimeout(() => {
                 window.location.href = "./indexMenu.html";
             }, 3000);

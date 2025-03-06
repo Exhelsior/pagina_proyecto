@@ -6,7 +6,7 @@
 require("dotenv").config();
 const colors =require("colors");
 const mysql = require("mysql2/promise");
-require("dotenv").config();
+
 
 // Configuración de la conexión
 const pool = mysql.createPool({
