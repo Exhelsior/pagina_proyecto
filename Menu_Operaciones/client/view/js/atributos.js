@@ -63,10 +63,16 @@ class TransicionFondo {
     const capaActiva = this.capas[this.indiceCapaActual % 2];
     const capaInactiva = this.capas[(this.indiceCapaActual + 1) % 2];
 
-    // Preparar y realizar transición
-    capaActiva.style.backgroundImage = `url('${nuevoFondo}')`;
-    capaActiva.style.opacity = "1";
-    capaInactiva.style.opacity = "0";
+    // Crear imagen temporal para verificar carga
+    const img = new Image();
+    img.onerror = () => console.error(`Error loading image: ${nuevoFondo}`);
+    img.onload = () => {
+      // Preparar y realizar transición
+      capaActiva.style.backgroundImage = `url('${nuevoFondo}')`;
+      capaActiva.style.opacity = "1";
+      capaInactiva.style.opacity = "0";
+    };
+    img.src = nuevoFondo;
 
     // Incrementar índice y programar próxima transición
     this.indiceCapaActual++;
