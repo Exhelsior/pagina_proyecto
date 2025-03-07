@@ -490,9 +490,27 @@ body{
     gap: 10px;
 }
 
+.contenedor-envios thead{
+    position: sticky;
+    top: 0px;
+    background-color: #EFD79B;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+
+}
+.head-envios {
+    position: sticky;
+    top: 0px;
+    background-color: #EFD79B;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+}
+
 /*---------------------------------ENVIOS-------------------------------*/
 
-.envios {
+/*.envios {
     display: block;
     padding: 2rem;
     background-color: #ffff;
@@ -500,13 +518,6 @@ body{
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
     max-width: 60%;
     margin: 2rem auto;
-}
-
-.envios h2{
-    font-size: calc(1.5rem + 1vw);
-    color: black;
-    text-align: center;
-    margin: 0 0 15px 0;
 }
 
 .contenedor-envios{
