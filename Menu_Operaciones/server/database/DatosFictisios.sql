@@ -28,11 +28,11 @@ INSERT INTO Sesiones (IdUsuario, IdRolUsuario, FechaInicio, FechaFin, DireccionI
 (4, 4,'2024-01-18 14:45:00', '2024-01-18 15:30:00', '192.168.1.103', 'iOS - Mobile Safari');
 
 INSERT INTO Producto (NombreProducto, Precio, Cantidad, Lote, FechaVencimiento) VALUES
-('Pan Francés', 1500.00, 100, 'L001', '2025-04-10'),
-('Pan de Maíz', 2000.00, 50, 'L002', '2025-04-12'),
-('Croissant', 2500.00, 30, 'L003', '2025-04-15'),
-('Pan Integral', 1800.00, 80, 'L004', '2025-04-20'),
-('Pan de Chocolate', 2200.00, 60, 'L005', '2025-04-18');
+('Pan Francés', 1500.00, 100, '2025-04-10', '2025-04-10'),
+('Pan de Maíz', 2000.00, 50, '2025-04-10', '2025-04-12'),
+('Croissant', 2500.00, 30, '2025-04-10', '2025-04-15'),
+('Pan Integral', 1800.00, 80, '2025-04-10', '2025-04-20'),
+('Pan de Chocolate', 2200.00, 60, '2025-04-10', '2025-04-18');
 
 INSERT INTO Pedido (nameCliente, fechaCreacion, fechaEntrega, direccion, telefono) VALUES
 ('Carlos Gómez', '2025-03-01', '2025-03-02', 'Calle 123, Bogotá', '3123456789'),

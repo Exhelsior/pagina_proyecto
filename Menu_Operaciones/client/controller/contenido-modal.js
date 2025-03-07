@@ -38,6 +38,7 @@
                         <th>ID</th>
                         <th>NOMBRE</th>
                         <th>PRECIO UNITARIO</th>
+                        <th>CANTIDAD A LLEVAR   </th>
                         <th>CANTIDAD</th>
                         <th>CHECK</th>    
                     </tr>

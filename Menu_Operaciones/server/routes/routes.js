@@ -24,11 +24,21 @@ const {
 } = require("../controller/controller usuarios/usuarioController");
 
 // Rutas para usuarios
+<<<<<<< HEAD
+router.post("/create", crearUsuario);
+router.post("/login", loginUsuario);
+router.get("/roles", getRoles);
+router.get("/recovery", resetPassword);
+router.post("/token", generarToken);
+=======
 router.post("/login", loginUsuario);
 router.post("/recovery", tokenController.generateToken);
 router.post("/newPassword", newPasswordController.updatePassword);
-router.post("/create", crearUsuario);
-router.get("/roles", getRoles);
+router.post("/createUser", crearUsuario);
+router.get("/rolesUser", getRoles);
+/* router.get("/recoveryUser", resetPassword); */
+/* router.post("/tokenUser", generarToken); */
+>>>>>>> ad9090f76b890c582e09c4504f44ae2b038fd2c3
 router.get("/:id", getUsuarios);
 router.delete("/delete/:id", deleteUsuario);
 router.put("/update/:id", actualizarUsuario);
