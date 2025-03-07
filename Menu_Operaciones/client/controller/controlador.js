@@ -40,13 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     setupModalListeners(openModal);
-
     document.addEventListener('click', (event) => {
       if (event.target.id === 'btn-form-product') {
         addProduct(); // Llamar a la función addProduct para agregar un producto
       } 
     });
-
     setupModalClose();
     outsideClose();
   }
@@ -54,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function mostrarPedidos() {
     vista.mostrarPlantilla("tempPedidos", "main-contenido");
     setupModalListeners(openModal);
-
     setupModalClose();
     outsideClose();
   }

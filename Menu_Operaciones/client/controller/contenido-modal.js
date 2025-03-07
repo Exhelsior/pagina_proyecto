@@ -35,26 +35,15 @@
             <table class="tabla-productos">
                 <thead class="head-pedidos">
                     <tr>
-                        <th>ID</th>
                         <th>NOMBRE</th>
                         <th>PRECIO UNITARIO</th>
-                        <th>CANTIDAD A LLEVAR   </th>
-                        <th>CANTIDAD</th>
+                        <th>CANTIDAD DISPONIBLE</th>
+                        <th>CANTIDAD A LLEVAR </th>
                         <th>CHECK</th>    
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Pan Francés</td>
-                        <td>$5000</td>
-                        <td>
-                            <input type="number" class="cant-bill-product"/>
-                        </td>
-                        <td>
-                            <input type="checkbox" class="check-producto"/>
-                        </td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -70,6 +59,7 @@
             <button id="cancel-delete" class="cancel">Cancelar</button>
         </div>
     `,
+
     formEdit: `
     <h1>Editar Producto</h1>
     <form id="tb-edit-producto">
