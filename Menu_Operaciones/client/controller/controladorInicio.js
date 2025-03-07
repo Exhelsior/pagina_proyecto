@@ -85,7 +85,6 @@ function mostrarToken() {
       vista.mostrarPlantilla("tempToken", "main-contenido");
       const botoncito = document.getElementById("showNotificationBtn");
       botoncito.addEventListener("click", async (event) => {
-        console.log(tempToken);
         event.preventDefault();
         const email = document.getElementById("tokenEmail")?.value.trim();
 
