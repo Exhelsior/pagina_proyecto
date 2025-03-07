@@ -25,12 +25,10 @@ const {
 
 // Rutas para usuarios
 router.post("/login", loginUsuario);
-router.post("/recoveryUser", tokenController.generateToken);
+router.post("/recovery", tokenController.generateToken);
 router.post("/newPassword", newPasswordController.updatePassword);
-router.post("/createUser", crearUsuario);
-router.get("/rolesUser", getRoles);
-/* router.get("/recoveryUser", resetPassword); */
-/* router.post("/tokenUser", generarToken); */
+router.post("/create", crearUsuario);
+router.get("/roles", getRoles);
 router.get("/:id", getUsuarios);
 router.delete("/delete/:id", deleteUsuario);
 router.put("/update/:id", actualizarUsuario);

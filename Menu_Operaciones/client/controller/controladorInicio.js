@@ -39,7 +39,7 @@ function mostrarInicio() {
         }
 
         try {
-          const response = await fetch("http://localhost:3000/usuarios/login", {
+          const response = await fetch("http://localhost:3000/usuario/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -96,7 +96,7 @@ function mostrarToken() {
 
         try {
           const response = await fetch(
-            "http://localhost:3000/usuarios/recoveryUser",
+            "http://localhost:3000/usuario/recovery",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -147,7 +147,7 @@ function mostrarRecovery() {
 
         try {
           const response = await fetch(
-            "http://localhost:3000/usuarios/newPassword",
+            "http://localhost:3000/usuario/newPassword",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

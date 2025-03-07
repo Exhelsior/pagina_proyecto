@@ -39,7 +39,7 @@ testConnection();
 
 // Definir las rutas
 // Definir las rutas
-app.use('/usuarios', usuarioRoutes);
+app.use('/usuario', usuarioRoutes);
 app.use('/inventario', inventoryRoutes);
 app.use('/envio', envioRoutes);
 app.use('/pedidos', pedidoRoutes);

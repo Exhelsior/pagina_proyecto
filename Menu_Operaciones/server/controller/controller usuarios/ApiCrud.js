@@ -96,6 +96,8 @@ const tokenController = {
                     <h1>Token de Recuperación</h1>
                     <p>Su token de recuperación es: ${token}</p>
                     <p>Este token expirará en 1 hora.</p>
+                    <img src="https://gifdb.com/images/high/duck-animated-walk-8o2meryz72l6b00p.gif" alt="Duck walk" width="100px" height="100px">
+                    <p>Por favor, no responda a este correo.</p>
                 `
             };
 
