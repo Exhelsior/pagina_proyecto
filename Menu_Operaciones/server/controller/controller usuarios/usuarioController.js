@@ -192,7 +192,7 @@ const crearUsuario = async (req, res) => {
 };
 
 //get
-const getUsuarios = async (req, res) => {
+const getUsuario = async (req, res) => {
   try {
     const { id } = req.params;
     const [usuarios] = await pool.query(
@@ -255,7 +255,7 @@ module.exports = {
   generarToken,
   resetPassword,
   crearUsuario,
-  getUsuarios,
+  getUsuario,
   deleteUsuario,
   getRoles,
 };

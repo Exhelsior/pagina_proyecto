@@ -11,15 +11,11 @@ const {
   newPasswordController,
 } = require("../controller/controller usuarios/ApiCrud");
 
-
 const {
-
   crearUsuario,
-  getUsuarios,
+  getUsuario,
   deleteUsuario,
   actualizarUsuario,
-  generarToken,
-  resetPassword,
   getRoles,
 } = require("../controller/controller usuarios/usuarioController");
 
@@ -28,10 +24,8 @@ router.post("/login", loginUsuario);
 router.post("/recovery", tokenController.generateToken);
 router.post("/newPassword", newPasswordController.updatePassword);
 router.post("/createUser", crearUsuario);
-router.get("/rolesUser", getRoles);
-/* router.get("/recoveryUser", resetPassword); */
-/* router.post("/tokenUser", generarToken); */
-router.get("/:id", getUsuarios);
+router.get("/role", getRoles);
+router.get("/:id", getUsuario);
 router.delete("/delete/:id", deleteUsuario);
 router.put("/update/:id", actualizarUsuario);
 
