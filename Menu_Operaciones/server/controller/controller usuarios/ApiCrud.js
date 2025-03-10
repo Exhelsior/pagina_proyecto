@@ -53,6 +53,7 @@ async function loginUsuario(req, res) {
         rol: user[0].NombreRol,
       },
     });
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error en el servidor" });

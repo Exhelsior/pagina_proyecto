@@ -26,7 +26,7 @@ router.post("/newPassword", newPasswordController.updatePassword);
 router.post("/createUser", crearUsuario);
 router.get("/role", getRoles);
 router.get("/:id", getUsuario);
-router.delete("/delete/:id", deleteUsuario);
+router.delete("/delete", deleteUsuario);
 router.put("/update/:id", actualizarUsuario);
 
 module.exports = router;

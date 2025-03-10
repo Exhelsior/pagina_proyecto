@@ -150,7 +150,7 @@ const crearUsuario = async (req, res) => {
     if (existeEmail.length > 0) {
       await connection.rollback();
       return res.status(400).json({
-        error: "El email ya está registrado"
+        error: "El email ya está registrado",
       });
     }
 
@@ -162,7 +162,7 @@ const crearUsuario = async (req, res) => {
         Email,
         tipoDocumento,
         numeroDocumento,
-        FechaCreacion
+        FechaCreacion,
       ]
     );
 
@@ -226,7 +226,7 @@ const getRoles = async (req, res) => {
 //delete
 const deleteUsuario = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.body;
 
     const [result] = await pool.query(
       "DELETE FROM Usuarios WHERE IdUsuarios = ?",
