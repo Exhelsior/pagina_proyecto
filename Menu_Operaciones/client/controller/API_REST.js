@@ -107,10 +107,10 @@ export function generateDataRows(productos, type) {
             return `
             <tr data-index="${index}">
                 <td>${producto.NombreProducto}</td>
-                <td>${producto.Precio}</td>
+                <td>$${producto.Precio}</td>
                 <td>${producto.Cantidad}</td>
                 <td><input placeholder="Cant." type="number" min="1"/></td>
-                <td><input type="checkbox"/></td>
+                <td><input class="checkItem"type="checkbox"/></td>
             </tr>
             `;
         }

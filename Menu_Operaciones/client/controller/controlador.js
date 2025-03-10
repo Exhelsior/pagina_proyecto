@@ -1,6 +1,7 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
-import { setupModalListeners, openModal, setupModalClose, outsideClose } from "./contenido-modal.js";
+import { setupModalListeners, openModal, setupModalClose, outsideClose, modalContent } from "./contenido-modal.js";
 import { addProduct, deleteProduct, getRowData, products, showProducts, tSearch, updateForm} from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
+import { addItem, showProductsBill } from "./controllerPedidos/crudApi_pedidos.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -51,7 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarPedidos() {
     vista.mostrarPlantilla("tempPedidos", "main-contenido");
-    setupModalListeners(openModal);
+    document.addEventListener('click', (e) => {
+      if (e.target.id === 'bill-add-product') {
+        openModal(modalContent.addBillProduct);
+        products(showProductsBill, "pedido");
+        document.querySelector(".tb-bill tbody").addEventListener('click', (e) => {
+          const check = e.target.closest('.checkItem');
+
+          if (check) {
+            if (check.checked) {
+              addItem(e);
+            } else {
+              console.log('no se seleccionó');
+            }
+          }
+        })
+
+      }
+    })
+
     setupModalClose();
     outsideClose();
   }

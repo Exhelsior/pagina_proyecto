@@ -120,7 +120,7 @@ export const deleteProduct = async (e) => {
     }
 }
 
-export function getRowData() {
+export function getRowData(event) {
     const target = event.target
         if (target.closest(".add-boton-tabla")){
 

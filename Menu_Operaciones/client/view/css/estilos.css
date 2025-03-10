@@ -567,6 +567,15 @@ body{
     height: 2rem;
     border-bottom: 1px solid #e0e0e0;
 }
+
+#bill-tb input{
+    width: 65%;
+    height: 3vh;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    outline: none;
+}
+
 #cant-bill-prodcut{
     width: 4rem;
     outline: none;

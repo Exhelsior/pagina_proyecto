@@ -31,7 +31,7 @@
 
     addBillProduct: `
         <h1>Agregar Producto <br> a la Factura</h1>
-        <div class="tb-bill">
+        <div id="bill-tb" class="tb-bill">
             <table class="tabla-productos">
                 <thead class="head-pedidos">
                     <tr>
