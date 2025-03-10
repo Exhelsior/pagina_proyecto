@@ -3,26 +3,27 @@ import { apiClient, generateDataRows } from "../API_REST.js";
 
 const path = "inventario";
 
-export async function products() {
+export async function products(callback, type) {
     try {
         const data = await apiClient.getAllProductos("inventario");
 
         if (!Array.isArray(data) || data.length === 0) {
             console.warn("No se encontraron productos.");
-            showProducts([]); 
+            callback([], type); // Llama a la función pasada con una lista vacía
             return;
         }
-        showProducts(data);
+
         console.log("Productos obtenidos:", data);
+        callback(data, type); // Llama a la función pasada con los datos obtenidos
 
     } catch (error) {
         console.error("Error al obtener productos:", error.message);
-        showProducts([]); // Muestra mensaje en la tabla si hay error
+        callback([], type); // En caso de error, llama a la función con una lista vacía
     }
 }
 
 
-export function showProducts(productos) {
+export function showProducts(productos, type) {
     const tbody = document.querySelector(".t-productos tbody");
 
     if (!tbody) {
@@ -30,7 +31,9 @@ export function showProducts(productos) {
         return;
     }
 
-    tbody.innerHTML = productos.length === 0 ? '<td>Productos no encontrados</td>' : generateDataRows(productos, "productos");
+    tbody.innerHTML = productos.length === 0 
+        ? '<td>Productos no encontrados</td>' 
+        : generateDataRows(productos, type);
 }
 
 export const addProduct = async () => {
@@ -75,7 +78,7 @@ export const addProduct = async () => {
 
         alert("Producto creado exitosamente");
         console.log("producto creado:", response);
-        products();
+        products(showProducts, "productos");
 
         closeModal()
         
