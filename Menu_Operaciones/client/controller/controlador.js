@@ -1,7 +1,7 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
-import { setupModalListeners, openModal, setupModalClose, outsideClose, modalContent } from "./contenido-modal.js";
+import { setupModalListeners, openModal, setupModalClose, outsideClose, modalContent, closeModal } from "./contenido-modal.js";
 import { addProduct, deleteProduct, getRowData, products, showProducts, tSearch, updateForm} from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
-import { addItem, showProductsBill } from "./controllerPedidos/crudApi_pedidos.js";
+import { addItem, itemArray, /* drawTable, */ showProductsBill } from "./controllerPedidos/crudApi_pedidos.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -55,21 +55,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('click', (e) => {
       if (e.target.id === 'bill-add-product') {
         openModal(modalContent.addBillProduct);
+
         products(showProductsBill, "pedido");
         document.querySelector(".tb-bill tbody").addEventListener('click', (e) => {
-          const check = e.target.closest('.checkItem');
+          addItem(e);
+        });
 
-          if (check) {
-            if (check.checked) {
-              addItem(e);
-            } else {
-              console.log('no se seleccionó');
-            }
+        document.addEventListener('click', (e) => {
+          if (e.target.id === 'add-product-bill') {
+            closeModal();
+            console.log("Elementos agregados", itemArray);
           }
-        })
-
+        });
       }
-    })
+    });
 
     setupModalClose();
     outsideClose();
