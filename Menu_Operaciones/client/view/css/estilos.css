@@ -316,12 +316,6 @@ body{
     border-bottom: 1px solid #e0e0e0;;
 }
 
-.tabla-insumos{
-    overflow-x: auto;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .tabla{
     overflow-y: scroll;
@@ -396,11 +390,9 @@ body{
     border-bottom: 1px solid #e0e0e0;;
 }
 
-.tabla-productos{
-    overflow-x: auto;
+.tabla-productos {
+    width: 100%;
     border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /*---------------------------------PEDIDOS-------------------------------*/
@@ -435,8 +427,11 @@ body{
     outline: none;
 }
 
-.productos-pedidos{
+.productos-pedidos {
     display: block;
+    max-height: 300px; /* Ajusta la altura según necesites */
+    overflow-y: auto; /* Scroll solo si es necesario */
+/*     border: 1px solid #ccc; /* Opcional: agrega un borde para delimitar el área */ 
 }
 
 .contenido-info h2{
@@ -452,11 +447,8 @@ body{
 
 .productos-pedidos thead {
     position: sticky;
-    top: 0px;
-    background-color: #EFD79B;
-    color: black;
-    font-size: larger;
-    font-weight: bolder;
+    top: 0;
+    background: #EFD79B; /* Mantiene el encabezado visible */
 }
 
 .productos-pedidos th {

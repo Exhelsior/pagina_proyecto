@@ -13,7 +13,7 @@ export async function products(callback, type) {
             return;
         }
 
-        console.log("Productos obtenidos:", data);
+/*         console.log("Productos obtenidos:", data); */
         callback(data, type); // Llama a la función pasada con los datos obtenidos
 
     } catch (error) {
