@@ -1,5 +1,6 @@
 import { generateDataRows } from "../API_REST.js";
 
+const path = "pedido"
 export const itemArray = [];
 
 export function showProductsBill(productos, type) {
@@ -14,7 +15,8 @@ export function showProductsBill(productos, type) {
         ? '<td>Productos no encontrados</td>' 
         : generateDataRows(productos, type);
 
-}
+};
+
 export function addItem(e) {
     const target = e.target;
     if (target.closest(".checkItem")) {
@@ -61,7 +63,7 @@ export function mergeTable (itemArray) {
         const tr = `
         <tr data-index="${index}">
             <td>${item.name}</td>
-            <td>$${item.totalPrice}</td>
+            <td class="precio">$${item.totalPrice}</td>
             <td>${item.inputCant}</td>
             <td>
                 <button id="del-row" class="del-boton-tabla">
@@ -81,7 +83,7 @@ export function mergeTable (itemArray) {
     });
 
 
-}
+};
 
 export function deleteRow(e) {
     const target = e.target;
@@ -91,4 +93,21 @@ export function deleteRow(e) {
         itemArray.splice(index, 1);
         mergeTable(itemArray);
     }
+};
+
+export function showTotal() {
+    let total = 0;
+    let precio = document.querySelectorAll(".precio").forEach((precio) => {
+         total+= parseInt(precio.innerHTML.replace("$", ""));
+    })
+
+    let totalPagar = document.getElementById("total-pagar");
+    totalPagar.value = `${total}`;
+/*     console.log(totalPagar);
+
+    console.log("Total", total); */
+};
+
+function createPedido() {
+    const nameCliente = document.getElementById
 }

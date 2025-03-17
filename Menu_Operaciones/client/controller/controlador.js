@@ -1,7 +1,7 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalListeners, openModal, setupModalClose, outsideClose, modalContent, closeModal } from "./contenido-modal.js";
 import { addProduct, deleteProduct, getRowData, products, showProducts, tSearch, updateForm} from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
-import { addItem, deleteRow, itemArray, mergeTable, /* drawTable, */ showProductsBill } from "./controllerPedidos/crudApi_pedidos.js";
+import { addItem, deleteRow, itemArray, mergeTable, /* drawTable, */ showProductsBill, showTotal } from "./controllerPedidos/crudAPI_pedidos.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -62,21 +62,23 @@ document.addEventListener("DOMContentLoaded", () => {
           mergeTable(itemArray);
         });
 
-        document.addEventListener('click', (e) => {
-          if (e.target.id === 'add-product-bill') {
-            closeModal();
-/*             console.log("Elementos agregados", itemArray); */
-          }
-        });
+        const aggProductBill = document.getElementById("add-product-bill");
+        aggProductBill.addEventListener('click', (e) => {
+          closeModal();
+          showTotal();
+
+          /*             console.log("Elementos agregados", itemArray); */
+        })
       }
+      
     });
 
     document.querySelector(".tabla-pedido tbody").addEventListener('click', (e) => {
-      const target = e.target;
       if (e.target.id === 'del-row') {
 /*         console.log("Elemento eliminado"); */
         deleteRow(e);
         mergeTable(itemArray);
+        showTotal();
       }
     })
 
