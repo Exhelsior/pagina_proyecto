@@ -1,7 +1,7 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalListeners, openModal, setupModalClose, outsideClose, modalContent, closeModal } from "./contenido-modal.js";
 import { addProduct, deleteProduct, getRowData, products, showProducts, tSearch, updateForm} from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
-import { addItem, deleteRow, itemArray, mergeTable, /* drawTable, */ showProductsBill, showTotal } from "./controllerPedidos/crudAPI_pedidos.js";
+import { addItem, createPedido, deleteRow, itemArray, mergeTable, /* drawTable, */ showProductsBill, showTotal } from "./controllerPedidos/crudApi_pedidos.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   let vista = new Vista();
@@ -66,11 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
         aggProductBill.addEventListener('click', (e) => {
           closeModal();
           showTotal();
-
           /*             console.log("Elementos agregados", itemArray); */
-        })
+        });
       }
       
+      if (e.target.id === 'send-bill') {
+        createPedido();
+      }
     });
 
     document.querySelector(".tabla-pedido tbody").addEventListener('click', (e) => {

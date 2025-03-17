@@ -108,6 +108,42 @@ export function showTotal() {
     console.log("Total", total); */
 };
 
-function createPedido() {
-    const nameCliente = document.getElementById
+export function createPedido() {
+    const nameCliente = document.getElementById("nombre-cliente").value;
+    function formatFecha(fecha) {
+        if (fecha.includes("/")) {
+            const [dia, mes, año] = fecha.split("/");
+            return `${año}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`;
+        }
+        return fecha
+    }
+    const fechaCreacion = formatFecha(new Date().toLocaleDateString());
+    const fechaEntrega = document.getElementById("fecha-entrega").value;
+    const direccionCliente = document.getElementById("direccion-cliente").value;
+    const telefono = document.getElementById("telefono-cliente").value;
+    const totalPagar = document.getElementById("total-pagar").value;
+
+    
+
+    if (!nameCliente || !fechaEntrega || !direccionCliente || !telefono) {
+        alert("Por favor ingrese todos los campos");
+        return;
+    }
+
+    if (!totalPagar) {
+        alert("Por favor agregue productos al pedido");
+        return;
+    }
+
+    const itemPedido = {
+        nameCliente,
+        fechaEntrega,
+        fechaCreacion,
+        direccionCliente,
+        telefono,
+        totalPagar
+    }
+
+    console.log(itemPedido);
+    console.log(nameCliente, fechaEntrega, direccionCliente, telefono, totalPagar, fechaCreacion);
 }
