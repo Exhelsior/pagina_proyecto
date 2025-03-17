@@ -83,6 +83,9 @@ body{
     border-bottom: solid 3px #fff9e1;
 }
 
+.side-menu a.activo svg, h1{
+    pointer-events: none;
+}
 .contenido-operativo{
     overflow-y: scroll;
     background-color: transparent;
@@ -218,6 +221,10 @@ body{
     border-radius: 5px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;
+}
+
+.del-boton-tabla svg{
+    pointer-events: none;
 }
 
 

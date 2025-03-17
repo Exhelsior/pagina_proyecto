@@ -62,12 +62,27 @@ export const apiClient = {
             console.error(error);
             return null;
         }
-    }
-
+    },
     // ----------pedidos----------------
 
+    async createPedido(data, path) {
+        try {
+            const response = await fetch(`${API_URL}${path}/create`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            if (!response.ok) throw new Error('Error al crear el pedido');
+            return await response.json();
+        } catch (error) {
+            console.error(error);
+            return null;
+        }
+    }
 };
 
+
+//-----------------------------------------------------------------------------------------
 export function generateDataRows(productos, type) {
     return productos.map((producto, index) => {
         function formatearFecha(fecha) {

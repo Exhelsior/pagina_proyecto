@@ -42,7 +42,7 @@ testConnection();
 app.use('/usuario', usuarioRoutes);
 app.use('/inventario', inventoryRoutes);
 app.use('/envio', envioRoutes);
-app.use('/pedidos', pedidoRoutes);
+app.use('/pedido', pedidoRoutes);
 
 
 const PORT = process.env.PORT || 3000;

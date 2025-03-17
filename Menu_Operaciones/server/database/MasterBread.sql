@@ -35,6 +35,7 @@ CREATE TABLE Usuarios (
   Email varchar(255) NOT NULL UNIQUE,
   tipoDocumento varchar(50) NOT NULL,
   numeroDocumento varchar(50) NOT NULL UNIQUE,
+  reset_token VARCHAR(10);
   FechaCreacion timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -77,7 +78,8 @@ CREATE TABLE Pedido (
     fechaCreacion DATE NOT NULL,
 	fechaEntrega DATE NOT NULL,
     direccion VARCHAR(255),
-    telefono VARCHAR(20)
+    telefono VARCHAR(20),
+    total_factura DECIMAL(10,2)
 );
 
 CREATE TABLE itemPedido (
@@ -89,8 +91,6 @@ CREATE TABLE itemPedido (
     FOREIGN KEY (idPedido) REFERENCES pedido(idPedido) ON DELETE CASCADE,
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto) ON DELETE CASCADE
 );
-
-
 
 CREATE TABLE Envios (
     idEnvio INT AUTO_INCREMENT PRIMARY KEY,
