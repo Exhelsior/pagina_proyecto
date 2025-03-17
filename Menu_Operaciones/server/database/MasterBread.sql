@@ -22,12 +22,6 @@ USE masterbread;
 
 
 -- Tabla Roles 
-
-
-
-
-create database masterbread;
-
 CREATE TABLE Roles (
   IdRoles int PRIMARY KEY AUTO_INCREMENT,
   NombreRol varchar(100) NOT NULL UNIQUE
@@ -72,8 +66,9 @@ CREATE TABLE Producto (
     NombreProducto VARCHAR(225) NOT NULL,
     Precio DECIMAL(10,2) NOT NULL,
     Cantidad INT NOT NULL,
-    Lote DATE,
+    Lote DATE(50),
     FechaVencimiento DATE
+
 );
 
 CREATE TABLE Pedido (
@@ -113,6 +108,7 @@ ALTER TABLE Producto AUTO_INCREMENT = 1;
 ALTER TABLE Pedido AUTO_INCREMENT = 1;
 ALTER TABLE itemPedido AUTO_INCREMENT = 1;
 ALTER TABLE Envios AUTO_INCREMENT = 1;
+
 
 
 
