@@ -1,6 +1,6 @@
-import { generateDataRows } from "../API_REST.js";
+import { apiClient, generateDataRows } from "../API_REST.js";
 
-const path = "pedido"
+const path = "pedido";
 export const itemArray = [];
 
 export function showProductsBill(productos, type) {
@@ -22,12 +22,13 @@ export function addItem(e) {
     if (target.closest(".checkItem")) {
         const row = target.closest("tr");
         const index = row.dataset.index;
-        const name = row.children[0].innerHTML;
-        const price = row.children[1].innerHTML;
-        const cant = row.children[2].innerHTML;
+        const idProducto = row.children[0].innerHTML;
+        const name = row.children[1].innerHTML;
+        const price = row.children[2].innerHTML;
+        const cant = row.children[3].innerHTML;
         const priceClean = price.replace("$", "");
         const priceInt = parseInt(priceClean);
-        const inputCant = parseInt(row.children[3].querySelector("input").value);
+        const inputCant = parseInt(row.children[4].querySelector("input").value);
         const totalPrice = priceInt * inputCant;
 
         if (target.checked){
@@ -43,7 +44,7 @@ export function addItem(e) {
                 return
             }
 
-            itemArray.push({index, name, inputCant, totalPrice});
+            itemArray.push({index, idProducto, name, inputCant, totalPrice});
         } else {
             const itemIndex = itemArray.findIndex(item => item.index === index);
             if (itemIndex !== -1) {
@@ -51,7 +52,7 @@ export function addItem(e) {
                 console.log("Elemento eliminado");
             }
         }
-/*         console.log("Elementos actualizados",itemArray); */
+        console.log("Elementos actualizados",itemArray);
     };
 };
 
@@ -62,6 +63,7 @@ export function mergeTable (itemArray) {
     itemArray.forEach((item, index) => {
         const tr = `
         <tr data-index="${index}">
+            <td style="display: none;">${item.idProducto}</td>
             <td>${item.name}</td>
             <td class="precio">$${item.totalPrice}</td>
             <td>${item.inputCant}</td>
@@ -108,42 +110,52 @@ export function showTotal() {
     console.log("Total", total); */
 };
 
-export function createPedido() {
-    const nameCliente = document.getElementById("nombre-cliente").value;
-    function formatFecha(fecha) {
-        if (fecha.includes("/")) {
-            const [dia, mes, año] = fecha.split("/");
-            return `${año}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`;
-        }
-        return fecha
-    }
-    const fechaCreacion = formatFecha(new Date().toLocaleDateString());
-    const fechaEntrega = document.getElementById("fecha-entrega").value;
-    const direccionCliente = document.getElementById("direccion-cliente").value;
+export const createPedido = async () => {
+    const nameCliente = document.getElementById("nombre-cliente").value.trim();
+    const fechaCreacion = new Date().toISOString().slice(0, 10); // Se mantiene como tipo Date
+    const fechaEntrega = document.getElementById("fecha-entrega").value.trim();
+    const direccion = document.getElementById("direccion-cliente").value.trim();
     const telefono = document.getElementById("telefono-cliente").value;
-    const totalPagar = document.getElementById("total-pagar").value;
+    const totalPagar = document.getElementById("total-pagar").value || 0;
 
-    
-
-    if (!nameCliente || !fechaEntrega || !direccionCliente || !telefono) {
+    if (!nameCliente || !fechaEntrega || !direccion || !telefono) {
         alert("Por favor ingrese todos los campos");
         return;
     }
 
-    if (!totalPagar) {
+    if (itemArray.length === 0) {
         alert("Por favor agregue productos al pedido");
         return;
     }
 
-    const itemPedido = {
+    const pedido = {
         nameCliente,
-        fechaEntrega,
+        fechaEntrega, 
         fechaCreacion,
-        direccionCliente,
+        direccion,
         telefono,
-        totalPagar
-    }
+        totalPagar,
+        items: itemArray.map(item => ({
+            idProducto: item.idProducto,
+            cantidad: item.inputCant,
+            total: item.totalPrice
+        }))
+    };
 
-    console.log(itemPedido);
-    console.log(nameCliente, fechaEntrega, direccionCliente, telefono, totalPagar, fechaCreacion);
+    try {
+        const response = await apiClient.createPedido(pedido, path);
+        console.log(response);
+
+        if (!response) {
+            throw new Error("Error al crear el pedido");
+        }
+
+        alert("Pedido creado exitosamente");
+        console.log("Pedido creado:", response);
+
+    } catch (error) {
+        console.error(error.message);
+        alert(`Error al crear el pedido: ${error.message}`)
+    }
 }
+

@@ -78,8 +78,24 @@ export const apiClient = {
             console.error(error);
             return null;
         }
+    },
+
+    async createItemPedidos(data, path, path2) {
+        try {
+            const response = await fetch(`${API_URL}${path}/${path2}/create`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            if (!response.ok) throw new Error('Error al crear el pedido');
+            return await response.json(); 
+        } catch (error) {
+            console.error(error);
+            return null;
+        } 
     }
 };
+
 
 
 //-----------------------------------------------------------------------------------------
@@ -96,7 +112,7 @@ export function generateDataRows(productos, type) {
         if (type === "productos") {
             return `
             <tr data-index="${index}">
-                <td>${producto.IdProducto}</td>
+                <td style="display: none;">${producto.IdProducto}</td>
                 <td>${producto.NombreProducto}</td>
                 <td>${formatearFecha(producto.Lote)}</td>
                 <td>${formatearFecha(producto.FechaVencimiento)}</td>
@@ -121,6 +137,7 @@ export function generateDataRows(productos, type) {
         } else if (type === "pedido") {
             return `
             <tr data-index="${index}">
+                <td style="display: none;">${producto.IdProducto}</td>
                 <td>${producto.NombreProducto}</td>
                 <td>$${producto.Precio}</td>
                 <td>${producto.Cantidad}</td>
