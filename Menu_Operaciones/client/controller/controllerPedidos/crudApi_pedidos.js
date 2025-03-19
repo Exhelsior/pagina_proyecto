@@ -99,7 +99,7 @@ export function deleteRow(e) {
 
 export function showTotal() {
     let total = 0;
-    let precio = document.querySelectorAll(".precio").forEach((precio) => {
+    document.querySelectorAll(".precio").forEach((precio) => {
          total+= parseInt(precio.innerHTML.replace("$", ""));
     })
 
@@ -116,7 +116,7 @@ export const createPedido = async () => {
     const fechaEntrega = document.getElementById("fecha-entrega").value.trim();
     const direccion = document.getElementById("direccion-cliente").value.trim();
     const telefono = document.getElementById("telefono-cliente").value;
-    const totalPagar = document.getElementById("total-pagar").value || 0;
+    const totalPagar = document.getElementById("total-pagar").value;
 
     if (!nameCliente || !fechaEntrega || !direccion || !telefono) {
         alert("Por favor ingrese todos los campos");

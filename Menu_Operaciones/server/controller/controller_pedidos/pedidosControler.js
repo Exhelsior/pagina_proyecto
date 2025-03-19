@@ -27,7 +27,8 @@ const getPedido = async (req, res) => {
                 p.fechaCreacion, 
                 p.fechaEntrega, 
                 p.direccion, 
-                p.telefono, 
+                p.telefono,
+                p.totalPagar,
                 ip.idItemPedido, 
                 ip.cantidad, 
                 ip.total, 
@@ -63,7 +64,8 @@ const getPedido = async (req, res) => {
                 cantidad: item.cantidad,
                 total: item.total,
                 precio: item.Precio
-            }))
+            })),
+            totalPagar: pedido[0].totalPagar
         };
 
         res.json(pedidoFormateado);
