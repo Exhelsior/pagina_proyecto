@@ -153,6 +153,18 @@ export const createPedido = async () => {
         alert("Pedido creado exitosamente");
         console.log("Pedido creado:", response);
 
+        itemArray.length = 0;
+        mergeTable(itemArray);
+        showTotal();
+
+        document.getElementById("nombre-cliente").value = "";
+        document.getElementById("fecha-entrega").value = "";
+        document.getElementById("direccion-cliente").value = "";
+        document.getElementById("telefono-cliente").value = "";
+        document.getElementById("total-pagar").value = "";
+
+        console.log(itemArray);
+        
     } catch (error) {
         console.error(error.message);
         alert(`Error al crear el pedido: ${error.message}`)
