@@ -75,14 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    document.querySelector(".tabla-pedido tbody").addEventListener('click', (e) => {
-      if (e.target.id === 'del-row') {
+
+      if (event.target.id === 'del-row') {
 /*         console.log("Elemento eliminado"); */
         deleteRow(e);
         mergeTable(itemArray);
         showTotal();
       }
-    })
+
 
     setupModalClose();
     outsideClose();
