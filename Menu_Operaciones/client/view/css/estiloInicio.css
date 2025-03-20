@@ -418,3 +418,8 @@ label {
     font-size: 0.8rem;
   }
 }
+
+#welcomeMessage {
+  color: aquamarine;
+  
+}

@@ -60,7 +60,27 @@
     </div>
     <div class="contenido-operativo">
       <div id="main-contenido">
-        <!--CONTENIDO QUE MUESTRAN LOS BOTONES LOS BOTONES-->
+          <!-- El mensaje de bienvenida aparecerá aquí -->
+          <div id="welcomeMessage">
+            <!-- El mensaje de bienvenida será mostrado aquí como texto -->
+          </div>
+        </div>
+      
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            // Recuperar el nombre del usuario desde localStorage
+            const username = localStorage.getItem('username');
+            
+            if (username) {
+              // Crear y mostrar el mensaje de bienvenida en el div
+              const welcomeMessage = `Bienvenido, ${username}!`;
+              document.getElementById('welcomeMessage').textContent = welcomeMessage;
+            } else {
+              // Si no hay nombre de usuario, redirigir al login
+              window.location.href = './login.html';
+            }
+          });
+        </script>
       </div>
     </div>
   </main>

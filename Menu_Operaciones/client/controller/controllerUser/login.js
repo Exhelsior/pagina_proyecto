@@ -25,8 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       const data = await response.json();
+
       if (data.success) {
+        // Guardar el nombre del usuario en localStorage
+        localStorage.setItem('username', data.user.nombre);
+
+        // Mostrar mensaje de bienvenida temporalmente
         watchError(`Bienvenido ${data.user.nombre}, redirigiendo...`);
+        
         setTimeout(() => {
           window.location.href = "./indexMenu.html";
         }, 3000);
@@ -35,11 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     } catch (error) {
       console.error("Error en la petición:", error);
-      watchError(
-        "Error en el servidor. Por favor, intente nuevamente más tarde."
-      );
+      watchError("Error en el servidor. Por favor, intente nuevamente más tarde.");
     }
   });
+
   function watchError(message) {
     error.textContent = message;
     error.classList.remove("hidden");

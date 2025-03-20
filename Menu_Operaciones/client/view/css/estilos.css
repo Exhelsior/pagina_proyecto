@@ -791,3 +791,12 @@ body{
         height: auto; /* Ajusta la altura de las tablas en móviles */
     }
 }
+
+#welcomeMessage {
+  text-align: center; /* Centra el texto horizontalmente */
+  font-family: Kodchasan, sans-serif;
+  color: white; /* Cambia el color del texto a blanco */
+  font-size: 24px; /* Establece un tamaño de fuente medianamente grande */
+  font-weight: bold; /* Establece el texto en negrita (opcional) */
+  margin-top: 20px; /* Agrega espacio superior (opcional) */
+}
