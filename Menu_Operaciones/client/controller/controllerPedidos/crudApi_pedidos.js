@@ -1,4 +1,5 @@
 import { apiClient, generateDataRows } from "../API_REST.js";
+import { closeModal, modalContent, openModal } from "../contenido-modal.js";
 
 const path = "pedido";
 export const itemArray = [];
@@ -142,6 +143,18 @@ export const createPedido = async () => {
         }))
     };
 
+    openModal(modalContent.agendamientoAcept);
+
+    const modalConfirm = await new Promise((resolve) => {
+        document.getElementById("acept-pedido").addEventListener("click", () => resolve(true), { once:true});
+        document.getElementById("cancel-pedido").addEventListener("click", () => resolve(false), { once:true});
+    });
+
+    if (!modalConfirm) {
+        closeModal();
+        return;
+    }
+
     try {
         const response = await apiClient.createPedido(pedido, path);
         console.log(response);
@@ -149,6 +162,8 @@ export const createPedido = async () => {
         if (!response) {
             throw new Error("Error al crear el pedido");
         }
+
+        closeModal();
 
         alert("Pedido creado exitosamente");
         console.log("Pedido creado:", response);

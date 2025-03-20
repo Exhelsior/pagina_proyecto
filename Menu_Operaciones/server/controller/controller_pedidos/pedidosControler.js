@@ -123,8 +123,13 @@ const createPedido = async (req, res) => {
                 "INSERT INTO ItemPedido (idPedido, idProducto, cantidad, total) VALUES (?, ?, ?, ?)",
                 [idPedido, idProducto, cantidad, total]
             );
-        }
 
+            await pool.query(
+                "UPDATE Producto SET Cantidad = Cantidad - ? WHERE idProducto = ?",
+                [cantidad, idProducto]
+            );
+        }
+        
         res.status(201).json({
             idPedido,
             mensaje: 'Pedido y items creados exitosamente'

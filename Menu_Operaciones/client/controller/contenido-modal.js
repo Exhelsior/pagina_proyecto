@@ -60,6 +60,14 @@
         </div>
     `,
 
+    agendamientoAcept: `
+        <p>¿Agendar pedido?</p>
+        <div class="boton-add">
+            <button id="acept-pedido" class="add">Aceptar</button>
+            <button id="cancel-pedido" class="cancel">Cancelar</button>
+        </div>
+    `,
+
     formEdit: `
     <h1>Editar Producto</h1>
     <form id="tb-edit-producto">
@@ -150,5 +158,9 @@ export function setupModalListeners(openCallbackModal) {
     
     document.getElementById("confirmDelete")?.addEventListener("click", () =>
         openCallbackModal(modalContent.aceptDelete)
+    );
+
+    document.getElementById("send-bill")?.addEventListener("click", () =>
+        openCallbackModal(modalContent.agendamientoAcept)
     );
 }

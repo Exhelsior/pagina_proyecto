@@ -490,45 +490,10 @@ body{
 }
 
 /*---------------------------------ENVIOS-------------------------------*/
-
-.envios {
-    display: block;
-    padding: 2rem;
-    background-color: #ffff;
-    border-radius: 12px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
-    max-width: 60%;
-    margin: 2rem auto;
-}
-
-.envios h2{
-    font-size: calc(1.5rem + 1vw);
-    color: black;
-    text-align: center;
-    margin: 0 0 15px 0;
-}
-
 .contenedor-envios{
-    overflow-y: scroll;
-    max-height: 75vh;
+    display:grid;
+    grid-template-columns: 1fr;
 }
-
-.contenedor-envios{
-    display: flex;
-    margin: 5px 30px;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.caja-envio{
-    display: block;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border:#e0e0e0 solid 1px;
-    border-radius: 10px;
-}
-
 .boton-bill {
     padding-top: 2px;
     width: 10%;
