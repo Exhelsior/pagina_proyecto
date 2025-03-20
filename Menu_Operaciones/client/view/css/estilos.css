@@ -490,10 +490,7 @@ body{
 }
 
 /*---------------------------------ENVIOS-------------------------------*/
-.contenedor-envios{
-    display:grid;
-    grid-template-columns: 1fr;
-}
+
 .boton-bill {
     padding-top: 2px;
     width: 10%;
