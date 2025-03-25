@@ -1,5 +1,6 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalListeners, openModal, setupModalClose, outsideClose, modalContent, closeModal } from "./contenido-modal.js";
+import { mostrarTemplate } from "./controladorEnvios/templateEnvios.js";
 import { addProduct, deleteProduct, getRowData, products, showProducts, tSearch, updateForm} from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
 import { addItem, createPedido, deleteRow, itemArray, mergeTable, /* drawTable, */ showProductsBill, showTotal } from "./controllerPedidos/crudApi_pedidos.js";
 
@@ -90,6 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarEnvios() {
     vista.mostrarPlantilla("tempEnvios", "main-contenido");
-    
+    mostrarTemplate();
   }
 });

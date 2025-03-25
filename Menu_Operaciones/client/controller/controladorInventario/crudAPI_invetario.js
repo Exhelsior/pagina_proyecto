@@ -18,7 +18,7 @@ export async function products(callback, type) {
 
     } catch (error) {
         console.error("Error al obtener productos:", error.message);
-        callback([], type); // En caso de error, llama a la función con una lista vacía
+        callback(data, type); // En caso de error, llama a la función con una lista vacía
     }
 }
 
@@ -190,7 +190,7 @@ export function updateForm( { dataRow } ) {
             if (!response) throw new Error("Error al actualizar el producto");
 
             alert("Producto actualizado exitosamente");
-            products();
+            products(showProducts, "productos");
             closeModal();
         } catch (error) {
             console.errror(error.message);

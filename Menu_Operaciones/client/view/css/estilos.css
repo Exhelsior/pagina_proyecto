@@ -490,6 +490,54 @@ body{
 }
 
 /*---------------------------------ENVIOS-------------------------------*/
+.contenedor-envios{
+    display:grid;
+    grid-template-rows: auto auto;
+    gap: 10px;
+}
+
+.envio-grid {
+    background-color: aliceblue;
+    padding: 20px;
+    text-align: center; 
+    border-radius: 10px;
+    justify-items: center;
+}
+.temp-envio-grid {
+    background-color: aliceblue;
+    padding: 20px;
+    text-align: center; 
+    border-radius: 10px;
+    justify-items: center;
+}
+
+.item {
+    margin: 15px;
+}
+.contenedor-tabla-agendados{
+    overflow-y: scroll;
+    height: 6in;
+}
+
+.contenedor-tabla-agendados th, .contenedor-tabla-agendados td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#tabla-agendados thead {
+    position: sticky;
+    top: 0px;
+    background-color: #EFD79B;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#tabla-agendados {
+    border-collapse: collapse;
+    
+}
 
 .boton-bill {
     padding-top: 2px;

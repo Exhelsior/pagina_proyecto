@@ -152,9 +152,42 @@
   </template>
 
   <template id="tempEnvios">
-
+    <div class="contenedor-envios">
+      <div class="envio-grid">
+        <div class="boton-add item">
+          <button id="pedido-agend" class="add">Pedidos Agendados</button>
+          <button id="pedido-enviado" class="add">Pedidos Enviados</button>
+        </div>
+      </div>
+      <div class="temp-envio-grid">
+        
+      </div>
+    </div>
+  </template>
+ <!-- templates Envios-->
+  <template id="pedidos">
+    <div id="pedidos-agendados">
+      <h2>PEDIDOS AGENDADOS</h2>
+      <div class="contenedor-tabla-agendados">
+        <table id="tabla-agendados">
+          <thead class="head-productos">
+            <th>Cliente</th>
+            <th>Fecha de Entrega</th>
+            <th>Fecha de Creacion</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Productos</th>
+            <th>Total Pagar</th>
+            <th>Acciones</th>
+          </thead>
+        </table>
+      </div>
+    </div>
   </template>
 
+  <template id="envios">
+    <h1>Hola desde envios</h1>
+  </template>
   <!-- Modales -->
   <div id="modal" class="hidden">
     <div id="modal-content">
