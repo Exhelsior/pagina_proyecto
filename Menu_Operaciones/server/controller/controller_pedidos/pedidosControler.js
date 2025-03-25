@@ -12,7 +12,7 @@ const getAllPedidos = async (req, res) => {
     }
 };
 
-const getPedido = async (req, res) => {
+const getPedidoComplete = async (req, res) => {
     try {
         console.log("ID recibido en params:", req.params);
 
@@ -179,8 +179,21 @@ const getAllItemPedido = async (req, res) => {
 
 const getItemPedido = async (req, res) => {
     try {
-        const { id } = req.params;
-        const [itemPedido] = await pool.query('SELECT * FROM ItemPedido WHERE idItemPedido = ?', [id]);
+        const { id } = req.params;  // Obtiene el ID desde la URL
+        const [itemPedido] = await pool.query(`
+            SELECT 
+                p.idPedido, 
+                ip.idItemPedido, 
+                ip.cantidad, 
+                ip.total, 
+                pr.idProducto, 
+                pr.NombreProducto, 
+                pr.Precio
+            FROM Pedido p
+            JOIN itemPedido ip ON p.idPedido = ip.idPedido
+            JOIN Producto pr ON ip.idProducto = pr.idProducto
+            WHERE p.idPedido = ?`, [id]); 
+
         res.json(itemPedido);
     } catch (error) {
         res.status(500).json({
@@ -189,7 +202,6 @@ const getItemPedido = async (req, res) => {
         });
     }
 };
-
 const updateItemPedido = async (req, res) => {
     try {
         const { id } = req.params;
@@ -215,7 +227,7 @@ const updateItemPedido = async (req, res) => {
 
 module.exports = {
     getAllPedidos,
-    getPedido,
+    getPedidoComplete,
     updatePedido,
     createPedido,
     deletePedido,

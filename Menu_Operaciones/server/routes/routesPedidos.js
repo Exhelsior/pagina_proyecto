@@ -3,15 +3,17 @@ const router = express.Router();
 const {
     getAllPedidos,
     getAllItemPedido,
-    getPedido,
+    getPedidoComplete,
     updatePedido,
     createPedido,
-    deletePedido
+    deletePedido,
+    getItemPedido
 } = require('../controller/controller_pedidos/pedidosControler');
 
 router.get('/', getAllPedidos);
+router.get('/:id', getPedidoComplete);
 router.get('/items', getAllItemPedido)
-router.get('/:id', getPedido);
+router.get('/items/:id', getItemPedido)
 router.put('/update/:id', updatePedido);
 router.post('/create', createPedido);
 router.delete('/delete/:id', deletePedido);

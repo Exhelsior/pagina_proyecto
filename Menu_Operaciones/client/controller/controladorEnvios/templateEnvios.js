@@ -1,6 +1,6 @@
-const pedidos = document.getElementById("pedido-agend");
+/* const pedidos = document.getElementById("pedido-agend");
 const envio = document.getElementById("pedido-agend");
-
+ */
 export const mostrarTemplate = () => {
     document.addEventListener("click", (e) => {
         let templateId = "";
