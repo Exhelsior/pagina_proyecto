@@ -160,7 +160,7 @@ function mostrarRecovery() {
           const data = await response.json();
           if (data.success) {
             alert("Contraseña cambiada correctamente");
-            mostrarInicio(); // Añadido: cambiar a la plantilla inicio después del éxito
+            mostrarInicio(); // cambiar a la plantilla inicio después del éxito
           } else {
             alert(data.message || "Error en las credenciales.");
           }
