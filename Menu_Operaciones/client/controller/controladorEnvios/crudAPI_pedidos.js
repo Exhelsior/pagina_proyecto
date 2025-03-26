@@ -17,7 +17,7 @@ export async function clientes() {
 }
 
 export function mostrarClientes(clientes) {
-    const tbody = document.getElementById("tabla-agendados");
+    const tbody = document.getElementById("body-agendados");
 
     if (!tbody) {
         console.error("No se encontró el elemento tbody");
@@ -50,7 +50,7 @@ export function mostrarClientes(clientes) {
             <td>${cliente.direccion}</td>
             <td>${cliente.telefono}</td>
             <td>boton</td>
-            <td>${cliente.totalPagar}</td>
+            <td>$${cliente.totalPagar}</td>
             <td>Acciones</td>`;
 
         tbody.appendChild(fila); // 

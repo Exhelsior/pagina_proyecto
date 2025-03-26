@@ -174,11 +174,10 @@ body{
 
 .boton-add{
     display: flex;
-    width: 100%;
+    width: fit-content;
     justify-content: center;
     align-items: center;
     gap: 40px;
-    margin-top: 3rem;
 }
 
 
@@ -234,8 +233,8 @@ body{
 .add {
     font-size: medium;
     font-weight: 500;
-    padding: 15px;
-    width: 40%;
+    padding: 15px 25px;
+    width: fit-content;
     border: none;
     border-radius: 25px;
     background-color: #F5E4B5;
@@ -494,21 +493,25 @@ body{
     display:grid;
     grid-template-rows: auto auto;
     gap: 10px;
+    justify-content: center;
 }
 
 .envio-grid {
-    background-color: aliceblue;
+    background-color: #fff;
     padding: 20px;
-    text-align: center; 
+    text-align: center;
     border-radius: 10px;
     justify-items: center;
+    width: fit-content;
+    margin: auto;
 }
 .temp-envio-grid {
-    background-color: aliceblue;
-    padding: 20px;
+    background-color: #fff;
+    padding: 30px;
     text-align: center; 
     border-radius: 10px;
     justify-items: center;
+    width: fit-content;
 }
 
 .item {

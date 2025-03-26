@@ -1,7 +1,7 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalListeners, openModal, setupModalClose, outsideClose, modalContent, closeModal } from "./contenido-modal.js";
 import { clientes } from "./controladorEnvios/crudAPI_pedidos.js";
-import { mostrarTemplate } from "./controladorEnvios/templateEnvios.js";
+import { mostrarTemplate, obtenerTemplate } from "./controladorEnvios/templateEnvios.js";
 import { addProduct, deleteProduct, getRowData, products, showProducts, tSearch, updateForm} from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
 import { addItem, createPedido, deleteRow, itemArray, mergeTable, /* drawTable, */ showProductsBill, showTotal } from "./controllerPedidos/crudApi_pedidos.js";
 
@@ -92,7 +92,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function mostrarEnvios() {
     vista.mostrarPlantilla("tempEnvios", "main-contenido");
-    mostrarTemplate();
-    clientes();
-  }
+
+    // Mostrar "pedidos" al entrar a la pestaña de envíos
+    mostrarTemplate("pedidos"); 
+    clientes(); // Cargar clientes al iniciar
+
+    document.addEventListener("click", (e) => {
+        if (e.target.id === "pedido-enviado") {
+            mostrarTemplate("envios");
+            console.log(obtenerTemplate());
+        }
+
+        if (e.target.id === "pedido-agend") {
+            mostrarTemplate("pedidos");
+            if (obtenerTemplate() === "pedidos") {
+                clientes();
+            }
+            console.log(obtenerTemplate());
+        }
+    });
+}
 });
