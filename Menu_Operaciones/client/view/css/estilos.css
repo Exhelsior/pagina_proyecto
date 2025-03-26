@@ -155,7 +155,6 @@ body{
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #e0e0e0;
-    font-size:smaller;
 }
 
 /*----------productos-----------*/
@@ -167,38 +166,23 @@ body{
 }
 
 .contenedor-tabla-producto{
-    width: 47rem;
+    width: fit-content;
     overflow-y: scroll;
     height: 420px;
 }
 
 .boton-add{
     display: flex;
-    width: fit-content;
     justify-content: center;
     align-items: center;
     gap: 40px;
-}
-
-
-
-/*----------insumos-----------*/
-.t-insumos{
-    overflow-x: auto;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contenedor-tabla-insumos{
-    overflow-y: scroll;
-    height: 420px;
 }
 
 /*------------------------------botones tablas------------------------------*/
 .b-caja {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -277,79 +261,6 @@ body{
 }
 .add:hover {
     background-color: #DFC178;
-}
-/*------------------------------ventana insumos------------------------------*/
-
-.mostrar-insumo{
-    margin-top: 5rem;
-}
-
-.contenedor-insumos{
-    padding: 4rem;
-    background-color: #ffff;
-    border-radius: 12px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
-    max-width: 50%;
-    margin: 2rem auto;
-}
-
-.contenedor-insumos h1{
-    font-size: calc(1rem + 1vw);
-    color: black;
-    text-align  : center;
-    margin: 0 0 15px 0;
-
-}
-
-.contenedor-insumos thead{
-    position: sticky;
-    top: 0px;
-    background-color: #EFD79B;
-    color: black;
-    font-size: larger;
-    font-weight: bolder;
-
-}
-
-.contenedor-insumos th{
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.contenedor-insumos th, .contenedor-insumos td{
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0;;
-}
-
-
-.tabla{
-    overflow-y: scroll;
-    height: 600px;
-
-}
-
-.filtro {
-    display: flex;
-    align-items: center;
-}
-
-.filtro input{
-    width: 100%;
-    height: 5vh;
-    border: none;
-    border-bottom: 2px solid #e0e0e0 ;
-    margin: 0 0 15px 0;
-    outline: none;
-    font-size: 1.2rem;
-}
-
-.filtro svg {
-    fill: #7f8382;
-}
-
-.filtro svg {
-    fill: #7f8382;
 }
 
 /*---------------------------------PRODUCTOS-------------------------------*/
@@ -526,7 +437,10 @@ body{
     padding: 1rem;
     text-align: center;
     border-bottom: 1px solid #e0e0e0;
+    justify-items: center;
 }
+
+
 
 #tabla-agendados thead {
     position: sticky;
@@ -540,6 +454,41 @@ body{
 #tabla-agendados {
     border-collapse: collapse;
     
+}
+
+#list-productos {
+    background-color: #40cfff;
+}
+
+#enviar-pedido {
+    background-color: #01fa81;
+}
+
+#eliminar-pedido {
+    background-color: #ff4c4c;
+}
+
+#list-productos:hover {
+    background-color: #0095CC;
+}
+
+#enviar-pedido:hover {
+    background-color: #00C96C;
+}
+
+#eliminar-pedido:hover {
+    background-color: #CC0000;
+}
+
+.btns-envio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;
+    cursor: pointer;
 }
 
 .boton-bill {

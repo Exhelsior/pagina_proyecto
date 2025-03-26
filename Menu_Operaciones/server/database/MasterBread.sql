@@ -67,19 +67,19 @@ CREATE TABLE Producto (
     NombreProducto VARCHAR(225) NOT NULL,
     Precio DECIMAL(10,2) NOT NULL,
     Cantidad INT NOT NULL,
-    Lote DATE(50),
+    Lote DATE,
     FechaVencimiento DATE
 
 );
 
 CREATE TABLE Pedido (
-    idPedido INT AUTO_INCREMENT PRIMARY KEY,
-    nameCliente VARCHAR(100) NOT NULL,
-    fechaCreacion DATE NOT NULL,
-	fechaEntrega DATE NOT NULL,
-    direccion VARCHAR(255),
-    telefono VARCHAR(20),
-    total_factura DECIMAL(10,2)
+   idPedido INT AUTO_INCREMENT PRIMARY KEY,
+   nameCliente VARCHAR(100) NOT NULL,
+   fechaCreacion DATE NOT NULL,
+   fechaEntrega DATE NOT NULL,
+   direccion VARCHAR(255),
+   telefono VARCHAR(20),
+   totalPagar DECIMAL(10,2) NOT NULL,
 );
 
 CREATE TABLE itemPedido (
