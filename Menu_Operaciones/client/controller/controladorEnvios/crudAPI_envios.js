@@ -1,4 +1,5 @@
 import { apiClient } from "../API_REST.js";
+import { modalContent, openModal, outsideClose, setupModalClose } from "../contenido-modal.js";
 
 const path = "pedido";
 
@@ -44,11 +45,13 @@ export function mostrarClientes(clientes) {
         }
 
         fila.innerHTML = `
+            <td style="display: none;">${cliente.idPedido}</td>
             <td>${cliente.nameCliente}</td>
             <td>${formatFecha(cliente.fechaEntrega)}</td>
             <td>${formatFecha(cliente.fechaCreacion)}</td>
             <td>${cliente.direccion}</td>
             <td>${cliente.telefono}</td>
+            <td>$${cliente.totalPagar}</td>
             <td>
                 <button id="list-productos" class="btns-envio">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
@@ -58,7 +61,6 @@ export function mostrarClientes(clientes) {
                     </svg>
                 </button>
             </td>
-            <td>$${cliente.totalPagar}</td>
             <td>
                 <div class="b-caja">
                 <button id="enviar-pedido" class="btns-envio">
@@ -76,4 +78,19 @@ export function mostrarClientes(clientes) {
 
         tbody.appendChild(fila); // 
     });
+
+    const btnList = document.getElementById("list-productos");
+    console.log(btnList);
+    document.addEventListener('click', (e) => {
+        if (e.target.id === 'list-productos') {
+            const target = e.target;
+            const row = target.closest("tr");
+            const idPedido = row.children[0].innerHTML;
+            console.log(idPedido);
+            openModal(modalContent.listProductEnvios);
+            setupModalClose();
+            outsideClose();
+        }
+      });
 }
+

@@ -1,7 +1,7 @@
 // Contenido de los modales
  export const modalContent = {
     addProduct: `
-        <h1>Producto</h1>
+        <h2>Producto</h2>
         <form id="tb-add-producto">
             <div class="form-content">
                 <h3>Nombre</h3>
@@ -30,7 +30,7 @@
     `,
 
     addBillProduct: `
-        <h1>Agregar Producto <br> a la Factura</h1>
+        <h2>Agregar Producto <br> a la Factura</h2>
         <div id="bill-tb" class="tb-bill">
             <table class="tabla-productos">
                 <thead class="head-pedidos">
@@ -69,7 +69,7 @@
     `,
 
     formEdit: `
-    <h1>Editar Producto</h1>
+    <h2>Editar Producto</h2>
     <form id="tb-edit-producto">
 
         <div id="form-edit" class="form-content">
@@ -109,7 +109,21 @@
         </form>
     `,
 
-    loged: '<h1>¡Bienvenido!</h1><p>Has iniciado sesión correctamente</p>',
+    listProductEnvios: `
+        <h2>Lista de Productos</h2>
+        <div id="productos-envios"">
+            <table class="t-envios">
+                <thead class="head-productos">
+                    <th>NOMBRE</th>
+                    <th>CANTIDAD</th>
+                    <th>TOTAL</th>
+                </thead>
+                <tbody id="body-productos-envios">
+                
+                </tbody>
+            </table>
+        </div>
+    `
 
 };
 
@@ -163,4 +177,8 @@ export function setupModalListeners(openCallbackModal) {
     document.getElementById("send-bill")?.addEventListener("click", () =>
         openCallbackModal(modalContent.agendamientoAcept)
     );
+    
+    document.getElementById("list-productos")?.addEventListener("click", () =>
+        openCallbackModal(modalContent.listProductEnvios)
+)
 }

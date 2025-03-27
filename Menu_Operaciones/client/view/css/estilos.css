@@ -442,7 +442,7 @@ body{
 
 
 
-#tabla-agendados thead {
+.t-envios thead {
     position: sticky;
     top: 0px;
     background-color: #EFD79B;
@@ -451,13 +451,17 @@ body{
     font-weight: bolder;
 }
 
-#tabla-agendados {
+.t-envios {
     border-collapse: collapse;
     
 }
 
 #list-productos {
     background-color: #40cfff;
+}
+
+#list-productos svg {
+    pointer-events: none;
 }
 
 #enviar-pedido {
@@ -482,6 +486,7 @@ body{
 
 .btns-envio {
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
     padding: 8px;
@@ -489,6 +494,25 @@ body{
     border-radius: 3px;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;
     cursor: pointer;
+}
+
+#productos-envios h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    margin: 0 0 15px 0;
+}
+
+#productos-envios th, #productos-envios td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    justify-items: center;
+}
+
+#productos-envios {
+    overflow-y: scroll;
+    height: 6in;
 }
 
 .boton-bill {
@@ -609,6 +633,10 @@ body{
     width: auto;
     height: max-content;
     border-radius: 15px;
+}
+
+#modal-content h2 {
+    text-align: center;
 }
 
 

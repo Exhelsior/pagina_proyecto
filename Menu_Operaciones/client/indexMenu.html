@@ -169,15 +169,15 @@
     <div id="pedidos-agendados">
       <h2>PEDIDOS AGENDADOS</h2>
       <div class="contenedor-tabla-agendados">
-        <table id="tabla-agendados">
+        <table id="tabla-agendados" class="t-envios">
           <thead class="head-productos">
             <th>Cliente</th>
             <th>Fecha de <br> Entrega</th>
             <th>Fecha de <br> Creacion</th>
             <th>Direccion</th>
             <th>Telefono</th>
-            <th>Productos</th>
             <th>Total Pagar</th>
+            <th>Productos</th>
             <th>Acciones</th>
           </thead>
           <tbody id="body-agendados">
@@ -188,7 +188,25 @@
   </template>
 
   <template id="envios">
-    <h1>Hola desde envios</h1>
+    <h2>Pedidos Enviados</h2>
+    <div id="pedidos-enviados">
+      <h2></h2>
+      <div class="contenedor-tabla-agendados">
+        <table id="tabla-enviados" class="t-envios">
+          <thead class="head-productos">
+            <th>Cliente</th>
+            <th>Fecha de <br> Entrega</th>
+            <th>Fecha de <br> Creacion</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Total Pagar</th>
+            <th>Productos</th>
+            <th>Estado</th>
+            <tbody id="body-enviados"></tbody>
+          </thead>
+        </table>
+      </div>
+    </div>
   </template>
   <!-- Modales -->
   <div id="modal" class="hidden">
