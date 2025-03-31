@@ -107,6 +107,17 @@ export const apiClient = {
         }
     },
 
+    async getItemsId(id, path, path2) {
+        try {
+            const response = await fetch(`${API_URL}${path}${path2}${id}`,);
+            if (!response.ok) throw new Error('Error al obtener productos del cliente');
+            return await response.json();
+        } catch (error) {
+            console.error(error.message);
+            return null;
+        }
+    }
+
 };
 
 

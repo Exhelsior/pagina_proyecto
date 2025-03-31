@@ -165,8 +165,8 @@ const getAllItemPedido = async (req, res) => {
     try {
         const [itemPedido] = await pool.query('SELECT * FROM ItemPedido');
         res.json({
-            data: itemPedido,  // La lista de items (puede ser [] si no hay registros)
-            message: "test"    // Mensaje de prueba
+            data: itemPedido,  
+            message: "test"
         });
     } catch (error) {
         console.error("Error en getAllItemPedido:", error.message);
@@ -202,6 +202,7 @@ const getItemPedido = async (req, res) => {
         });
     }
 };
+
 const updateItemPedido = async (req, res) => {
     try {
         const { id } = req.params;

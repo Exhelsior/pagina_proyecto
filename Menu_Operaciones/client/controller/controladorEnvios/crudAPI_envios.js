@@ -17,7 +17,8 @@ export async function clientes() {
     }
 }
 
-export function mostrarClientes(clientes) {
+export async function mostrarClientes(clientes) {
+    const path2 = "/items/"
     const tbody = document.getElementById("body-agendados");
 
     if (!tbody) {
@@ -81,16 +82,22 @@ export function mostrarClientes(clientes) {
 
     const btnList = document.getElementById("list-productos");
     console.log(btnList);
-    document.addEventListener('click', (e) => {
-        if (e.target.id === 'list-productos') {
-            const target = e.target;
-            const row = target.closest("tr");
-            const idPedido = row.children[0].innerHTML;
-            console.log(idPedido);
-            openModal(modalContent.listProductEnvios);
-            setupModalClose();
-            outsideClose();
-        }
-      });
+
+
+    document.addEventListener("click", (e) => {
+        switch (e.target.id) {
+            case "list-productos":
+                const target = e.target;
+                const row = target.closest("tr");
+                const idPedido = row.children[0].innerHTML;
+                console.log(idPedido);
+                openModal(modalContent.listProductEnvios);
+                setupModalClose();
+                outsideClose();
+            break;
+            default:
+            break;
+    }
+    })
 }
 

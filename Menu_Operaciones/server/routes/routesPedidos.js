@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const {
     getAllPedidos,
-    getAllItemPedido,
     getPedidoComplete,
+    getAllItemPedido,
     updatePedido,
     createPedido,
     deletePedido,
@@ -11,8 +11,8 @@ const {
 } = require('../controller/controller_pedidos/pedidosControler');
 
 router.get('/', getAllPedidos);
-router.get('/:id', getPedidoComplete);
-router.get('/items', getAllItemPedido)
+router.get('/completePedido:id', getPedidoComplete);
+router.get('/allItems', getAllItemPedido)
 router.get('/items/:id', getItemPedido)
 router.put('/update/:id', updatePedido);
 router.post('/create', createPedido);
