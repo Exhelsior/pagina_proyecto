@@ -107,13 +107,31 @@ export const apiClient = {
         }
     },
 
-    async getItemsId(id, path, path2) {
+    async getItemsId(id, path) {
         try {
-            const response = await fetch(`${API_URL}${path}${path2}${id}`,);
+            const response = await fetch(`${API_URL}${path}/items/${id}`,);
             if (!response.ok) throw new Error('Error al obtener productos del cliente');
             return await response.json();
         } catch (error) {
             console.error(error.message);
+            return null;
+        }
+    },
+    
+    async deletePedidoId(id, path) {
+        try {
+            const response = await fetch(`${API_URL}${path}/delete/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            });
+    
+            if (!response.ok) throw new Error('Error al eliminar pedido');
+    
+            return await response.json();
+        } catch (error) {
+            console.error("Error al eliminar el pedido:", error.message);
             return null;
         }
     }

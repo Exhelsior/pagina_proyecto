@@ -145,13 +145,33 @@ const createPedido = async (req, res) => {
 const deletePedido = async (req, res) => {
     try {
         const { id } = req.params;
+
+        const [items] = await pool.query(
+            'SELECT idProducto, cantidad FROM ItemPedido WHERE idPedido = ?', 
+            [id]
+        );
+
+        if (items.length > 0) {
+            return res.status(404).json({ mensaje: 'Pedido no encontrado o sin productos asociados' });
+        }
+
+        for (let item of items) {
+            await pool.query(
+                'UPDATE Producto SET Cantidad = Cantidad + ? WHERE idProducto = ?', 
+                [item.cantidad, item.idProducto]
+            );
+        }
+
+        await pool.query('DELETE FROM ItemPedido WHERE idPedido = ?', [id]);
+
         const [result] = await pool.query('DELETE FROM Pedido WHERE idPedido = ?', [id]);
 
         if (result.affectedRows === 0) {
-            res.status(404).json({ mensaje: 'Pedido no encontrado' });
-        } else {
-            res.json({ mensaje: 'Pedido eliminado exitosamente' });
+            return res.status(404).json({ mensaje: 'Pedido no encontrado' });
         }
+
+        res.json({ mensaje: 'Pedido eliminado y productos actualizados exitosamente' });
+
     } catch (error) {
         res.status(500).json({
             error: 'Error al eliminar Pedido',

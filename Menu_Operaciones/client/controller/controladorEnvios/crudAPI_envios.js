@@ -33,7 +33,6 @@ export async function mostrarClientes(clientes) {
         return;
     }
 
-    // ✅ Corrección: usar forEach() y agregar la fila al tbody
     clientes.forEach(cliente => {
         const fila = document.createElement("tr");
 
@@ -79,25 +78,72 @@ export async function mostrarClientes(clientes) {
 
         tbody.appendChild(fila); // 
     });
-
-    const btnList = document.getElementById("list-productos");
-    console.log(btnList);
-
-
-    document.addEventListener("click", (e) => {
-        switch (e.target.id) {
-            case "list-productos":
-                const target = e.target;
-                const row = target.closest("tr");
-                const idPedido = row.children[0].innerHTML;
-                console.log(idPedido);
-                openModal(modalContent.listProductEnvios);
-                setupModalClose();
-                outsideClose();
-            break;
-            default:
-            break;
-    }
-    })
+    tbody.addEventListener("click", (e) => {
+        const target = e.target.closest("#list-productos");
+        if (target) {
+          const row = target.closest("tr");
+          const idPedido = row.children[0].textContent.trim();
+          console.log(idPedido);
+          openModal(modalContent.listProductEnvios);
+          idItemsClients(idPedido, path);
+          setupModalClose();
+          outsideClose();
+        }
+      });
 }
 
+export async function idItemsClients(idPedido, path){
+    try {
+        const data = await apiClient.getItemsId(idPedido, path);
+        if (!data) throw new Error("Productos no encontrados");
+
+        console.log(`productos del id ${idPedido}:`, data);
+
+        const tbody = document.getElementById("body-productos-envios")
+
+        if (!tbody) {
+            console.log("Tabla no encontrada")
+        }
+
+        tbody.innerHTML = ""; 
+
+        data.forEach((producto) => {
+            const fila = document.createElement("tr");
+
+            const idProducto = document.createElement("td");
+            idProducto.textContent = producto.idProducto;
+            idProducto.style.display = "none";
+
+            const nombreProducto = document.createElement("td");
+            nombreProducto.textContent = producto.NombreProducto;
+
+            const cantidadProducto = document.createElement("td");
+            cantidadProducto.textContent = producto.cantidad;
+
+            const totalProducto = document.createElement("td");
+            totalProducto.textContent = producto.total;
+
+            const fragment = document.createDocumentFragment();
+            fragment.append(idProducto, nombreProducto, cantidadProducto, totalProducto);
+            fila.appendChild(fragment);
+
+            tbody.appendChild(fila)
+
+
+        })
+    } catch (error) {
+        console.error("Error:", error.message);
+    }
+};
+
+async function idDeletePedido(idPedido, path) {
+    console.log(`Intentando eliminar pedido con ID: ${idPedido}`);
+    try {
+       const response = await apiClient.deletePedidoId(idPedido, path);
+       if (!response) throw new Error("Error al eliminar Pedido");
+
+    } catch (error) {
+        console.error("Error:", error.message);
+        alert(`Error al eliminar el pedido: ${error.message}`);
+    }
+}

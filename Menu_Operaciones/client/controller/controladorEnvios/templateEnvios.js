@@ -1,35 +1,39 @@
-let templateActual = "";
+import { clientes } from "./crudAPI_envios.js";
 
-export const mostrarTemplate = (templateId = "pedidos") => { 
-    const contenedor = document.querySelector(".temp-envio-grid");
 
-    const tempPedidos = document.getElementById("pedidos");
-    const tempEnvios = document.getElementById("envios");
+export function capturarId() {
+    const envioGrids = document.querySelectorAll(".envio-grid");
+  
+    envioGrids.forEach(envioGrid => {
+      envioGrid.addEventListener("click", (e) => {
+        const id = e.target.id; 
+        const idCapturado = id
+        mostrarTemplate(idCapturado)
+      });
+    });
+}
 
-    // Función para cargar un template sin perder datos previos
-    const cargarTemplate = (template, id) => {
-        if (template && contenedor) {
-            contenedor.innerHTML = ""; // Limpia el contenedor
-            contenedor.appendChild(template.content.cloneNode(true));
-            templateActual = id; // Se actualiza antes de mostrar el template
-            console.log("Template actual:", templateActual); // Verifica en la consola
-        }
-    };
+export function mostrarTemplate (id) {
+    if (id === "pedido-agend") {
+        const templatePedidosAgendados = document.getElementById("pedidos")
+        /* console.log(templatePedidosAgendados) */
 
-    if (templateId === "pedidos") {
-        cargarTemplate(tempPedidos, "pedidos");
-    } else if (templateId === "envios") {
-        cargarTemplate(tempEnvios, "envios");
+        const clone = document.importNode(templatePedidosAgendados.content, true);
+        const divDestino = document.querySelector(".temp-envio-grid")
+        console.log(clone, divDestino)
+
+        divDestino.innerHTML = ""
+        divDestino.appendChild(clone);
+
+        clientes();
+        
     }
 
-    // Evento de clic para cambiar templates
-    document.addEventListener("click", (e) => {
-        if (e.target.id === "pedido-enviado") {
-            cargarTemplate(tempEnvios, "envios");
-        } else if (e.target.id === "pedido-agend") {
-            cargarTemplate(tempPedidos, "pedidos");
-        }
-    });
-};
 
-export const obtenerTemplate = () => templateActual;
+    if (id === "pedido-enviado"){
+        const templatePedidosEnviados = document.getElementById("envios")
+        console.log(templatePedidosEnviados)
+    }
+}
+
+

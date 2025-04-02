@@ -22,7 +22,6 @@ export async function products(callback, type) {
     }
 }
 
-
 export function showProducts(productos, type) {
     const tbody = document.querySelector(".t-productos tbody");
 

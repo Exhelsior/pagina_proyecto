@@ -60,6 +60,14 @@
         </div>
     `,
 
+    aceptDeletePedido: `
+        <p>¿Estás seguro de eliminar el pedido?</p>
+        <div class="boton-add">
+            <button id="delete-pedido-modal" class="add">Eliminar</button>
+            <button id="cancel-delete" class="cancel">Cancelar</button>
+        </div>
+    `,
+
     agendamientoAcept: `
         <p>¿Agendar pedido?</p>
         <div class="boton-add">
@@ -112,7 +120,7 @@
     listProductEnvios: `
         <h2>Lista de Productos</h2>
         <div id="productos-envios"">
-            <table class="t-envios">
+            <table id="t-envios" class="t-envios">
                 <thead class="head-productos">
                     <th>NOMBRE</th>
                     <th>CANTIDAD</th>
@@ -180,5 +188,9 @@ export function setupModalListeners(openCallbackModal) {
     
     document.getElementById("list-productos")?.addEventListener("click", () =>
         openCallbackModal(modalContent.listProductEnvios)
-)
+    );
+
+    document.getElementById("eliminar-pedido")?.addEventListener("click", () =>
+        openCallbackModal(modalContent.aceptDeletePedido)
+    );
 }

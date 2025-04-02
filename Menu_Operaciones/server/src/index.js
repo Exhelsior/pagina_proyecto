@@ -37,7 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 // Probar la conexión a la base de datos
 testConnection();
 
-// Definir las rutas
+
 // Definir las rutas
 app.use('/usuario', usuarioRoutes);
 app.use('/inventario', inventoryRoutes);
