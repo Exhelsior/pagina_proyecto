@@ -151,7 +151,7 @@ const deletePedido = async (req, res) => {
             [id]
         );
 
-        if (items.length > 0) {
+        if (items.length === 0) {
             return res.status(404).json({ mensaje: 'Pedido no encontrado o sin productos asociados' });
         }
 

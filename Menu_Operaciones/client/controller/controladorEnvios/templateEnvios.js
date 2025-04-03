@@ -1,4 +1,4 @@
-import { clientes } from "./crudAPI_envios.js";
+import { clientes } from "./crudAPI_agendados.js";
 
 
 export function capturarId() {
@@ -14,12 +14,12 @@ export function capturarId() {
 }
 
 export function mostrarTemplate (id) {
+  const divDestino = document.querySelector(".temp-envio-grid")
     if (id === "pedido-agend") {
         const templatePedidosAgendados = document.getElementById("pedidos")
         /* console.log(templatePedidosAgendados) */
 
         const clone = document.importNode(templatePedidosAgendados.content, true);
-        const divDestino = document.querySelector(".temp-envio-grid")
         console.log(clone, divDestino)
 
         divDestino.innerHTML = ""
@@ -31,9 +31,13 @@ export function mostrarTemplate (id) {
 
 
     if (id === "pedido-enviado"){
-        const templatePedidosEnviados = document.getElementById("envios")
-        console.log(templatePedidosEnviados)
-    }
+      divDestino.innerHTML = "";  // 🔹 Ahora sí limpia correctamente el contenido anterior
+      const templatePedidosEnviados = document.getElementById("envios");
+  
+      const clone = document.importNode(templatePedidosEnviados.content, true);
+  
+      divDestino.appendChild(clone);
+  }
 }
 
 

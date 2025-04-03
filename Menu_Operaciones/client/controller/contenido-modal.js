@@ -59,7 +59,7 @@
             <button id="cancel-delete" class="cancel">Cancelar</button>
         </div>
     `,
-
+    
     aceptDeletePedido: `
         <p>¿Estás seguro de eliminar el pedido?</p>
         <div class="boton-add">
@@ -163,8 +163,12 @@ export function outsideClose() {
 // Configurar botón de cierre del modal
 export function setupModalClose() {
     const closeModalButton = document.getElementById("close");
+    const equise = document.getElementById("cancel-delete")
     if (closeModalButton) {
         closeModalButton.addEventListener("click", closeModal);
+    }
+    if (equise){
+        equise.addEventListener("click", closeModal);
     }
 }
 
@@ -192,5 +196,6 @@ export function setupModalListeners(openCallbackModal) {
 
     document.getElementById("eliminar-pedido")?.addEventListener("click", () =>
         openCallbackModal(modalContent.aceptDeletePedido)
+        
     );
 }

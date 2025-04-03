@@ -122,7 +122,7 @@ export const apiClient = {
         try {
             const response = await fetch(`${API_URL}${path}/delete/${id}`, {
                 method: "DELETE",
-                headers: {
+                headers: {  
                     "Content-Type": "application/json",
                 }
             });
