@@ -50,10 +50,12 @@ async function loginUsuario(req, res) {
         id: user[0].IdUsuarios,
         nombre: user[0].Nombre,
         email: user[0].Email,
-        rol: user[0].NombreRol,
+        rol: {
+          id: user[0].IdRoles,
+          nombre: user[0].NombreRol,
+        },
       },
     });
-
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error en el servidor" });

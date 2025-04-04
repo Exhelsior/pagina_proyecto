@@ -10,13 +10,13 @@ const mysql = require("mysql2/promise");
 
 // Configuración de la conexión
 const pool = mysql.createPool({
-    host: process.env.DB_MAIN_HOST,
-    user: process.env.DB_MAIN_USER,
-    password: process.env.DB_MAIN_PASSWORD,
-    database: process.env.DB_MAIN_NAME,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
+      host: process.env.DB_MAIN_HOST,
+      user: process.env.DB_MAIN_USER,
+      password: process.env.DB_MAIN_PASSWORD,
+      database: process.env.DB_MAIN_NAME,
+      waitForConnections: true,
+      connectionLimit: 10,
+      queueLimit: 0,
 });
 
 // Función para probar la conexión

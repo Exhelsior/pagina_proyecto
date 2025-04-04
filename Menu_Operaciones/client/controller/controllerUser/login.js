@@ -26,18 +26,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const data = await response.json();
       if (data.success) {
+        // Guardar información del usuario incluyendo el rol
+        localStorage.setItem('userRole', data.user.rol.id);
+        localStorage.setItem('userName', data.user.nombre);
+        
         watchError(`Bienvenido ${data.user.nombre}, redirigiendo...`);
         setTimeout(() => {
           window.location.href = "./indexMenu.html";
         }, 3000);
-      } else {
-        watchError(data.message || "Error en las credenciales.");
       }
     } catch (error) {
       console.error("Error en la petición:", error);
-      watchError(
-        "Error en el servidor. Por favor, intente nuevamente más tarde."
-      );
     }
   });
   function watchError(message) {

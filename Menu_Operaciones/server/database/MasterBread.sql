@@ -1,3 +1,4 @@
+create database masterbread;
 
 USE masterbread;
 
@@ -35,7 +36,7 @@ CREATE TABLE Usuarios (
   Email varchar(255) NOT NULL UNIQUE,
   tipoDocumento varchar(50) NOT NULL,
   numeroDocumento varchar(50) NOT NULL UNIQUE,
-  reset_token VARCHAR(10);
+  reset_token VARCHAR(10),
   FechaCreacion timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -79,7 +80,7 @@ CREATE TABLE Pedido (
    fechaEntrega DATE NOT NULL,
    direccion VARCHAR(255),
    telefono VARCHAR(20),
-   totalPagar DECIMAL(10,2) NOT NULL,
+   totalPagar DECIMAL(10,2) NOT NULL
 );
 
 CREATE TABLE itemPedido (

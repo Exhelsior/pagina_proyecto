@@ -12,27 +12,27 @@ const envioRoutes = require('../routes/routesEnvios.js');
 const pedidoRoutes = require('../routes/routesPedidos.js')
 
 
-const app = express();
-app.use(express.urlencoded({ extended: true }));
+    const app = express();
+    app.use(express.urlencoded({ extended: true }));
 
-const path = require('path');
+    const path = require('path');
 
-app.use(express.static(path.join(__dirname, '../../client')));
+    app.use(express.static(path.join(__dirname, '../../client')));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/index.html'));
-});
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, '../../client/index.html'));
+    });
 
-// Middleware para permitir CORS
-app.use(cors({
-    origin: "*", // "*" permite cualquier url
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+    // Middleware para permitir CORS
+    app.use(cors({
+        origin: "*", // "*" permite cualquier url
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization']
+    }));
 
-// Middleware para procesar JSON en las solicitudes
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+    // Middleware para procesar JSON en las solicitudes
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
 
 // Probar la conexión a la base de datos
 testConnection();

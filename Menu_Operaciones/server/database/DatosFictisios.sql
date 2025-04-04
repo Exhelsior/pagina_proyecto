@@ -14,18 +14,19 @@ INSERT INTO Usuarios (Contraseña_hash, Nombre,Email, tipoDocumento, numeroDocum
 ('$2y$10$HashedPassword5', 'Pedro Perez',  'pedro.perez@masterbread.com', 'Documento Nacional', '14523068');
 
 INSERT INTO RolesUsuarios (IdUsuarios, IdRoles) VALUES 
-(1, 1), 
-(2, 2),  
-(3, 3),  
-(4, 4), 
-(5, 2);
+(8, 1), 
+(9, 2),  
+(10, 3),  
+(11, 4), 
+(12, 2);
 
 -- Iinsertar ejemplo de datos de sesiones
 INSERT INTO Sesiones (IdUsuario, IdRolUsuario, FechaInicio, FechaFin, DireccionIP, Dispositivo) VALUES 
-(1, 1, '2024-01-15 09:30:00', '2024-01-15 17:45:00', '192.168.1.100', 'Windows 11 - Chrome'),
-(2, 2,'2024-01-16 08:15:00', '2024-01-16 16:20:00', '192.168.1.101', 'MacOS - Safari'),
-(3, 3,'2024-01-17 10:00:00', '2024-01-17 18:30:00', '192.168.1.102', 'Linux - Firefox'),
-(4, 4,'2024-01-18 14:45:00', '2024-01-18 15:30:00', '192.168.1.103', 'iOS - Mobile Safari');
+(8, 1, '2024-01-15 09:30:00', '2024-01-15 17:45:00', '192.168.1.100', 'Windows 11 - Chrome'),
+(9, 2,'2024-01-16 08:15:00', '2024-01-16 16:20:00', '192.168.1.101', 'MacOS - Safari'),
+(10, 3,'2024-01-17 10:00:00', '2024-01-17 18:30:00', '192.168.1.102', 'Linux - Firefox'),
+(11, 4,'2024-01-17 10:00:00', '2024-01-17 18:30:00', '192.168.1.102', 'Linux - Firefox'),
+(12, 2,'2024-01-18 14:45:00', '2024-01-18 15:30:00', '192.168.1.103', 'iOS - Mobile Safari');
 
 INSERT INTO Producto (NombreProducto, Precio, Cantidad, Lote, FechaVencimiento) VALUES
 ('Pan Francés', 1500.00, 100, '2025-04-10', '2025-04-10'),
