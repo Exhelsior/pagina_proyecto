@@ -1,9 +1,8 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
 import { setupModalListeners, openModal, setupModalClose, outsideClose, modalContent, closeModal } from "./contenido-modal.js";
-/* import { clientes } from "./controladorEnvios/crudAPI_envios.js";
- */import { capturarId } from "./controladorEnvios/templateEnvios.js";
-/* import { mostrarTemplate } from "./controladorEnvios/templateEnvios.js";
- */import { addProduct, deleteProduct, getRowData, products, showProducts, tSearch, updateForm } from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
+import { clientes } from "./controladorEnvios/crudAPI_agendados.js";
+import { getEnvios } from "./controladorEnvios/crudAPI_envios.js";
+import { addProduct, deleteProduct, getRowData, products, showProducts, tSearch, updateForm } from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
 import { addItem, createPedido, deleteRow, itemArray, mergeTable, /* drawTable, */ showProductsBill, showTotal } from "./controllerPedidos/crudApi_pedidos.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,7 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Asignación de eventos
   document.getElementById("pag-inventarios").addEventListener("click", mostrarInventario);
   document.getElementById("pag-pedidos").addEventListener("click", mostrarPedidos);
+  document.getElementById("pag-agendados").addEventListener("click", mostrarAgendados);
   document.getElementById("pag-envios").addEventListener("click", mostrarEnvios);
+  
 
   // Evento de salida
   document.addEventListener("click", (event) => {
@@ -91,11 +92,16 @@ document.addEventListener("DOMContentLoaded", () => {
     outsideClose();
   }
 
+  // Manejadores de eventos del "Agendados"
+  function mostrarAgendados() {
+    vista.mostrarPlantilla("tempAgenda", "main-contenido");
+    clientes()
+  }
   // Manejadores de eventos del "Envios"
   function mostrarEnvios() {
     vista.mostrarPlantilla("tempEnvios", "main-contenido");
 
-    capturarId();
+    getEnvios();
     
   }
 });

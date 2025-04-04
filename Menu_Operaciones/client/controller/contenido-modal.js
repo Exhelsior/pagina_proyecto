@@ -68,6 +68,14 @@
         </div>
     `,
 
+    aceptDeleteEnvio: `
+        <p>¿Estás seguro de eliminar el envio?</p>
+        <div class="boton-add">
+            <button id="delete-envio-modal" class="add">Eliminar</button>
+            <button id="cancel-envio" class="cancel">Cancelar</button>
+        </div>
+    `,
+
     agendamientoAcept: `
         <p>¿Agendar pedido?</p>
         <div class="boton-add">
@@ -152,13 +160,15 @@ export function closeModal() {
 // Cerrar modal al hacer clic afuera
 export function outsideClose() {
     const modal = document.getElementById("modal");
+    const modalBody = document.getElementById("modal-body"); // Asegúrate que este sea el contenedor interno real
+
     modal.addEventListener("click", (e) => {
-        const modalContent = document.querySelector("#modal-content");
-        if (!modalContent.contains(e.target)) {
+        if (!modalBody.contains(e.target)) {
             closeModal();
         }
     });
 }
+
 
 // Configurar botón de cierre del modal
 export function setupModalClose() {

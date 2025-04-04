@@ -401,10 +401,15 @@ body{
 
 /*---------------------------------ENVIOS-------------------------------*/
 .contenedor-envios{
-    display:grid;
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
     justify-content: center;
+    background-color: #ffff;
+    width: fit-content;
+    margin: 2rem auto;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .envio-grid {
@@ -468,7 +473,10 @@ body{
     background-color: #01fa81;
 }
 
-#eliminar-pedido {
+#eliminar-pedido{
+    background-color: #ff4c4c;
+}
+#eliminar-envio {
     background-color: #ff4c4c;
 }
 
@@ -481,6 +489,10 @@ body{
 }
 
 #eliminar-pedido:hover {
+    background-color: #CC0000;
+}
+
+#eliminar-envio:hover {
     background-color: #CC0000;
 }
 
@@ -716,4 +728,9 @@ body{
     border: solid 1px #b9b9b9;
     border-radius: 5px;
     padding: 5px;
+    outline: none;
+}
+
+#eliminar-envio {
+    background-color: #ff4c4c;
 }

@@ -99,7 +99,6 @@ export const deleteProduct = async (e) => {
 
     const modalConfirm = await new Promise((resolve) => {
         document.getElementById("delete-product").addEventListener("click", () => resolve(true), { once: true });
-        document.getElementById("cancel-delete").addEventListener("click", () => resolve(false), { once: true });
     });
 
     if (!modalConfirm) {

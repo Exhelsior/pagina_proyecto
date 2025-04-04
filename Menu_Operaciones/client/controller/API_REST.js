@@ -134,6 +134,55 @@ export const apiClient = {
             console.error("Error al eliminar el pedido:", error.message);
             return null;
         }
+    },
+
+    async deleteEnvioId(id, path) {
+        try {
+            const response = await fetch(`${API_URL}${path}/delete/${id}`, {
+                method: "DELETE",
+                headers: {  
+                    "Content-Type": "application/json",
+                }
+            });
+    
+            if (!response.ok) throw new Error('Error al eliminar pedido');
+    
+            return await response.json();
+        } catch (error) {
+            console.error("Error al eliminar el pedido:", error.message);
+            return null;
+        }
+    },
+
+    async getEnvios(path){
+        try {
+            const response = await fetch(`${API_URL}${path}`);
+            if (!response.ok) throw new Error('Error al obtener clientes');
+            return await response.json();
+        } catch (error) {
+            console.error(error);
+            return null
+        }
+    },
+    async createEnvio(data, path, id) {
+        try {
+            const url = `${API_URL}${path}/create/${id}`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({})); // Intentar obtener detalles del error
+                throw new Error(`Error ${response.status}: ${errorData.error || 'No se pudo procesar la solicitud'}`);
+            }
+    
+            return await response.json();
+        } catch (error) {
+            console.error(`❌ Error en createEnvio: ${error.message}`);
+            return { success: false, message: error.message };
+        }
     }
 
 };
