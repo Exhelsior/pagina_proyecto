@@ -4,6 +4,9 @@
  */
 const { pool } = require("../../database/db");
 const crypto = require("crypto");
+const bcrypt = require("bcrypt");
+
+const saltRounds = 10;
 
 //update
 const actualizarUsuario = async (req, res) => {
@@ -99,10 +102,7 @@ const resetPassword = async (req, res) => {
     const usuario = usuarios[0];
 
     // Generar nuevo hash de contraseña
-    const nuevoHash = crypto
-      .createHash("sha256")
-      .update(nuevaContrasena)
-      .digest("hex");
+    const nuevoHash = await bcrypt.hash(nuevaContrasena, 10);
 
     // Actualizar contraseña y limpiar token
     await pool.execute(
@@ -138,8 +138,12 @@ const crearUsuario = async (req, res) => {
       IdRol,
     } = req.body;
 
+    // Hash the password using bcrypt
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(Contraseña_hash, saltRounds);
+
     const [existeEmail] = await connection.query(
-      "SELECT IdUsuarios FROM usuarios WHERE Email = ?",
+      "SELECT IdUsuarios FROM Usuarios WHERE Email = ?",
       [Email]
     );
 
@@ -153,7 +157,7 @@ const crearUsuario = async (req, res) => {
     const [userResult] = await connection.query(
       "INSERT INTO Usuarios (`Contraseña_hash`, `Nombre`, `Email`, `tipoDocumento`, `numeroDocumento`, `FechaCreacion`) VALUES (?, ?, ?, ?, ?, ?)",
       [
-        Contraseña_hash,
+        hashedPassword,
         Nombre,
         Email,
         tipoDocumento,
@@ -188,11 +192,11 @@ const crearUsuario = async (req, res) => {
 };
 
 //get
-const getUsuarios = async (req, res) => {
+const getUsuario = async (req, res) => {
   try {
     const { id } = req.params;
     const [usuarios] = await pool.query(
-      "SELECT * FROM usuarios  WHERE IdUsuarios = ?",
+      "SELECT * FROM usuarios WHERE IdUsuarios = ?",
       [id]
     );
     res.json(usuarios);
@@ -222,10 +226,10 @@ const getRoles = async (req, res) => {
 //delete
 const deleteUsuario = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.body;
 
     const [result] = await pool.query(
-      "DELETE FROM usuarios WHERE IdUsuarios = ?",
+      "DELETE FROM Usuarios WHERE IdUsuarios = ?",
       [id]
     );
 
@@ -251,7 +255,7 @@ module.exports = {
   generarToken,
   resetPassword,
   crearUsuario,
-  getUsuarios,
+  getUsuario,
   deleteUsuario,
   getRoles,
 };

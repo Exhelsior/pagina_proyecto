@@ -1,4 +1,6 @@
-const { pool } = require('../../database/db');
+const { pool } = require("../../database/db");
+
+
 
 // ---------------------- Productos -------------------------------
 const getAllInventory = async (req, res) => {
@@ -98,7 +100,7 @@ const deleteProducto = async (req, res) => {
         });
     }
 };
-//---------------------- Insumos -------------------------------
+
 
 module.exports = {
     getAllInventory,

@@ -11,12 +11,13 @@ body{
     display: grid;
     grid-template-columns: 15% 85%;
     grid-template-rows: 100vh;
-    background-image: url(../img/fondoInicio4.svg);
+    background-image: url(/client/public/fondoInicio4.svg);
     background-size: cover;
 }
 
 .bar-menu{
     display: flex;
+    background-color: #5f46338f;
     background-color: #5f46338f;
     flex-direction: column;
     justify-content: space-around;
@@ -33,8 +34,6 @@ body{
     width: 0px;
     background: transparent;
 }
-
-
 
 .logo img{
     display: flex;
@@ -70,6 +69,7 @@ body{
     align-items: center;
     justify-content: left;
     gap: 10px;
+    color: #fff9e1;
 }
 
 .side-menu svg {
@@ -77,16 +77,19 @@ body{
     margin-left: 15px;
 }
 
-.side-menu a {
-    color: #fff9e1;
-}
-.side-menu a:hover, a.activo {
+.side-menu a:hover, 
+.side-menu a.activo {
     background-color: #553d2abe;
     border-bottom: solid 3px #fff9e1;
 }
 
+.side-menu a.activo svg, h1{
+    pointer-events: none;
+}
 .contenido-operativo{
     overflow-y: scroll;
+    background-color: transparent;
+    background-size: cover;
     background-color: transparent;
     background-size: cover;
     display: flex;
@@ -112,6 +115,7 @@ body{
 .contenido-inventario h1 {
     text-align: center;
     font-size: 2.9rem;
+    color:#fff9e1;
     color:#fff9e1;
 }
 
@@ -151,7 +155,6 @@ body{
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #e0e0e0;
-    font-size:smaller;
 }
 
 /*----------productos-----------*/
@@ -163,39 +166,23 @@ body{
 }
 
 .contenedor-tabla-producto{
-    width: 47rem;
+    width: fit-content;
     overflow-y: scroll;
     height: 420px;
 }
 
 .boton-add{
     display: flex;
-    width: 100%;
     justify-content: center;
     align-items: center;
     gap: 40px;
-    margin-top: 2rem;
-}
-
-
-
-/*----------insumos-----------*/
-.t-insumos{
-    overflow-x: auto;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contenedor-tabla-insumos{
-    overflow-y: scroll;
-    height: 420px;
 }
 
 /*------------------------------botones tablas------------------------------*/
 .b-caja {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -219,6 +206,10 @@ body{
     box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;
 }
 
+.del-boton-tabla svg{
+    pointer-events: none;
+}
+
 
 
 /*------------------------------boton agregar------------------------------*/
@@ -226,93 +217,50 @@ body{
 .add {
     font-size: medium;
     font-weight: 500;
+    padding: 15px 25px;
+    width: fit-content;
+    border: none;
+    border-radius: 25px;
+    background-color: #F5E4B5;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 6px 6px 0px;
+}
+.cancel {
+    font-size: medium;
+    font-weight: 500;
     padding: 15px;
     width: 40%;
     border: none;
     border-radius: 25px;
-    background-color: #EFD79B;
+    background-color: #ffffff;
+    color:#000;
+    background-color: #F5E4B5;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.75) 0px 6px 6px 0px;
-    
 }
-
-.add:hover {
-    background-color: #E5D392;
-}
-/*------------------------------ventana insumos------------------------------*/
-
-.mostrar-insumo{
-    margin-top: 5rem;
-}
-
-.contenedor-insumos{
-    padding: 4rem;
-    background-color: #ffff;
-    border-radius: 12px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
-    max-width: 50%;
-    margin: 2rem auto;
-}
-
-.contenedor-insumos h1{
-    font-size: calc(1rem + 1vw);
-    color: black;
-    text-align  : center;
-    margin: 0 0 15px 0;
-
-}
-
-.contenedor-insumos thead{
-    position: sticky;
-    top: 0px;
-    background-color: #EFD79B;
-    color: black;
-    font-size: larger;
-    font-weight: bolder;
-
-}
-
-.contenedor-insumos th{
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.contenedor-insumos th, .contenedor-insumos td{
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0;;
-}
-
-.tabla-insumos{
-    overflow-x: auto;
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.tabla{
-    overflow-y: scroll;
-    height: 600px;
-
-}
-
-.filtro {
-    display: flex;
-    align-items: center;
-}
-
-.filtro input{
-    width: 100%;
-    height: 5vh;
+.cancel {
+    font-size: medium;
+    font-weight: 500;
+    padding: 15px;
+    width: 40%;
     border: none;
-    border-bottom: 2px solid #e0e0e0 ;
-    margin: 0 0 15px 0;
-    outline: none;
-    font-size: 1.2rem;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color:#000;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 6px 6px 0px;
 }
 
-.filtro svg {
-    fill: #7f8382;
+.cancel:hover{
+    background-color: #dadada; /* Fondo blanco en hover */
+    color: #000; /* Mantener legibilidad */
+}
+.cancel:hover{
+    background-color: #dadada; /* Fondo blanco en hover */
+    color: #000; /* Mantener legibilidad */
+}
+.add:hover {
+    background-color: #DFC178;
 }
 
 /*---------------------------------PRODUCTOS-------------------------------*/
@@ -359,11 +307,9 @@ body{
     border-bottom: 1px solid #e0e0e0;;
 }
 
-.tabla-productos{
-    overflow-x: auto;
+.tabla-productos {
+    width: 100%;
     border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /*---------------------------------PEDIDOS-------------------------------*/
@@ -390,7 +336,7 @@ body{
     gap: 10px;
 }
 
-.info input{
+.contenido-info input{
     width: 65%;
     height: 3vh;
     border-radius: 5px;
@@ -398,12 +344,16 @@ body{
     outline: none;
 }
 
-.productos-pedidos{
+.productos-pedidos {
     display: block;
+    max-height: 300px; /* Ajusta la altura según necesites */
+    overflow-y: auto; /* Scroll solo si es necesario */
+/*     border: 1px solid #ccc; /* Opcional: agrega un borde para delimitar el área */ 
 }
 
-.contenido-factura h2{
-    text-align: center;
+.contenido-info h2{
+    width: 25%;
+    text-align: right;
     font-size: medium;
 }
 
@@ -414,11 +364,8 @@ body{
 
 .productos-pedidos thead {
     position: sticky;
-    top: 0px;
-    background-color: #EFD79B;
-    color: black;
-    font-size: larger;
-    font-weight: bolder;
+    top: 0;
+    background: #EFD79B; /* Mantiene el encabezado visible */
 }
 
 .productos-pedidos th {
@@ -442,47 +389,142 @@ body{
     margin: 10px 0 10px 0;
     height: 2px;
     border-radius: 25px;
-    background-color: black;
+    background-color: #ccc;
 }
 
-/*---------------------------------PEDIDOS-------------------------------*/
+.contenido-info {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 10px;
+}
 
-.envios {
-    display: block;
-    padding: 2rem;
+/*---------------------------------ENVIOS-------------------------------*/
+.contenedor-envios{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
     background-color: #ffff;
-    border-radius: 12px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1   );
-    max-width: 60%;
+    width: fit-content;
     margin: 2rem auto;
+    padding: 20px;
+    border-radius: 15px;
 }
 
-.envios h2{
-    font-size: calc(1.5rem + 1vw);
-    color: black;
+.envio-grid {
+    background-color: #fff;
+    padding: 20px;
     text-align: center;
+    border-radius: 10px;
+    justify-items: center;
+    width: fit-content;
+    margin: auto;
+}
+.temp-envio-grid {
+    background-color: #fff;
+    padding: 30px;
+    text-align: center; 
+    border-radius: 10px;
+    justify-items: center;
+    width: fit-content;
+}
+
+.item {
+    margin: 15px;
+}
+.contenedor-tabla-agendados{
+    overflow-y: scroll;
+    height: 6in;
+}
+
+.contenedor-tabla-agendados th, .contenedor-tabla-agendados td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    justify-items: center;
+}
+
+
+
+.t-envios thead {
+    position: sticky;
+    top: 0px;
+    background-color: #EFD79B;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.t-envios {
+    border-collapse: collapse;
+    
+}
+
+#list-productos {
+    background-color: #40cfff;
+}
+
+#list-productos svg {
+    pointer-events: none;
+}
+
+#enviar-pedido {
+    background-color: #01fa81;
+}
+
+#eliminar-pedido{
+    background-color: #ff4c4c;
+}
+#eliminar-envio {
+    background-color: #ff4c4c;
+}
+
+#list-productos:hover {
+    background-color: #0095CC;
+}
+
+#enviar-pedido:hover {
+    background-color: #00C96C;
+}
+
+#eliminar-pedido:hover {
+    background-color: #CC0000;
+}
+
+#eliminar-envio:hover {
+    background-color: #CC0000;
+}
+
+.btns-envio {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 3px 0px;
+    cursor: pointer;
+}
+
+#productos-envios h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
     margin: 0 0 15px 0;
 }
 
-.contenedor-envios{
+#productos-envios th, #productos-envios td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    justify-items: center;
+}
+
+#productos-envios {
     overflow-y: scroll;
-    max-height: 75vh;
-}
-
-.contenedor-envios{
-    display: flex;
-    margin: 5px 30px;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.caja-envio{
-    display: block;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border:#e0e0e0 solid 1px;
-    border-radius: 10px;
+    height: 6in;
 }
 
 .boton-bill {
@@ -522,6 +564,15 @@ body{
     height: 2rem;
     border-bottom: 1px solid #e0e0e0;
 }
+
+#bill-tb input{
+    width: 65%;
+    height: 3vh;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    outline: none;
+}
+
 #cant-bill-prodcut{
     width: 4rem;
     outline: none;
@@ -551,27 +602,68 @@ body{
     height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.71);
+    background-color: rgba(0, 0, 0, 0.71);
     justify-content: center;
 }
 
+.x-close {
+    justify-content: right;
+    display: flex;
+    width: 100%;
+}
+.x-close {
+    justify-content: right;
+    display: flex;
+    width: 100%;
+}
 .show {
     display: flex;
 }
+.confirm-product {
+    text-align: center;
+    align-content: center;
+}
+.confirm-product {
+    text-align: center;
+    align-content: center;
+}
 
+.confirm-product p {
+    font-size: x-large;
+    font-weight: bold;
+}
+.confirm-product p {
+    font-size: x-large;
+    font-weight: bold;
+}
 #modal-content {
     background-color: #fefefe;
     padding: 40px;
     margin: 5rem auto;
     border: 1px solid #888;
-    width: 25%;
+    width: auto;
     height: max-content;
     border-radius: 15px;
+}
+
+#modal-content h2 {
+    text-align: center;
 }
 
 
 .modal-body h1{
     text-align: center;
+}
+
+#modal-content p{
+    text-align: center;
+    font-size: x-large;
+}
+
+#modal-content p{
+    text-align: center;
+    font-size: x-large;
 }
 
 .form-content h3 { 
@@ -614,87 +706,31 @@ body{
 .t-boton svg {
     fill: #0a0a0a;
 }
-
-@media (max-width: 1024px) {
-    /* Para pantallas de laptop y tabletas */
-    .caja-principal {
-        grid-template-columns: 20% 80%; /* Ajustar tamaño del menú y contenido */
-    }
-    .side-menu button {
-        font-size: 0.9rem; /* Reducir tamaño de la fuente de los botones del menú */
-    }
-    .contenido-inventario h1 {
-        font-size: 2.5rem; /* Ajusta el tamaño de títulos */
-    }
-    .inventario {
-        padding: 1.5rem; /* Reduce el padding */
-    }
+.t-boton svg {
+    fill: #0a0a0a;
 }
 
-@media (max-width: 768px) {
-    /* Para tabletas y pantallas pequeñas */
-    .caja-principal {
-        grid-template-columns: 25% 75%; /* Ajustar tamaño del menú y contenido */
-    }
-    .side-menu button {
-        font-size: 0.8rem; /* Reducir tamaño de la fuente de los botones del menú */
-    }
-    .contenido-inventario h1 {
-        font-size: 2rem; /* Ajusta el tamaño de títulos */
-    }
-    .inventario {
-        padding: 1rem; /* Reduce el padding */
-    }
-    .contenedor-tabla-producto {
-        height: 300px; /* Ajusta la altura de las tablas */
-    }
+#search-product {
+    width: 95%;
+    border: solid 1px #e0e0e0;
+    height: 30px;
+    border-radius: 10px;
 }
 
-@media (max-width: 480px) {
-    /* Para móviles */
-    .caja-principal {
-        grid-template-columns: 100%; /* Elimina la barra lateral en móviles */
-    }
-    .bar-menu {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px;
-        border-radius: 0;
-        border: none;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .logo {
-        margin-bottom: 0;
-    }
-    .side-menu {
-        height: auto;
-        flex-direction: row;
-        justify-content: space-around;
-        gap: 0;
-    }
-    .side-menu button {
-        font-size: 0.7rem; /* Aún más pequeño para móviles */
-        padding: 5px;
-        flex-grow: 1;
-        text-align: center;
-        border-bottom: none;
-    }
-    .contenido-operativo {
-        padding: 0.5rem; /* Ajusta el padding para pantallas pequeñas */
-    }
-    .contenido-inventario h1 {
-        font-size: 1.5rem; /* Ajusta el tamaño de títulos */
-    }
-    .inventario {
-        padding: 0.5rem; /* Reduce el padding */
-    }
-    .contenedor-tabla-producto {
-        height: auto; /* Ajusta la altura de las tablas en móviles */
-    }
+.filtro {
+    align-items: center;
+    display: flex;
+    margin-bottom: 15px;
+;
+}
+
+.estado {
+    border: solid 1px #b9b9b9;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+}
+
+#eliminar-envio {
+    background-color: #ff4c4c;
 }

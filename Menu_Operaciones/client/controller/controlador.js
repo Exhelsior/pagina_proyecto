@@ -1,110 +1,124 @@
 import { resaltarBotones } from "../view/js/botonesMenu.js";
-import { setupModalClose, openModal, outsideClose } from "../view/js/contenido-modal.js";
-import { listenerButton, listenerBillButton } from "./buttons.js";
-import { eliminarProducto, products, searchProducto } from "./consultasInventarios.js"; 
+import { setupModalListeners, openModal, setupModalClose, outsideClose, modalContent, closeModal } from "./contenido-modal.js";
+import { clientes } from "./controladorEnvios/crudAPI_agendados.js";
+import { getEnvios } from "./controladorEnvios/crudAPI_envios.js";
+import { addProduct, deleteProduct, getRowData, products, showProducts, tSearch, updateForm } from "./controladorInventario/crudAPI_invetario.js"; // Asegúrate de que la ruta sea correcta
+import { addItem, createPedido, deleteRow, itemArray, mergeTable, /* drawTable, */ showProductsBill, showTotal } from "./controllerPedidos/crudApi_pedidos.js";
+import { setupMenuPermissions } from '../utils/permissions.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-  let vista = new Vista();
-
-  resaltarBotones(".boton");
-
-  document.getElementById("pag-inventarios").addEventListener("click", mostrarInventario);
-  document.getElementById("pag-pedidos").addEventListener("click", mostrarPedidos);
-  document.getElementById("pag-envios").addEventListener("click", mostrarEnvios);
-
-  document.addEventListener("click", (event) => {
-    if (event.target.id === "salir") {
-      window.location.href = "index.html";
+    const userRole = parseInt(localStorage.getItem('userRole'));
+    
+    if (!userRole) {
+        window.location.href = './index.html';
+        return;
     }
-  });
 
-  function mostrarInventario() {
-    vista.mostrarPlantilla("tempInventario", "main-contenido");
+    setupMenuPermissions(userRole);
+    let vista = new Vista();
 
-    setTimeout(() => {
-        const tablaBody = document.querySelector(".t-productos .t-body");
-        const inputBusqueda = document.getElementById("search-product");
+    resaltarBotones(".boton");
 
-        if (tablaBody) {
-            products(); // Cargar productos
-            tablaBody.addEventListener("click", eliminarProducto);
-        } else {
-            console.error("No se encontró .t-productos .t-body");
-        }
-
-        // Agregar evento para ejecutar la búsqueda
-        if (inputBusqueda) {
-            inputBusqueda.addEventListener("input", searchProducto);
-        } else {
-            console.error("No se encontró el input de búsqueda");
-        }
-    });
-
-    listenerButton(openModal);
-    setupModalClose();
-    outsideClose();
-}
-
-  function mostrarPedidos() {
-    vista.mostrarPlantilla("tempPedidos", "main-contenido");
-    listenerBillButton(openModal);
-    setupModalClose();
-    outsideClose();
-  }
-
-  function mostrarEnvios() {
-    vista.mostrarPlantilla("tempEnvios", "main-contenido");
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    // Obtener los botones
-    const btnAddBill = document.getElementById('add-bill');
-    const btnDelBill = document.getElementById('del-bill');
-    const btnVerPedido = document.getElementById('ver-pedido-btn');
-  
-    // Función para obtener y mostrar los datos del pedido
-    const obtenerPedido = async (pedidoId) => {
-      try {
-        // Aquí haces la llamada a la API para obtener los detalles del pedido
-        const response = await fetch(`http://localhost:3000/pedidos/${pedidoId}`);
-        
-        if (!response.ok) {
-          throw new Error('No se pudo obtener la información del pedido');
-        }
-  
-        const pedido = await response.json();
-        
-        // Mostrar los detalles en el div de pedido-info
-        const pedidoInfoDiv = document.getElementById('pedido-info');
-        pedidoInfoDiv.innerHTML = `
-          <h3>Detalles del Pedido</h3>
-          <p>ID del pedido: ${pedido.id}</p>
-          <p>Fecha: ${pedido.fecha}</p>
-          <p>Estado: ${pedido.estado}</p>
-          <p>Detalles del producto: ${pedido.producto}</p>
-        `;
-      } catch (error) {
-        console.error('Error obteniendo el pedido:', error);
-        alert('Hubo un error al obtener el pedido');
-      }
+    // Solo configurar event listeners para botones permitidos
+    const allowedButtons = {
+        'pag-inventarios': mostrarInventario,
+        'pag-pedidos': mostrarPedidos,
+        'pag-agendados': mostrarAgendados,
+        'pag-envios': mostrarEnvios
     };
-  
-    // Agregar eventos de clic a los botones
-    btnAddBill.addEventListener('click', () => {
-      // Llamar la función para mostrar el pedido (puedes poner el ID que corresponda)
-      obtenerPedido(1); // Ejemplo con un ID de pedido ficticio
+
+    Object.entries(allowedButtons).forEach(([id, handler]) => {
+        const button = document.getElementById(id);
+        if (button && button.style.display !== 'none') {
+            button.addEventListener("click", handler);
+        }
     });
-  
-    btnDelBill.addEventListener('click', () => {
-      // Eliminar el pedido o hacer algo similar
-      console.log('Eliminar pedido');
-      // Aquí puedes agregar la lógica de eliminar
+
+    // Evento de salida
+    document.addEventListener("click", (event) => {
+        if (event.target.id === "salir") {
+            window.location.href = "index.html";
+        }
     });
-  
-    btnVerPedido.addEventListener('click', () => {
-      // Llamar a la función para mostrar un pedido específico
-      obtenerPedido(1); // Cambia el ID según sea necesario
-    });
-  });
-  
+
+    // Manejadores de eventos del "Inventario"
+    function mostrarInventario() {
+        vista.mostrarPlantilla("tempInventario", "main-contenido");
+        products(showProducts, "productos"); // Llamar a la función products para cargar los productos
+
+        document.getElementById("search-product").addEventListener("keyup", tSearch);
+
+        document.querySelector(".t-productos .t-body").addEventListener("click", (event) => {
+            const target = event.target;
+            const btnDelete = target.closest(".del-boton-tabla");
+
+            if (btnDelete) {
+                deleteProduct(event); // Llamar a la función deleteProduct para eliminar un producto
+            }
+
+            if (target.closest("#btn-edit")) {
+                const rowData = getRowData(event);
+                if (rowData) {
+                    updateForm(rowData); // Llamar a la función updateForm para mostrar el formulario de edición
+                }
+            }
+        });
+
+        setupModalListeners(openModal);
+        document.addEventListener('click', (event) => {
+            if (event.target.id === 'btn-form-product') {
+                addProduct(); // Llamar a la función addProduct para agregar un producto
+            }
+        });
+        setupModalClose();
+        outsideClose();
+    }
+
+    // Manejadores de eventos del "Pedidos"
+    function mostrarPedidos() {
+        vista.mostrarPlantilla("tempPedidos", "main-contenido");
+        document.addEventListener('click', (e) => {
+            if (e.target.id === 'bill-add-product') {
+                openModal(modalContent.addBillProduct);
+
+                products(showProductsBill, "pedido");
+                document.querySelector(".tb-bill tbody").addEventListener('click', (e) => {
+                    addItem(e);
+                    mergeTable(itemArray);
+                });
+
+                const aggProductBill = document.getElementById("add-product-bill");
+                aggProductBill.addEventListener('click', (e) => {
+                    closeModal();
+                    showTotal();
+                });
+            }
+
+            if (e.target.id === 'send-bill') {
+                createPedido();
+            }
+
+            if (e.target.id === 'del-row') {
+                deleteRow(e);
+                mergeTable(itemArray);
+                showTotal();
+            }
+        });
+
+        setupModalClose();
+        outsideClose();
+    }
+
+    // Manejadores de eventos del "Agendados"
+    function mostrarAgendados() {
+        vista.mostrarPlantilla("tempAgenda", "main-contenido");
+        clientes()
+    }
+    // Manejadores de eventos del "Envios"
+    function mostrarEnvios() {
+        vista.mostrarPlantilla("tempEnvios", "main-contenido");
+
+        getEnvios();
+        
+    }
 });

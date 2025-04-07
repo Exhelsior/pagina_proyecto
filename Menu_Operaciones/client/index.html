@@ -4,19 +4,19 @@
  *Funcion: maquetacion del Incio de sesion de la pagina Master bread
 -->
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="./view/img/icon.ico" type="icono" />
+  <link rel="icon" href="./public/icon.ico" type="image/x-icon" />
   <title>Iniciar sesion</title>
   <link rel="stylesheet" href="./view/css/estiloInicio.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700&display=swap"
     rel="stylesheet" />
 </head>
 
@@ -25,133 +25,94 @@
     <div class="container">
       <aside class="image">
         <h1 style="font-size: xx-large;color: beige;">Bienvenido a</h1>
-        <img class="logo" src="./view/img/logo.png" alt="logo" />
+        <img class="logo" src="./public/logo.png" alt="logo" />
       </aside>
       <section class="box">
+        <div id="errorMessage" class="errorsito"></div>
         <!-- caja que actualiza contenido -->
         <div id="main-contenido">
+          <form id="form-Inicio" novalidate>
             <div class="content">
-              <h1>Ingrese su Correo</h1>
-              <input id="correo" class="boxes" type="email" placeholder="Correo" required />
+              <h1>Ingrese su email</h1>
+              <input id="email" class="boxes" type="email" placeholder="email" required />
             </div>
             <div class="content">
               <h1>Ingrese su contraseña</h1>
               <input id="contraseña" class="boxes" type="password" placeholder="Contraseña" required />
             </div>
             <div class="botones">
-              <button id="mostraMenu" class="button">Iniciar sesion</button>
-              <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
-              <button id="recovery" class="button" onclick="mostrarToken()">Olvide mi contraseña</button>
+              <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
+              <button id="recovery" class="button" type="button" onclick="mostrarToken()">Olvide mi
+                contraseña</button>
             </div>
-          </div>
+          </form>
+        </div>
       </section>
       <footer> Derechos reservados © </footer>
-    </div>
     </div>
   </main>
 
   <!-- TEMPLATES-->
   <template id="tempInicio">
-        <!-- caja que actualiza contenido -->
-        <div id="main-contenido">
-          <div id="form-Inicio">
-            <div class="content">
-              <h1>Ingrese su Correo</h1>
-              <input id="correo" class="boxes" type="email" placeholder="Correo" required />
-            </div>
-            <div class="content">
-              <h1>Ingrese su contraseña</h1>
-              <input class="boxes" type="password" placeholder="Contraseña" required />
-            </div>
-            <div class="botones">
-              <button id="mostraMenu" class="button">Iniciar sesion</button>
-              <button id="registrarse" class="navBTN" onclick="mostrarRegistro()">Registrate</button>
-              <button id="recovery" class="button" onclick="mostrarToken()">Olvide mi contraseña</button>
-            </div>
-          </div>
-      </section>
-    </div>
-  </template>
-
-  <template id="tempRegistro">
-    <div class="contenedor-registro">
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="nombres">Nombres</label>
-          <input id="nombres" class="boxes" type="text" />
+    <div id="main-contenido">
+      <form id="form-Inicio" novalidate>
+        <div class="content">
+          <h1>Ingrese su email</h1>
+          <input id="email" class="boxes" type="email" placeholder="email" required />
         </div>
-        <div class="form-group">
-          <label for="apellidos">Correo</label>
-          <input id="apellidos" class="boxes" type="text" />
+        <div class="content">
+          <h1>Ingrese su contraseña</h1>
+          <input id="contraseña" class="boxes" type="password" placeholder="Contraseña" required />
         </div>
-        <div class="form-group">
-          <label for="contrasena">Contraseña</label>
-          <input id="contrasena" class="boxes" type="password" />
+        <div class="botones">
+          <button id="mostraMenu" class="button" type="submit">Iniciar sesion</button>
+          <button id="recovery" class="button" type="button" onclick="mostrarToken()">Olvide mi
+            contraseña</button>
         </div>
-        <div class="form-group">
-          <label for="cargo">Cargo</label>
-          <select id="cargo" class="boxes">
-            <option value>Elija</option>
-            <option value="Jefe de inventario">Jefe de inventario</option>
-            <option value="Despachador">Despachador</option>
-            <option value="Repartidor">Repartidor</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="tipo_documento">Tipo de documento</label>
-          <select id="tipo_documento" class="boxes">
-            <option value>Elija</option>
-            <option value="cedula">Cédula</option>
-            <option value="pasaporte">Pasaporte</option>
-            <option value="permanencia">Permanencia</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="numero_documento">Número de documento</label>
-          <input id="numero_documento" class="boxes" type="text" maxlength="10" />
-        </div>
-        <div class="pie_caja">
-          <button id="iniciarSesion" class="registro" onclick="mostrarInicio()">Regístrate</button>
-          <button id="iniciarSesion" class="registro" onclick="mostrarInicio()">
-            Volver al inicio
-          </button>
-        </div>
-      </div>
+      </form>
     </div>
   </template>
 
   <template id="tempToken">
     <div class="content">
-      <h1>Ingrese su correo</h1>
-      <input class="boxes" type="email" />
+      <div id="tokenNodal">
+        <div class="content">
+          <h1>Ingrese su correo</h1>
+          <input id="tokenEmail" class="boxes" type="email" />
+        </div>
+        <div class="pie_caja">
+          <button id="showNotificationBtn" class="registro" type="submit">
+            Generar token
+          </button>
+          <button id="showNotificationBtn" class="registro" onclick=mostrarInicio() >Regresar al inicio</button>
+        </div>
+      </div>
     </div>
-    </div>
-    <div class="pie_caja">
-      <button id="showNotificationBtn" class="registro" onclick="mostrarRecovery()">
-        Generar token
-      </button>
   </template>
 
   <template id="tempRecovery">
     <div class="content">
-      <h1>Ingrese su token</h1>
-      <input class="boxes" type="email" />
+      <div id="recoveryNodal">
+        <h1>Ingrese su token</h1>
+        <input id="recoveryToken" class="boxes" type="email" />
+      </div>
+      <div class="content">
+        <h1>Ingrese su nueva contraseña</h1>
+        <input id="newPassword" class="boxes" type="password" />
+      </div>
+      <div class="pie_caja">
+        <button id="showNotificationBtn" class="registro">
+          Restablecer contraseña
+        </button>
+      </div>
     </div>
-    <div class="content">
-      <h1>Ingrese su nueva contraseña</h1>
-      <input class="boxes" type="password" />
-    </div>
-    </div>
-    <div class="pie_caja">
-      <button id="showNotificationBtn" class="registro" onclick="mostrarInicio()">
-        Restablecer contraseña
-      </button>
   </template>
 
-  <!-- LINKS-->
-  <script src="./view/js/atributos.js"></script>
+  <!-- LINKS -->
+  <script src="./view/js/atributos.js "></script>
   <script src="./view/js/vista.js"></script>
-  <script src="./controller/controladorInicio.js"></script>
+  <script src="./controller/controllerUser/controladorInicio.js"></script>
+  <script src="./controller/controllerUser/login.js" defer></script>
 </body>
 
 </html>
